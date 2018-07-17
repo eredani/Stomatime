@@ -1,0 +1,27 @@
+{
+    "name": "Stomatime",
+    "short_name": "Stomatime",
+    "icons": [
+        {
+          "src": "/images/logo.png",
+          "type": "image/png",
+          "sizes": "48x48"
+        },
+        {
+            "src": "/images/logo.png",
+            "type": "image/png",
+            "sizes": "512x512"
+          },
+          {
+            "src": "/images/logo.png",
+            "type": "image/png",
+            "sizes": "192x192"
+          }
+        ],
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#2196F3",
+    "theme_color": "#2196F3"
+  }
+  

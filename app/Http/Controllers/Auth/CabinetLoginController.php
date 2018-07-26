@@ -18,7 +18,7 @@ class CabinetLoginController extends Controller
       // Validate the form data
       $this->validate($request, [
         'email'   => 'required|email',
-        'password' => 'required|min:6'
+        'password' => 'required|min:6|max:30'
       ]);
       // Attempt to log the user in
       if (Auth::guard('cabinet')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {

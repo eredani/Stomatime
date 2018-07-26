@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85363773-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-85363773-2');
+    </script>
+
     <meta charset="utf-8">
     <title>StomaTime</title>
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/ico" href="http://stomatime.com/favicon.ico">
     <meta name="theme-color" content="#317EFB" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="{{ Seo::get('description') }}" /> 
     <link rel="preload" as="style" onload="this.rel='stylesheet'" href="plugins/slick/slick.css">

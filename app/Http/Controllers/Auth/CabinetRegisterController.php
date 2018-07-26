@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Jobs\SendCabineteEmail;
+use Auth;
 class CabinetRegisterController extends Controller
 {
     /*
@@ -54,7 +55,7 @@ class CabinetRegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:40',
             'email' => 'required|string|email|max:130|unique:cabinets',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|max:30|confirmed',
             'g-recaptcha-response' => 'required|captcha',
             'judet' => 'required|max:40',
         ]);
@@ -83,6 +84,7 @@ class CabinetRegisterController extends Controller
         $this->validator($request->all())->validate();
         $user = $this->create($request->all());
         dispatch(new SendCabineteEmail($user));
+        Auth::logout();
         return view('verification');
  
     }
@@ -94,11 +96,11 @@ class CabinetRegisterController extends Controller
         */
     public function verify($token)
     {
-        $user = Cabinet::where('email_token',$token)->first();
-        $user->verified = 1;
-        if($user->save())
+        $cab = Cabinet::where('email_token',$token)->first();
+        $cab->verified = 1;
+        if($cab->save())
         {
-        return view('emailconfirm',['user'=>$user]);
+        return view('emailconfirm',['user'=>$cab]);
         }
     }
 }

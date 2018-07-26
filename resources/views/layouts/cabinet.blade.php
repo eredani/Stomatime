@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
    <head>
+   <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
+            gtag('config', 'UA-85363773-2');
+        </script>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +16,63 @@
       @include('layouts.script')
       <title>{{ config('app.name', 'StomaTime Cabinet') }}</title>
       <style>
+         .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+         }
 
+
+         .switch input {display:none;}
+
+
+         .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+         }
+
+         .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+         }
+
+         input:checked + .slider {
+            background-color: #2196F3;
+         }
+
+         input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+         }
+
+         input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+         }
+
+
+         .slider.round {
+            border-radius: 34px;
+         }
+
+         .slider.round:before {
+            border-radius: 50%;
+         }
 .vertical-menu {
     width: 200px;
     height:  50px;
@@ -58,7 +120,7 @@
    </head>
    <body>
       <div id="app">
-         <nav class="navbar navbar-expand-md navbar-light">
+         <nav class="navbar navbar-expand-md bg-dark fixed-top navbar-dark navbar-light">
             <div class="container-fluid">
                <a class="navbar-brand" href="{{ url('/') }}">
                StomaTime
@@ -94,10 +156,10 @@
                      <!-- Authentication Links -->
                      @if(!Auth::guard('cabinet')->check())
                      <li>
-                        <a class="nav-link" href="{{ route('cabinet.login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('cabinet.login') }}">{{ __('Logare') }}</a>
                      </li>
                      <li>
-                        <a class="nav-link" href="{{ route('cabinet.register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ route('cabinet.register') }}">{{ __('Înregistrare') }}</a>
                      </li>
                      @else
                      <li class="nav-item dropdown">
@@ -138,6 +200,7 @@
                </div>
             </div>
          </nav>
+         <br><br>
          <div class="container-fluid">
             <main class="py-4">
                @yield('content')

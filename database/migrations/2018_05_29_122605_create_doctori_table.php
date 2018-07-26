@@ -20,8 +20,9 @@ class CreateDoctoriTable extends Migration
             $table->json('id_specializari')->nullable();
             $table->char('prenume',55);
             $table->char('nume',35);
-            $table->char('gen',3);
+            $table->char('gen',1);
             $table->char('descriere',255)->nullable();
+            $table->char('profesie',100)->nullable();
             $table->integer('frecventa'); //1-zilnic 2-saptamanal 3-lunar
             $table->json('orar')->nullable();
             $table->string('img_profile')->nullable();

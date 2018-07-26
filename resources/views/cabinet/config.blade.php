@@ -14,39 +14,36 @@
 @foreach ($errors->all() as $error)
 <div>{{ $error }}</div>
 @endforeach
-<div class="tab-content py-4">
+<div class="tab-content py-4 text-center">
    <div class="tab-pane  @if($active=='specializari') active @endif" id="specializari">
       <div class="row">
+
          <div class="col">
-            <form method="POST" action="{{route('cabinet.addspeci')}}">
-               @csrf
-               <div class="form-row">
-                  <div class="col">
-                     <input type="text" class="form-control" placeholder="Specializare" name="specializare" required>
-                  </div>
-                  <div class="col">
-                     <input type="submit" class="form-control btn btn-success" placeholder="Last name" value="Adăugare">
-                  </div>
-               </div>
-            </form>
-            <br/>
             @if(Session::has('success'))
-            <div class="alert alert-info">
-               <a href="#" class="close" data-dismiss="alert">&times;</a>
-               <h4>{{Session::get('success')}}</h4>
-            </div>
+               <div class="alert alert-info">
+                  <a href="#" class="close" data-dismiss="alert">&times;</a>
+                  <h4>{{Session::get('success')}}</h4>
+               </div>
             @endif
             @if(Session::has('error'))
-            <div class="alert alert-info">
-               <a href="#" class="close" data-dismiss="alert">&times;</a>
-               <h4>{{Session::get('error')}}</h4>
-            </div>
+               <div class="alert alert-info">
+                  <a href="#" class="close" data-dismiss="alert">&times;</a>
+                  <h4>{{Session::get('error')}}</h4>
+               </div>
             @endif
             <div class="card">
                <div class="card-body">
-                  <center>
-                     <h5 class="card-title">Specializările disponibile în stomatologie.</h5>
-                  </center>
+                  <div class="text-center">
+                     <form method="POST" action="{{route('cabinet.addspeci')}}">
+                        @csrf
+                        <div class="form-group">
+                           <input type="text" class="form-control" placeholder="Specializare" name="specializare" required>
+
+                        </div>
+                        <input type="submit" class=" btn btn-success" placeholder="Last name" value="Adăugă">
+                     </form>
+                  </div>
+                  <h5 class="card-title text-center">Specializările disponibile în stomatologie.</h5>
                   <div style="overflow-x:auto;">
                      <table id="table_id" class="table table-striped table-bordered specializare">
                         <thead>
@@ -104,35 +101,40 @@
             </div>
          </div>
          <div class="col">
-            @if($spec!=null) 
-            <center>
-               <h5>Adăugarea servicilor disponibile pentru pacienți.</h5>
-            </center>
-            <form action="{{route('cabinet.addserv')}}" method="POST">
-               @csrf
-               <div class="form-group">
-                  <select class="custom-select" name="specializare">
-                     @foreach($spec as $speci)
-                     <option value="{{$speci->specializare}}(*){{$speci->id}}">{{$speci->specializare}}</option>
-                     @endforeach
-                  </select>
-                  <input type="text" class="form-control" name="serviciu" placeholder="Serviciul oferit" required>                                                    
-                  <input type="number" step="0.1" pattern="[0-9]+(\.[0-9]{0,2})?%?" min="10" class="form-control" name="pret" placeholder="Preț în RON" required>
-                  <input type="number" step="5" pattern="\d" min="5" class="form-control" name="durata" placeholder="Durată medie (în minute)" required>
-                  <br/>
-                  <center><input type="submit" class="btn btn-success"></center>
-               </div>
-            </form>
-            @else
-            <center>
-               <h4>Servicile se pot adăuga unei specializări, prima dată trebuie să adăugați specializările.</h4>
-            </center>
-            @endif
             <div class="card">
                <div class="card-body">
-                  <center>
-                     <h5 class="card-title">Servicii disponibile în stomatologie.</h5>
-                  </center>
+                  <div class="text-center">
+                  @if($spec!=null)
+                     <form action="{{route('cabinet.addserv')}}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                           <div class="row">
+                              <div class="col-lg-3 col-md-3 col-xl-3">
+                                 <select class="custom-select" name="specializare">
+                                    @foreach($spec as $speci)
+                                       <option value="{{$speci->specializare}}(*){{$speci->id}}">{{$speci->specializare}}</option>
+                                    @endforeach
+                                 </select>
+                              </div>
+                              <div class="col-lg-3 col-md-3 col-xl-3 ">
+                                 <input type="number" step="0.1" pattern="[0-9]+(\.[0-9]{0,2})?%?" min="10" class="form-control" name="pret" placeholder="Preț în RON" required>
+                              </div>
+                              <div class="col-lg-3 col-md-3 col-xl-3">
+                                 <input type="number" step="5" pattern="\d" min="5" class="form-control" name="durata" placeholder="Durată medie (m)" required>
+                              </div>
+                              <div class="col-lg-3 col-md-3 col-xl-3">
+                                 <input type="text" class="form-control" name="serviciu" placeholder="Serviciul oferit" required>
+                              </div>
+                           </div>
+                        </div>
+                              <input type="submit" class="btn btn-success text-center" value="Adaugă">
+                     </form>
+                  @else
+                     <h4 class="text-center">Servicile se pot adăuga unei specializări, prima dată trebuie să adăugați specializările.</h4>
+                  @endif
+                  </div>
+                     <h5 class="card-title text-center">Servicii disponibile în stomatologie.</h5>
+
                   <div style="overflow-x:auto;">
                      <table id="table_id1" class="table table-striped table-bordered ">
                         <thead>
@@ -207,14 +209,14 @@
          <div class="col">
             <form method="POST" action="{{route('cabinet.addsala')}}">
                @csrf
-               <div class="form-row">
-                  <div class="col">
+               <div class="row">
+                  <div class="col-lg-2 col-md-4 col-xl-3">
                      <input type="text" class="form-control" placeholder="Etaj" name="etaj" required>
                   </div>
-                  <div class="col">
+                  <div class="col-lg-2 col-md-4 col-xl-3">
                      <input type="text" class="form-control" placeholder="Cabinet" name="cabinet" required>
                   </div>
-                  <div class="col">
+                  <div class="col-lg-2 col-md-4 col-xl-3">
                      <input type="submit" class="form-control btn btn-success" value="Adăugare">
                   </div>
                </div>
@@ -234,9 +236,9 @@
             @endif
             <div class="card">
                <div class="card-body">
-                  <center>
+                  
                      <h5 class="card-title">Repartiția cabinetelor pe etaje.</h5>
-                  </center>
+                  
                   <div style="overflow-x:auto;">
                      <table id="cabinetet" class="table table-striped table-bordered">
                         <thead>
@@ -296,13 +298,11 @@
       </div>
    </div>
    <div class="tab-pane  @if($active=='doctor') active @endif" id="doctori">
-      <center>
-         <h2>Adaugă un nou medic</h2>
-      </center>
+      <h2 class="text-center">Adaugă un nou medic</h2>
       <hr>
       <div class="row">
          <div class="col-md-4 text-center">
-            <img id="blah"  src="//placehold.it/100" class="mx-auto img-fluid rounded-circle d-block" alt="profil" height="150" width="150">
+            <img id="blah"  src="//placehold.it/200" class="mx-auto img-fluid rounded-circle d-block" alt="profil" height="200" width="200">
             <h6 class="mt-2">Imagine de profil</h6>
             <label for="file-upload" class="custom-file-upload">
             <a class="fa fa-cloud-upload"></a> Custom Upload
@@ -326,27 +326,37 @@
             <form id="add" enctype="multipart/form-data" class="form-horizontal" role="form" method="POST" action="{{route('cabinet.addmedic')}}">
                @csrf
                <div class="form-group">
-                  <label class="col-lg-3 control-label">Nume:</label>
-                  <div class="col-lg-8">
+                  <div class="row">
+                  <div class="col-lg-6"><label class="control-label">Nume:</label>
                      <input class="form-control" type="text" name="nume" placeholder="Nume" required>
                   </div>
-               </div>
-               <div class="form-group">
-                  <label class="col-lg-3 control-label">Prenume:</label>
-                  <div class="col-lg-8">
+
+                  <div class="col-lg-6"><label class="control-label">Prenume:</label>
                      <input class="form-control" type="text" name="prenume" placeholder="Prenume" required>
                   </div>
-               </div>
-               <div class="form-group">
-                  <label class="col-lg-3 control-label">Descriere:</label>
-                  <div class="col-lg-8">
-                     <input class="form-control" type="text" name="descriere" placeholder="Descriere" required>
                   </div>
                </div>
                <div class="form-group">
-                  <label class="col-lg-3 control-label">Setează Programul:</label>
-                  <div class="col-lg-8">
-                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newmedic">Setează Programul</button>
+                  <div class="row">
+
+
+                  <div class="col-lg-6">
+                     <label class="control-label">Descriere:</label>
+                     <input class="form-control" type="text" maxlength="255" name="descriere" placeholder="Descriere" required>
+                  </div>
+
+
+                     <div class="col-lg-6"> <label class="control-label">Profesie:</label>
+                        <input class="form-control" type="text" maxlength="100" name="profesie" placeholder="Profesie" required>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="row">
+
+                  <div class="col-lg-4">
+                     <label class=" control-label">Program</label>
+                     <button type="button" class="btn btn-success form-control" data-toggle="modal" data-target="#newmedic">Setează Programul</button>
                      <div class="modal fade" id="newmedic" role="dialog">
                         <div class="modal-dialog">
                            <div class="modal-content">
@@ -358,11 +368,11 @@
                                  <div class="row">
                                     <div class="col-md-6">
                                        <div class="form-check">
-                                          <center><label class="form-check-label">
+                                          <label class="form-check-label">
                                              <input form="add" class="form-check-input" type="checkbox" onclick="lunird()" id="luniS">
                                              Luni
                                              </label>
-                                          </center>
+                                          
                                           <div class="form-group">
                                              <div class="input-group date" id="Lstart" data-target-input="nearest">
                                                 <input form="add" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startL" data-toggle="datetimepicker" data-target="#Lstart" readonly/>
@@ -383,11 +393,11 @@
                                     </div>
                                     <div class="col-md-6">
                                        <div class="form-check">
-                                          <center><label class="form-check-label">
+                                          <label class="form-check-label">
                                              <input form="add" class="form-check-input" type="checkbox" onclick="martird()" id="martiS">
                                              Marți
                                              </label>
-                                          </center>
+                                          
                                           <div class="form-group">
                                              <div class="input-group date" id="MAstart" data-target-input="nearest">
                                                 <input form="add" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startMA" data-toggle="datetimepicker" data-target="#MAstart" readonly/>
@@ -410,11 +420,11 @@
                                  <div class="row">
                                     <div class="col-md-6">
                                        <div class="form-check">
-                                          <center><label class="form-check-label">
+                                          <label class="form-check-label">
                                              <input form="add" class="form-check-input" type="checkbox" onclick="miercurird()" id="miercuriS">
                                              Miercuri
                                              </label>
-                                          </center>
+                                          
                                           <div class="form-group">
                                              <div class="input-group date" id="MIstart" data-target-input="nearest">
                                                 <input form="add" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startMI" data-toggle="datetimepicker" data-target="#MIstart" readonly/>
@@ -435,11 +445,11 @@
                                     </div>
                                     <div class="col-md-6">
                                        <div class="form-check">
-                                          <center><label class="form-check-label">
+                                          <label class="form-check-label">
                                              <input form="add" class="form-check-input" type="checkbox" onclick="joird()" id="joiS">
                                              Joi
                                              </label>
-                                          </center>
+                                          
                                           <div class="form-group">
                                              <div class="input-group date" id="Jstart" data-target-input="nearest">
                                                 <input form="add" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startJ" data-toggle="datetimepicker" data-target="#Jstart" readonly/>
@@ -462,11 +472,11 @@
                                  <div class="row">
                                     <div class="col-md-6">
                                        <div class="form-check">
-                                          <center><label class="form-check-label">
+                                          <label class="form-check-label">
                                              <input form="add" class="form-check-input" type="checkbox" onclick="vinerird()" id="vineriS">
                                              Vineri
                                              </label>
-                                          </center>
+                                          
                                           <div class="form-group">
                                              <div class="input-group date" id="Vstart" data-target-input="nearest">
                                                 <input form="add" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startV" data-toggle="datetimepicker" data-target="#Vstart" readonly/>
@@ -487,11 +497,11 @@
                                     </div>
                                     <div class="col-md-6">
                                        <div class="form-check">
-                                          <center><label class="form-check-label">
+                                          <label class="form-check-label">
                                              <input form="add" class="form-check-input" type="checkbox" onclick="sambatard()" id="sambataS">
                                              Sâmbătă
                                              </label>
-                                          </center>
+                                          
                                           <div class="form-group">
                                              <div class="input-group date" id="Sstart" data-target-input="nearest">
                                                 <input form="add" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startS" data-toggle="datetimepicker" data-target="#Sstart" readonly/>
@@ -514,11 +524,11 @@
                                  <div class="row">
                                     <div class="col-md-12">
                                        <div class="form-check">
-                                          <center><label class="form-check-label">
+                                          <label class="form-check-label">
                                              <input form="add" class="form-check-input" type="checkbox" onclick="duminicard()" id="duminicaS">
                                              Duminică
                                              </label>
-                                          </center>
+                                          
                                           <div class="form-group">
                                              <div class="input-group date" id="Dstart" data-target-input="nearest">
                                                 <input form="add" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startD" data-toggle="datetimepicker" data-target="#Dstart" readonly/>
@@ -546,57 +556,54 @@
                         </div>
                      </div>
                   </div>
-               </div>
-               <div class="form-group">
-                  <label class="col-lg-3 control-label">Disponibilitate</label>
-                  <div class="col-lg-8">
-                     <select class="custom-select" name="disponibilitate" required>
-                        <option value="1">Zilnic</option>
-                        <option value="2">Săptămânal</option>
-                        <option value="3">Lunar</option>
-                     </select>
-                  </div>
-               </div>
-               @if($sali!=null)
-               <div class="form-group">
-                  <label class="col-lg-3 control-label">Cabinet</label>
-                  <div class="col-lg-8">
-                     <select class="custom-select" name="sala" required>
-                        @foreach($sali as $sala)
-                        <option value="{{$sala->id}}">Etaj: {{$sala->etaj}} / Sala: {{$sala->numar}}</option>
-                        @endforeach
-                     </select>
-                  </div>
-               </div>
-               @endif
-               @if($spec!=null)
-               <div class="form-group">
-                  <label class="col-lg-5 control-label">Specializări</label>
-                  <div class="col-lg-8">
-                     <select class="custom-select" name="specializare[]" required multiple>
-                        @foreach($spec as $speci)
-                        <option value="{{$speci->id}}">{{$speci->specializare}}</option>
-                        @endforeach
-                     </select>
-                  </div>
-               </div>
-               @endif
-               <div class="form-group">
-                  <div class="form-check-inline">
-                     <div class="col-lg-12">
-                        <input type="radio" class="form-check-input" value="f" name="gen" required>Femeie
+
+                     <div class="col-lg-4"><label class=" control-label">Disponibilitate</label>
+                        <select class="custom-select" name="disponibilitate" required>
+                           <option value="1">Zilnic</option>
+                           <option value="2">Săptămânal</option>
+                           <option value="3">Lunar</option>
+                        </select>
                      </div>
-                  </div>
-                  <div class="form-check-inline disabled">
-                     <div class="col-lg-12">
-                        <input type="radio" class="form-check-input" value='m' name="gen" required>Barbat
-                     </div>
+
+                     @if($sali!=null)
+
+
+                           <div class="col-lg-4"><label class=" control-label">Cabinet</label>
+                              <select class="custom-select" name="sala" required>
+                                 @foreach($sali as $sala)
+                                    <option value="{{$sala->id}}">Etaj: {{$sala->etaj}} / Sala: {{$sala->numar}}</option>
+                                 @endforeach
+                              </select>
+                           </div>
+                     @endif
+
                   </div>
                </div>
                <div class="form-group">
-                  <label class="col-md-3 control-label"></label>
-                  <div class="col-md-8">
-                     <input type="submit" class="btn btn-primary" value="Adaugă">
+                  <div class="row">
+                     <div class="col-lg-4">
+                        <label class="control-label">Gen</label>
+                        <select class="form-control" name="gen">
+                           <option value="f">Femeie</option>
+                           <option value="m">Bărbat</option>
+                        </select>
+                     </div>
+                     @if($spec!=null)
+
+
+                        <div class="col-lg-4"><label class="control-label">Specializări</label>
+                           <select class="custom-select form-control" name="specializare[]" required multiple>
+                              @foreach($spec as $speci)
+                                 <option value="{{$speci->id}}">{{$speci->specializare}}</option>
+                              @endforeach
+                           </select>
+                        </div>
+
+                     @endif
+                     <div class="col-lg-4">
+                        <label class="control-label"></label>
+                        <input type="submit" class="btn btn-primary form-control" value="Adaugă">
+                     </div>
                   </div>
                </div>
             </form>
@@ -608,9 +615,7 @@
          <div class="col">
             <div class="card">
                <div class="card-body">
-                  <center>
-                     <h5 class="card-title">Personalul disponibil in <i>{{Auth::user()->name}}</i>.</h5>
-                  </center>
+                     <h5 class="card-title text-center">Personalul disponibil in <i>{{Auth::user()->name}}</i>.</h5>
                   <div style="overflow-x:auto;">
                      <table id="medic" class="table table-striped table-bordered">
                         <thead>
@@ -619,6 +624,7 @@
                               <th width="3%">Poza</th>
                               <th>Nume</th>
                               <th>Prenume</th>
+                              <th>Profesie</th>
                               <th>Gen</th>
                               <th>Specializări</th>
                               <th>Disponibilitate</th>
@@ -643,6 +649,7 @@
                               </td>
                               <td>{{$medic->nume}}</td>
                               <td>{{$medic->prenume}}</td>
+                              <td>{{$medic->profesie}}</td>
                               <td>@if($medic->gen=="f")<i class="fa fa-female" aria-hidden="true"></i> @else <i class="fa fa-male" aria-hidden="true"></i> @endif</td>
                               <td class="scrolspeci">
                                  @if($medic->id_specializari!=null)
@@ -883,18 +890,17 @@
                                           <form method="POST" id="editprogram{{$medic->id}}" action="{{route('cabinet.medic.edit.program')}}">
                                           @csrf
                                             <input type="hidden" value="{{$medic->id}}" name="id">
-                                             <div class="row">
+                                             <div class="row text-center">
                                                 <div class="col-md-6">
                                                    <div class="form-check">
-                                                      <center><label class="form-check-label">
+                                                      <label class="form-check-label">
                                                          <input form="editprogram{{$medic->id}}" class="form-check-input" type="checkbox" onclick="lunird{{$medic->id}}()" id="luniS{{$medic->id}}">
                                                          Luni
                                                          </label>
-                                                      </center>
                                                       <div class="form-group">
                                                          <div class="input-group date" id="Lstart{!!$medic->id!!}" data-target-input="nearest">
                                                             <input form="editprogram{{$medic->id}}" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startL{!!$medic->id!!}" data-toggle="datetimepicker" data-target="#Lstart{!!$medic->id!!}" readonly/>
-                                                            <div class="input-group-append" data-target="#Lstart{!!$medic->id!!}"  data-toggle="datetimepicker">
+                                                            <div class="input-group-append" id="{!!$medic->id!!}" data-target="#Lstart{!!$medic->id!!}"  data-toggle="datetimepicker">
                                                                <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
                                                             </div>
                                                          </div>
@@ -902,7 +908,7 @@
                                                       <div class="form-group">
                                                          <div class="input-group date" id="Lstop{!!$medic->id!!}" data-target-input="nearest">
                                                             <input form="editprogram{{$medic->id}}" type="text" class="form-control datetimepicker-input" data-toggle="datetimepicker" id="stopL{!!$medic->id!!}"  placeholder="Stop" data-target="#Lstop{!!$medic->id!!}" readonly/>
-                                                            <div class="input-group-append" data-target="#Lstop{!!$medic->id!!}" data-toggle="datetimepicker">
+                                                            <div class="input-group-append" id="{!!$medic->id!!}" data-target="#Lstop{!!$medic->id!!}" data-toggle="datetimepicker">
                                                                <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
                                                             </div>
                                                          </div>
@@ -911,11 +917,11 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                    <div class="form-check">
-                                                      <center><label class="form-check-label">
+                                                      <label class="form-check-label">
                                                          <input form="editprogram{{$medic->id}}" class="form-check-input" type="checkbox" onclick="martird{!!$medic->id!!}()" id="martiS{{$medic->id}}">
                                                          Marți
                                                          </label>
-                                                      </center>
+                                                      
                                                       <div class="form-group">
                                                          <div class="input-group date" id="MAstart{{$medic->id}}" data-target-input="nearest">
                                                             <input form="editprogram{{$medic->id}}" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startMA{{$medic->id}}" data-toggle="datetimepicker" data-target="#MAstart{{$medic->id}}" readonly/>
@@ -938,11 +944,11 @@
                                              <div class="row">
                                                 <div class="col-md-6">
                                                    <div class="form-check">
-                                                      <center><label class="form-check-label">
+                                                      <label class="form-check-label">
                                                          <input form="editprogram{{$medic->id}}" class="form-check-input" type="checkbox" onclick="miercurird{!!$medic->id!!}()" id="miercuriS{{$medic->id}}">
                                                          Miercuri
                                                          </label>
-                                                      </center>
+                                                      
                                                       <div class="form-group">
                                                          <div class="input-group date" id="MIstart{{$medic->id}}" data-target-input="nearest">
                                                             <input form="editprogram{{$medic->id}}" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startMI{{$medic->id}}" data-toggle="datetimepicker" data-target="#MIstart{{$medic->id}}" readonly/>
@@ -963,11 +969,11 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                    <div class="form-check">
-                                                      <center><label class="form-check-label">
+                                                      <label class="form-check-label">
                                                          <input form="editprogram{{$medic->id}}" class="form-check-input" type="checkbox" onclick="joird{!!$medic->id!!}()" id="joiS{{$medic->id}}">
                                                          Joi
                                                          </label>
-                                                      </center>
+                                                      
                                                       <div class="form-group">
                                                          <div class="input-group date" id="Jstart{{$medic->id}}" data-target-input="nearest">
                                                             <input form="editprogram{{$medic->id}}" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startJ{{$medic->id}}" data-toggle="datetimepicker" data-target="#Jstart{{$medic->id}}" readonly/>
@@ -990,11 +996,11 @@
                                              <div class="row">
                                                 <div class="col-md-6">
                                                    <div class="form-check">
-                                                      <center><label class="form-check-label">
+                                                      <label class="form-check-label">
                                                          <input form="editprogram{{$medic->id}}" class="form-check-input" type="checkbox" onclick="vinerird{!!$medic->id!!}()" id="vineriS{{$medic->id}}">
                                                          Vineri
                                                          </label>
-                                                      </center>
+                                                      
                                                       <div class="form-group">
                                                          <div class="input-group date" id="Vstart{{$medic->id}}" data-target-input="nearest">
                                                             <input form="editprogram{{$medic->id}}" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startV{{$medic->id}}" data-toggle="datetimepicker" data-target="#Vstart{{$medic->id}}" readonly/>
@@ -1015,11 +1021,11 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                    <div class="form-check">
-                                                      <center><label class="form-check-label">
+                                                      <label class="form-check-label">
                                                          <input form="editprogram{{$medic->id}}" class="form-check-input" type="checkbox" onclick="sambatard{!!$medic->id!!}()" id="sambataS{{$medic->id}}">
                                                          Sâmbătă
                                                          </label>
-                                                      </center>
+                                                      
                                                       <div class="form-group">
                                                          <div class="input-group date" id="Sstart{{$medic->id}}" data-target-input="nearest">
                                                             <input form="editprogram{{$medic->id}}" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startS{{$medic->id}}" data-toggle="datetimepicker" data-target="#Sstart{{$medic->id}}" readonly/>
@@ -1042,11 +1048,11 @@
                                              <div class="row">
                                                 <div class="col-md-12">
                                                    <div class="form-check">
-                                                      <center><label class="form-check-label">
+                                                      <label class="form-check-label">
                                                          <input form="editprogram{{$medic->id}}" class="form-check-input" type="checkbox" onclick="duminicard{!!$medic->id!!}()" id="duminicaS{{$medic->id}}">
                                                          Duminică
                                                          </label>
-                                                      </center>
+                                                      
                                                       <div class="form-group">
                                                          <div class="input-group date" id="Dstart{{$medic->id}}" data-target-input="nearest">
                                                             <input form="editprogram{{$medic->id}}" type="text" class="form-control datetimepicker-input" placeholder="Start" id="startD{{$medic->id}}" data-toggle="datetimepicker" data-target="#Dstart{{$medic->id}}" readonly/>
@@ -1075,12 +1081,11 @@
                                        </div>
                                     </div>
                                  </div>
+                                 @if($medic->orar!==null)
                                  <script>
                                     $(document).ready(function() {
-                                        var array=null;
-                                        if({!! $medic->orar !!}!=null)
-                                            var array = {!! $medic->orar !!};
-                                        
+                                        var array = {!! $medic->orar !!};
+
                                         if(array!=null)
                                         {
                                             if(array['luni']!=null)
@@ -1180,6 +1185,7 @@
                                         }
                                     });
                                 </script>
+                                 @endif
                                 <script>
                                     $(function() {
                                         $('#Lstart{!!$medic->id!!}').datetimepicker({
@@ -1425,6 +1431,7 @@
                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
                                           </div>
                                           <div class="modal-body">
+                                             <h1>Nu am facut stergerea inca, deoarece lucrez la un sistem de pastrare in Arhiva a medicilor stersi.</h1>
                                           </div>
                                           <div class="modal-footer">
                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -1442,6 +1449,7 @@
                            <th width="3%">Poza</th>
                            <th>Nume</th>
                            <th>Prenume</th>
+                           <th>Profesie</th>
                            <th>Gen</th>
                            <th>Specializări</th>
                            <th>Disponibilitate</th>
@@ -1704,8 +1712,8 @@
           $('#medic tfoot th').each(function() {
    
               var title = $(this).text();
-              if (title == "Unelte" || title == "#" || title=="Program") {} else {
-                  $(this).html('<input type="text" placeholder="' + title + '" />');
+              if (title == "Unelte" || title == "#" || title=="Program" || title=="Poza" || title=="Gen") {} else {
+                  $(this).html('<input type="text" class="form-control" placeholder="' + title + '" />');
               }
           });
           var table = $('#medic').DataTable({
@@ -1715,14 +1723,14 @@
    
                       className: 'btn btn-info',
                       exportOptions: {
-                          columns: [0, 1, 2]
+                          columns: [0,2,4,3,7]
                       }
                   },
                   {
                       extend: 'csvHtml5',
                       className: 'btn btn-info',
                       exportOptions: {
-                          columns: [0, 1, 2]
+                          columns: [0,2,4,3,7]
                       }
                   },
                   {
@@ -1730,14 +1738,14 @@
                       messageTop: 'Medici',
                       className: 'btn btn-info',
                       exportOptions: {
-                          columns: [0, 1, 2]
+                          columns: [0,2,4,3,7]
                       }
                   },
                   {
                       extend: 'print',
                       className: 'btn btn-info',
                       exportOptions: {
-                          columns: [0, 1, 2]
+                          columns: [0,2,4,3,7]
                       }
                   }
               ],
@@ -1763,7 +1771,7 @@
    
            var title = $(this).text();
            if (title == "Sterge" || title == "#") {} else {
-               $(this).html('<input type="text" placeholder="' + title + '" />');
+               $(this).html('<input type="text" class="form-control" placeholder="' + title + '" />');
            }
        });
        var table = $('#table_id').DataTable({
@@ -1821,7 +1829,7 @@
    
            var title = $(this).text();
            if (title == "Sterge/Schimbă" || title == "#") {} else {
-               $(this).html('<input type="text" placeholder="' + title + '" />');
+               $(this).html('<input type="text" class="form-control" placeholder="' + title + '" />');
            }
        });
        var table = $('#table_id1').DataTable({
@@ -1831,14 +1839,14 @@
    
                    className: 'btn btn-info',
                    exportOptions: {
-                       columns: [0, 1, 2, 3]
+                       columns: [0, 1, 2, 3,4]
                    }
                },
                {
                    extend: 'csvHtml5',
                    className: 'btn btn-info',
                    exportOptions: {
-                       columns: [0, 1, 2, 3]
+                       columns: [0, 1, 2, 3,4]
                    }
                },
                {
@@ -1846,14 +1854,14 @@
                    messageTop: 'Toate serviciile disponibile.',
                    className: 'btn btn-info',
                    exportOptions: {
-                       columns: [0, 1, 2, 3]
+                       columns: [0, 1, 2, 3,4]
                    }
                },
                {
                    extend: 'print',
                    className: 'btn btn-info',
                    exportOptions: {
-                       columns: [0, 1, 2, 3]
+                       columns: [0, 1, 2, 3,4]
                    }
                }
            ],
@@ -1879,7 +1887,7 @@
    
            var titls = $(this).text();
            if (titls == "Sterge" || titls == "#") {} else {
-               $(this).html('<input type="text" placeholder="' + titls + '" />');
+               $(this).html('<input type="text" class="form-control" placeholder="' + titls + '" />');
            }
        });
        var table = $('#cabinetet').DataTable({

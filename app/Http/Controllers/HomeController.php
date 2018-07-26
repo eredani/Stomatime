@@ -11,6 +11,7 @@ use App\Sali;
 use App\Specializari;
 use App\Servicii;
 use App\Doctori;
+use App\StarsCabs;
 use App\Jobs\SendVerificationEmail;
 use Illuminate\Support\Facades\Hash;
 use DB;
@@ -21,44 +22,18 @@ class HomeController extends Controller
     {
         $this->middleware(['auth','IsVerified','2fa']);
     }
-    public function viewmedici($id)
+    public function viewServicii($id)
     {
-        $cabinet= Cabinet::where('id',$id)->select('type')->get();
-        if(count($cabinet)==0)
-        {
-           
-            return redirect()->back();
-        }
-        $cabinet= Cabinet::where('id',$id)->select('type')->get();
-        if(count($cabinet)==0)
+
+        $cabinet= Cabinet::where('id',$id)->where('type','>',0)->where('public',1)->exists();
+        if(!$cabinet)
         {
             return redirect()->back();
         }
-        $info = Cabinet::where('id',$id)->select('descriere','adresa','moto','img_profile','name','id','program','long','lat')->first();
-        $doctori = Doctori::where('id_cab',$id)->get();
-        return view('cabinet.medici')->with(['info'=>$info,'doctori'=>$doctori]);
+        $info = Cabinet::where('id',$id)->select('id','name')->first();
+        return view('cabinet.servicii')->with(['info'=>$info]);
     }
-    public function viewservicii($id)
-    {
-     
-        $cabinet= Cabinet::where('id',$id)->select('type')->get();
-        if(count($cabinet)==0)
-        {
-           
-            return redirect()->back();
-        }
-        $cabinet= Cabinet::where('id',$id)->select('type')->get();
-        if(count($cabinet)==0)
-        {
-            return redirect()->back();
-        }
-        $info = Cabinet::where('id',$id)->select('descriere','adresa','moto','img_profile','name','id','program','long','lat')->first();
-        $speci = Specializari::where('id_cab',$id)->get();
-        $serv = Servicii::where('id_cab',$id)->get();
-    
-        return view('cabinet.servicii')->with(['info'=>$info,'speci'=>$speci,'serv'=>$serv]);
-    }
-    public function setprofile(Request $request)
+    public function setProfile(Request $request)
     { 
         $this->validate($request, [
 
@@ -113,7 +88,7 @@ class HomeController extends Controller
             return view('pacient.setting',['image'=>$image]);
         }
     }
-    public function editprofile(Request $req)
+    public function editProfile(Request $req)
     {
         
         if($req->input('pass1')==$req->input('pass') && Hash::check($req->input('pass'),Auth::user()->password))
@@ -129,7 +104,7 @@ class HomeController extends Controller
             }
             if($req->input('name')!=Auth::user()->name)
             {
-                $user->name=$req->input('name');
+                $user->name=htmlspecialchars($req->input('name'));
             }
             if($req->input('newpass')!=null)
             {
@@ -148,14 +123,14 @@ class HomeController extends Controller
          return redirect()->back()->with('fail','Parolele nu corespund sau parola nu există.');
         }
     }
-    public function enabletwoauth(Request $req)
+    public function enableTwoAuth(Request $req)
     {
         $user = Auth::user();
         $user->google2fa_secret = ($req->input('secret'));
         $user->save();
         return redirect()->back();
     }
-    public function disabletwoauth(Request $req)
+    public function disableTwoAuth(Request $req)
     {
         $user = Auth::user();
         $user->google2fa_secret = null;
@@ -175,15 +150,65 @@ class HomeController extends Controller
             return redirect()->back();
         }
         $info = Cabinet::where('id',$id)->select('name','id')->first();
-        return view('pacient.view')->with(['info'=>$info]);
-    }   
-    public function viewmedic($id,$idm)
+        return view('pacient.view')->with(['info'=>$info,'id'=>Auth::user()->id]);
+    }
+    public function setScore(Request $req)
+    {
+        $scor = $req->input('score');
+        $idCab = $req->input('cabinet');
+        if($scor>0 && $scor<6)
+        {
+            if(Cabinet::where('id',$idCab)->exists())
+            {
+                if (StarsCabs::where('id_cab', $idCab)->where('id_client', Auth::user()->id)->exists())
+                {
+                    $last_date=StarsCabs::where('id_cab', $idCab)->where('id_client', Auth::user()->id)->first();
+                    $time = time();
+                    if(abs($time- strtotime($last_date->updated_at)) > 100)
+                    {
+                        StarsCabs::where('id_cab', $idCab)->where('id_client', Auth::user()->id)->update(['scor' => $scor]);
+                        $msg['status']="success";
+                        $msg['msg']="Scorul a fost modificat!";
+                        return $msg;
+                    }
+                    $msg['status']="fail";
+                    $msg['msg']="Mai asteaptă!";
+                    return $msg;
+
+                } else {
+                    $star = new StarsCabs;
+                    $star->id_client=Auth::user()->id;
+                    $star->id_cab=$idCab;
+                    $star->scor=$scor;
+                    $star->save();
+                    $msg['status']="success";
+                    $msg['msg']="Scorul a fost înregistrat!";
+                    return $msg;
+                }
+            }
+            else
+                {
+                    $msg['status']="fail";
+                    $msg['msg']="Cabinetul nu există!";
+                    return  $msg;
+            }
+        }
+        else
+        {
+            $msg['status']="fail";
+            $msg['msg']="Scorul nu este bun!";
+            return  $msg;
+        }
+
+    }
+    public function viewMedic($id,$idm)
     {
         $doctor= Doctori::where('id',$idm)->where('id_cab',$id)->exists();
         if(!$doctor)
         {
             return redirect()->back();
         }
-        return view('cabinet.medic');
+        $info = Cabinet::where('id',$id)->select('name','id')->first();
+        return view('cabinet.medic')->with(['info'=>$info,'idmedic'=>$idm]);
     }
 }

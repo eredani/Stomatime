@@ -1,15 +1,15 @@
 @extends('layouts.cabinet')
 
 @section('content')
-<div class="container">
-    <center>
+<div class="container-fluid">
+
         <div class="row">
             <div class="col">
                 <div class="panel panel-default">
                         <div class="panel-body">
-                               <div class="container">
+                               <div class="container-fluid">
                                 <div class="row my-2">
-                                    <div class="col-lg-4 order-lg-1 text-center">
+                                    <div class="col-lg-3 order-lg-1 text-center">
                                     <img id="blah" src="{{ $image }}" class="mx-auto img-fluid img-circle d-block" alt="profil" height="150" width="150">
                                             <h6 class="mt-2">Incarca-ți propriul logo.</h6>
         
@@ -27,8 +27,7 @@
                                              </form>
                                             <br><br>
                                         </div>
-                                        
-                                    <div class="col-lg-8 order-lg-2">
+                                    <div class="col-lg-4 order-lg-2 text-center">
                                     @foreach ($errors->all() as $error)
                                         <div class="alert alert-info"> <a href="#" class="close" data-dismiss="alert">&times;</a>
                                             <h4>{{ $error }}</h4>
@@ -62,16 +61,12 @@
                                                             <input class="form-control" name="name" type="text" value="{{Auth::user()->name}}" required>
                                                         </div>
                                                     </div>
-                                                    
                                                     <div class="form-group row">
                                                         <label class="col-lg-3 col-form-label form-control-label">Email</label>
                                                         <div class="col-lg-9">
                                                             <input class="form-control" name="email" type="email" value="{{Auth::user()->email}}" required>
                                                         </div>
                                                     </div>
-
-                                                
-                                                
                                                     <div class="form-group row">
                                                         <label class="col-lg-3 col-form-label form-control-label">Parola</label>
                                                         <div class="col-lg-9">
@@ -92,8 +87,8 @@
                                                     </div>
                                                     <div class="form-group row">
                                                         <label class="col-lg-3 col-form-label form-control-label"></label>
-                                                        <div class="col-lg-9">
-                                                            <input type="submit" class="btn btn-primary" value="Save Changes">
+                                                        <div class="col-lg-2">
+                                                            <input type="submit" class="btn btn-primary" value="Salvează">
                                                         </div>
                                                     </div>
                                                 </form>
@@ -103,7 +98,7 @@
                                             <div class="form-group row">
                                                         <label class="col-lg-3 col-form-label form-control-label">Descriere</label>
                                                         <div class="col-lg-9">
-                                                            <textarea class="form-control" name="descriere" type="textarea" form="setprofile" required>{{Auth::user()->descriere}}</textarea>
+                                                            <textarea class="form-control" name="descriere" type="textarea" form="setprofile" >{{Auth::user()->descriere}}</textarea>
                                                         </div>
                                                     </div>
                                             <form role="form" method="POST" id="setprofile" action="{{route('cabinet.setpublicprofile')}}">
@@ -111,7 +106,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-lg-3 col-form-label form-control-label">Slogan</label>
                                                         <div class="col-lg-9">
-                                                            <input class="form-control" name="slogan" type="text" value="{{Auth::user()->moto}}" required>
+                                                            <input class="form-control" name="slogan" type="text" value="{{Auth::user()->moto}}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -128,7 +123,7 @@
                                                     </div>
                                                     <div class="form-group row">
                                                         <label class="col-lg-3 control-label">Program</label>
-                                                        <div class="col-lg-9">
+                                                        <div class="col-lg-3">
                                                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#program">Setează Programul</button>
                                                             <div class="modal fade" id="program" role="dialog">
                                                                 <div class="modal-dialog">
@@ -331,7 +326,22 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        
+                                                        <label class="col-lg-3 col-form-label form-control-label">Public</label>
+                                                        <div class="col-lg-2">
+
+                                                            <label class="switch">
+                                                                <input type="checkbox" name="public" value="1" @if(Auth::user()->public) checked  @endif>
+                                                                <span class="slider round"></span>
+                                                            </label>
+
+
+
+                                                        </div>
+                                                        <div class="col-lg-2">
+                                                            <input type="submit" class="btn btn-primary" value="Salvează">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
                                                         <div class="col-lg-9">
                                                             <input class="form-control" type="hidden" name="long" id="long" value="{{Auth::user()->long}}" required>
                                                         </div>
@@ -341,20 +351,14 @@
                                                         <div class="col-lg-9">
                                                         <input class="form-control" type="hidden" name="lat" id="lat" value="{{Auth::user()->lat}}" required>
                                                         </div>
-                                                    </div>                                          
-                                                    <div class="form-group row">
-                                                        <div class="col">
-                                                            <div id="map" style="width:100%;height:400px;"></div>
-                                                       </div>
-                                                    </div>                                                   
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                                                        <div class="col-lg-9">
-                                                            <input type="submit" class="btn btn-primary" value="Save Changes">
-                                                        </div>
                                                     </div>
                                                 </form>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 order-lg-3">
+                                        <div id="map" style="width:100%;height:400px;">
+
                                         </div>
                                     </div>
                                 </div>
@@ -363,8 +367,7 @@
                     </div>
                 </div>
             </div>
-        </div>    
-    </center>
+
 </div>
 <script>
     $(document).ready(function() {
@@ -546,8 +549,8 @@
     document.getElementById("long").value =location.lng()
     }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgvKK8zIvqhXuGnv9uYbiIT_biwXPg4YM&callback=myMap"></script>
-    <script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgvKK8zIvqhXuGnv9uYbiIT_biwXPg4YM&callback=myMap"></script>
+<script>
         $("#imgInp").change(function(){
             readURL(this);
         });

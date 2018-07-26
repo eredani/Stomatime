@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85363773-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-85363773-2');
+        </script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <title>{{ config('app.name', 'Stomatime') }}</title>
         <style>
-#cabinete {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 40%;
-    border-radius: 5px;
-}
-#cabinete:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-        #profile
-        {
-            border-radius: 50%;
-        }
-                  input[type="file"] {
-                        display: none;
-                    }
-                    #send{display: none;}
-                    .custom-file-upload {
-                        border: 1px solid #ccc;
-                        display: inline-block;
-                        padding: 6px 12px;
-                        cursor: pointer;
-                    }
+            #cabinete {
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                width: 40%;
+                border-radius: 5px;
+            }
+            #cabinete:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+            #profile
+            {
+                border-radius: 50%;
+            }
+                    input[type="file"] {
+                            display: none;
+                        }
+                        #send{display: none;}
+                        .custom-file-upload {
+                            border: 1px solid #ccc;
+                            display: inline-block;
+                            padding: 6px 12px;
+                            cursor: pointer;
+                        }
         </style>
     </head>
-    <body>
-        <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <body> 
+    <nav class="navbar navbar-expand-md bg-dark fixed-top navbar-dark navbar-laravel">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
@@ -64,25 +70,16 @@
                         <li>
                                 <a class="nav-link" href="{{ route('setting') }}">Setări</a>
                         </li>
-                        <li>
-                                <a class="nav-link" href="#">Istoric</a>
-                        </li>
-                        <li>
-                                <a class="nav-link" href="#">Tratamente</a>
-                        </li>
-                        <li>
-                                <a class="nav-link" href="#">Favorite</a>
-                        </li>
                         @endguest
                         </ul>
                         <ul class="navbar-nav ml-auto">
 
                             @guest
                             <li>
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Logare') }}</a>
                             </li>
                             <li>
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Înregistrare') }}</a>
                             </li>
                             @else
                             <li class="nav-item dropdown">
@@ -124,12 +121,17 @@
                     </div>
                 </div>
             </nav>
+    <br>
+    <div id="app">
+           
             <div class="container-fluid">
             <main class="py-4">
+            
                 @yield('content')
+               
             </main>
-            </div>
-        </div>
-        <script async type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+             </div>
+    </div>
+    <script async type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

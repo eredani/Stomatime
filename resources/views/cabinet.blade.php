@@ -6,21 +6,7 @@
         <div class="card">
             <div class="card-header">Dashboard Cabinet</div>
             <div class="card-body">
-                        @if(Auth::guard('admin')->user())
-                        <li class="item">
-                            <div class="icon-box">
-                                <i class="fa fa-television"></i>
-                            </div>
-                            <strong>Cabinete</strong>
-                            <br>
-                            <a href="{{url('cabinet/login')}}">
-                                <span>Login | Register</span>
-                            </a>
-                        </li>
-                        @else
-                        das
-                        @endif
-                You are logged in!
+                   Aici o sa apara programarile primite in timp real de la pacienti.
             </div>
         </div>
     </div>

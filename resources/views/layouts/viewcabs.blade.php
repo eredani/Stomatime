@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-85363773-2');
+        </script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +17,7 @@
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">   
     </head>
     <body>  
-    <div id="app">
-         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md  bg-dark fixed-top navbar-dark navbar-laravel">
             <div class="container-fluid">
                <a class="navbar-brand" href="{!! route('view.cabs', ['id'=>$info->id]) !!}">
                {!! $info->name!!}
@@ -31,16 +37,7 @@
                      @guest
                      @else
                      <li>
-                        <a class="nav-link" href="{!! route('view.cabs.serv', ['id'=>$info->id]) !!}">Specializări</a>
-                     </li>
-                     <li>
-                        <a class="nav-link" href="{!! route('view.cabs.medic', ['id'=>$info->id]) !!}">Medici</a>
-                     </li>
-                     <li>
-                        <a class="nav-link" href="#">Tratamente</a>
-                     </li>
-                     <li>
-                        <a class="nav-link" href="#">Istoric</a>
+                        <a class="nav-link" href="{!! route('view.cabs.serv', ['id'=>$info->id]) !!}">Tarife</a>
                      </li>
                      @endguest
                   </ul>
@@ -52,12 +49,14 @@
                </div>
             </div>
          </nav>
-         <div class="container-fluid">
-            <main class="py-4">
+         <br>
+    <div class="container-fluid">
+    <main class="py-4">
                @yield('content')
-            </main>
-         </div>
-        </div>
+    </main>
+    </div>
+        
+   
         <script async type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

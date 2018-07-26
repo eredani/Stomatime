@@ -1,8 +1,9 @@
 @extends('layouts.viewcabs')
 @section('content')
-
-
-{{$speci}}
-<br>
-{{$serv}}
+    <script>
+        window.config={
+            ID: {!! $info->id !!},
+        };
+    </script>
+    <div id="serviciireact"></div>
 @endsection

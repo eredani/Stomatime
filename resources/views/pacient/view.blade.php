@@ -6,4 +6,5 @@ window.config={
 };
 </script>
 <div id="reactview"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgvKK8zIvqhXuGnv9uYbiIT_biwXPg4YM"></script>
 @endsection

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <center>
+<div class="container-fluid text-center">
+  <br>
         <div class="row">
             <div class="col">
                 <div class="panel panel-default">
@@ -128,12 +128,9 @@
                 </div>
             </div>
         </div>    
-    </center>
 </div>
 <script>
-    $("#imgInp").change(function(){
-        readURL(this);
-    });
+
     window.setTimeout(function () {
         $(".alert-info").fadeTo(500, 0).slideUp(500, function () {
             $(this).remove();

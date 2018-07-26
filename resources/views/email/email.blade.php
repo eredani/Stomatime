@@ -1,2 +1,1 @@
-<h1>Click the Link To Verify Your Email</h1>
-Click the following link to verify your email {{url('/verifyemail/'.$email_token)}}
+<h1>Pentru finalizarea contului te rugam sa apesi <a href="{{url('/verifyemail/'.$email_token)}}">Click</a></h1>

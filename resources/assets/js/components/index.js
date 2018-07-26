@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from "axios";
+import StarRatingComponent from 'react-star-rating-component';
 const API = 'https://stomatime.com/api/cabinete/main';
 class Header extends Component
 {
@@ -66,7 +67,7 @@ class SecondPart extends Component{
         {
     
             row.push(  
-                <Cards cabinet={cabinet} key={index}/>
+                <Cards cabinet={cabinet} count={index} key={index}/>
             )
         })
 
@@ -115,7 +116,7 @@ class SecondPart extends Component{
                     <div className="col-sm-12 col-xs-12">
                         <div className="image-content">
                             <div className="section-title text-center">
-                                <h3>Ce facem noi?
+                                <h3>Ce facem noi?&nbsp;
                               <span>Cu ce vă putem ajuta?</span>
                            </h3>
                                 <p>StomaTime este o aplicație web atât pentru cabinete cât și pentru pacienți</p>
@@ -353,7 +354,7 @@ class SecondPart extends Component{
                     <div className="col-sm-12 col-xs-12">
                         <div className="image-content">
                             <div className="section-title text-center">
-                                <h3>Ce oferte avem?
+                                <h3>Ce oferte avem?&nbsp;
                               <span>Ce vă oferim?</span>
                            </h3>
                                 <p>Platforma StomaTime este împărțită în două oferte.</p>
@@ -424,7 +425,7 @@ class SecondPart extends Component{
         <section className="service-section section" id="aff">
             <div className="container">
                <div className="section-title text-center">
-                  <h3>StomaTime
+                  <h3>StomaTime	&nbsp;
                      <span>Afiliați</span>
                   </h3>
                   <p>Acestea sunt unele dintre cabinetele afiliate cu noi extrase aleator din
@@ -433,11 +434,11 @@ class SecondPart extends Component{
                </div>
                </div>
               
-            <div className="container">
+
                <div className="row flex-row">
                {row}
                </div>
-            </div>
+
         </section>
               
         <footer className="footer-main">
@@ -450,7 +451,7 @@ class SecondPart extends Component{
                   </div>
                   <ul className="footer-bottom-link">
                      <li>
-                        <a href="/">Home</a>
+                        <a href="/">Acasă</a>
                      </li>
                      <li>
                         <a href="#despre">Despre</a>
@@ -458,6 +459,9 @@ class SecondPart extends Component{
                      <li>
                         <a href="#oferte">Oferte</a>
                      </li>
+                        <li>
+                        <a href="#aff">Afiliați</a>
+                        </li>
                   </ul>
                </div>
             </div>
@@ -471,60 +475,39 @@ class Cards extends Component{
     {
         const cabinet = this.props.cabinet;
         return(
-            <div className="col- col-md-6 col-lg-4 col-xl-4 col-sm-6  d-md-flex d-sm-flex d-lg-flex d-xl-flex">
-            <div className="card mt-3 p-2 flex-sm-fill flex-md-fill flex-lg-fill flex-xl-fill text-center d-md-flex d-sm-flex d-lg-flex d-xl-flex" width="20rem">
-                {
-                cabinet.img_profile!=null
-                ?
-                <a href={"/view/"+cabinet.id}>
-                  <img
-                    src={ cabinet.img_profile }
-                    alt="Aici vine o poza pusa de cabinet"
-                    className="card-img-top"
-                    width="200px" height="200px"/>
-                    </a> 
-                :
-                <a href={"/view/"+cabinet.id}>
-                    <img src="/storage/logo.png" alt="Aici vine o poza pusa de cabinet"  className="card-img-top"  width="200px" height="200px"/>
-                </a> 
-                }
-                <div className="card-body flex-sm-fill flex-md-fill flex-lg-fill flex-xl-fill ">
-                <hr/>
-                   <a className="card-text"  href={"/view/"+cabinet.id}>
-                       <h6 className="card-title">{cabinet.name}</h6>
-                    </a> 
-                    <hr/>
-                    {
-                        cabinet.moto!=null
-                        ?
-                        <div>
-                         <cite title="Source Title">"{cabinet.moto}"</cite>
-                        <hr/>
-                      
-                        </div>
-                        :
-                        <br/>
-                    }
-                    {
-                        cabinet.descriere!=null
-                        ?
-                        <p className="card-text">{cabinet.descriere}</p>
-                        :
-                        <br/>
-                    }                   
-                </div>
-                {
-                    cabinet.adresa!=null
-                    ?
-                    <div className="card-footer text-muted flex-sm-fill flex-md-fill flex-lg-fill flex-xl-fill ">
-                    <p className="card-text">{cabinet.adresa} <br/>{cabinet.numar!=null ?  ' Contact: '+ cabinet.numar:<br/>}</p>
-                </div>
-                    :
-                    <br/>
-                }
-            </div>
-            </div>
-        );
+            <div className="col-lg-3 d-flex">
+        <div className="our-cabs-main">
+
+        <div className="team-front"><a href={"/view/"+cabinet.id}>
+        <img src={ cabinet.img_profile } className="img-fluid" /></a>
+        <a href={"/view/"+cabinet.id}><h3>{cabinet.name}</h3></a>
+        <p>{cabinet.adresa}</p>
+    <div className="star">
+        <StarRatingComponent
+        name="{this.props.count}"
+        starCount={5}
+        value={cabinet.stele}
+        />
+        <div className="dv-star-rating" style={{display: 'inline-block', position: 'relative'}}>
+    <label id="countstars" className="dv-star-rating-star dv-star-rating-empty-star" htmlFor="rate1_5"><i style={{fontStyle: 'normal'}}>({cabinet.voturi})</i></label>
+    </div>
+    </div>
+    <div className="cardmedicflow">
+        <p className="text-center"><a href={"/view/"+cabinet.id}>
+        Află mai mult!
+    </a>
+    </p>
+    <hr/>
+    <cite className="text-center" title="Source Title">"{cabinet.moto}"</cite>
+        <hr/>
+        <p>{cabinet.descriere}</p>
+    </div>
+  
+    </div>
+    </div>
+    </div>
+
+    );
     }
 }
 if(document.getElementById('htop'))

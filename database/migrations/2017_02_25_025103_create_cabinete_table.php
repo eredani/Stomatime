@@ -18,6 +18,7 @@ class CreateCabineteTable extends Migration
             $table->string('email')->unique();
             $table->string('img_profile')->nullable();
             $table->tinyInteger('type')->default(0);
+            $table->tinyInteger('public')->default(0);
             $table->string('password');
             $table->string('judet');
             $table->string('numar',15)->nullable();

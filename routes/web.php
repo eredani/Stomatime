@@ -61,7 +61,7 @@ Route::post('enabletwoauth', 'HomeController@enableTwoAuth')->name('enabletwoaut
 Route::post('disabletwoauth', 'HomeController@disableTwoAuth')->name('disabletwoauth');
 Route::get('verifyemail/{token}', 'Auth\RegisterController@verify');
 Route::get('vf/{token}', 'Auth\CabinetRegisterController@verify');
-Route::get('home/{s?}', 'HomeController@index')->name('view.cabinete');
+Route::get('home/', 'HomeController@index')->name('view.cabinete');
 Route::get('view/{id}', 'HomeController@view')->name('view.cabs');
 Route::get('view/{id}/servicii', 'HomeController@viewServicii')->name('view.cabs.serv');
 Route::get('view/{id}/medic/{idm}', 'HomeController@viewMedic')->name('view.cabs.medicprofile');
@@ -72,4 +72,5 @@ Route::group(array('prefix' => 'api/', 'before' => 'auth.basic'), function()
 {
     Route::get('cabinete/{option?}','API@getCabinete');
     Route::get('specializari/{id}','API@getSpecializari');
+    Route::get('medic/{id_cab}/{id_medic}','API@getMedic');
 });

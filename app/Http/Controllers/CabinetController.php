@@ -54,8 +54,9 @@ class CabinetController extends Controller
             'id'=>'required|numeric'
     
         ]);
-        $medicexist=Doctori::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->select('id_specializari')->exists();
-        if(!$medicexist)
+        $ex=Doctori::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->select('id_specializari')->exists();
+        $medicexist=Doctori::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->select('id_specializari')->get();
+        if(!$ex)
         {
             return redirect()->back()->with(['error'=>"Medicul nu există."]);
         }
@@ -132,7 +133,7 @@ class CabinetController extends Controller
     
         ]);
         $medicexist=Doctori::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->exists();
-        if(!$medicexist==0)
+        if(!$medicexist)
         {
             return redirect()->back()->with(['error'=>"Medicul nu există."]);
         }
@@ -178,7 +179,7 @@ class CabinetController extends Controller
                 $doctor->save();
                 return redirect()->back()->with('success','Cabinetul a fost sters.');
             }
-            if(count($existsala)==1)
+            if($existsala)
             {
                 $doctor=Doctori::find($req->input('id'));
                 $doctor->id_sala=$req->input('sala');
@@ -292,7 +293,7 @@ class CabinetController extends Controller
        }
        else
        {
-        $exist = Servicii::where('id_cab', '=', Auth::user()->id)->where('denumire',$denumire)->first();
+        $exist = Servicii::where('id_cab', '=', Auth::user()->id)->where('denumire',$denumire)->where('id_specializare',$id)->first();
         if ($exist === null)
         {
         $servicii = new servicii();
@@ -463,7 +464,7 @@ class CabinetController extends Controller
         $validate = $request->validate([
             'lat' => 'required|numeric',
             'long' => 'required|numeric',
-            'numar' => 'numeric',
+            'numar' => 'numeric|required',
             'public' => 'boolean',
         ]);
         $cab = Auth::user();
@@ -473,6 +474,17 @@ class CabinetController extends Controller
         $cab->lat=$request->input('lat');
         $cab->long=$request->input('long');
         $cab->numar=$request->input('numar');
+        if($request->input('tawk')!==null)
+        {
+         
+            if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$request->input('tawk')) && strpos($request->input('tawk'),"https://embed.tawk.to/")!== false) 
+            {
+                $cab->tawk=$request->input('tawk');
+            }
+        }
+        else{
+            $cab->tawk=null;
+        }
         if($request->input('public')!==null)
         {
             $cab->public=$request->input('public');

@@ -21,6 +21,7 @@ class CreateCabineteTable extends Migration
             $table->tinyInteger('public')->default(0);
             $table->string('password');
             $table->string('judet');
+            $table->string('tawk')->nullable();
             $table->string('numar',15)->nullable();
             $table->string('email_token');
             $table->longText('descriere')->nullable();

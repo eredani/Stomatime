@@ -149,7 +149,7 @@ class HomeController extends Controller
         {
             return redirect()->back();
         }
-        $info = Cabinet::where('id',$id)->select('name','id')->first();
+        $info = Cabinet::where('id',$id)->select('name','id','tawk')->first();
         return view('pacient.view')->with(['info'=>$info,'id'=>Auth::user()->id]);
     }
     public function setScore(Request $req)

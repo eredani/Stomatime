@@ -98,7 +98,7 @@
                                             <div class="form-group row">
                                                         <label class="col-lg-3 col-form-label form-control-label">Descriere</label>
                                                         <div class="col-lg-9">
-                                                            <textarea class="form-control" name="descriere" type="textarea" form="setprofile" >{{Auth::user()->descriere}}</textarea>
+                                                            <textarea class="form-control" maxlength="400" name="descriere" type="textarea" form="setprofile" >{{Auth::user()->descriere}}</textarea>
                                                         </div>
                                                     </div>
                                             <form role="form" method="POST" id="setprofile" action="{{route('cabinet.setpublicprofile')}}">
@@ -107,6 +107,12 @@
                                                         <label class="col-lg-3 col-form-label form-control-label">Slogan</label>
                                                         <div class="col-lg-9">
                                                             <input class="form-control" name="slogan" type="text" value="{{Auth::user()->moto}}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-form-label form-control-label">Tawk.to Live Chat</label>
+                                                        <div class="col-lg-9">
+                                                            <input class="form-control" name="tawk" type="text" value="{{Auth::user()->tawk}}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">

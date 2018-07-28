@@ -63568,7 +63568,7 @@ if (document.getElementById('reactview')) {
                     { className: 'row' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'col-lg-3 col-md-4 col-sm-6 d-flex text-center' },
+                        { className: 'col-lg-4 col-md-4 col-sm-6 d-flex text-center' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'our-team-main' },
@@ -63600,7 +63600,7 @@ if (document.getElementById('reactview')) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'col-lg-3 col-md-4 col-sm-6 d-flex text-center' },
+                        { className: 'col-lg-4 col-md-4 col-sm-6 d-flex text-center' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'our-team-main' },
@@ -63615,19 +63615,42 @@ if (document.getElementById('reactview')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'div',
                                     { className: 'card-text cardflow text-center' },
-                                    'Email: ',
-                                    cabinetul.email,
-                                    ' ',
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'h5',
+                                        null,
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'i',
+                                            { className: 'fa' },
+                                            '\uF003'
+                                        ),
+                                        '  ',
+                                        cabinetul.email
+                                    ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
                                     ' ',
-                                    cabinetul.numar !== null ? "Număr:" + cabinetul.numar : ""
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'h5',
+                                        null,
+                                        cabinetul.numar !== null ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'i',
+                                            { className: 'fa' },
+                                            '\uF2A0 ',
+                                            cabinetul.numar
+                                        ) : ""
+                                    )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'p',
+                                    'h5',
                                     { className: 'card-text text-center' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'small',
-                                        { className: 'text-muted' },
+                                        null,
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'i',
+                                            { className: 'fa' },
+                                            '\uF041'
+                                        ),
+                                        ' ',
                                         cabinetul.adresa
                                     )
                                 )
@@ -63636,7 +63659,7 @@ if (document.getElementById('reactview')) {
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'col-lg-3 col-md-4 col-sm-6 d-flex text-center' },
+                        { className: 'col-lg-4 col-md-4 col-sm-6 d-flex text-center' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
                             { className: 'our-team-main' },
@@ -63654,11 +63677,15 @@ if (document.getElementById('reactview')) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'text-center cardflow' },
-                                        'Echipa ',
-                                        cabinetul.name,
-                                        ' este format\u0103 din ',
-                                        cabinetul.countdoctori,
-                                        ' medici cu experien\u021B\u0103 \xEEn diferite specializ\u0103ri.'
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'h5',
+                                            null,
+                                            'Echipa ',
+                                            cabinetul.name,
+                                            ' este format\u0103 din ',
+                                            cabinetul.countdoctori,
+                                            ' medici cu experien\u021B\u0103 \xEEn diferite specializ\u0103ri.'
+                                        )
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'p',
@@ -63666,7 +63693,7 @@ if (document.getElementById('reactview')) {
                                         ' ',
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'small',
-                                            { className: 'text-muted' },
+                                            null,
                                             'Medic eviden\u021Biat \xA0',
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'a',
@@ -63846,6 +63873,30 @@ if (document.getElementById('reactview')) {
                                             null,
                                             doctor.profesie,
                                             ' '
+                                        )
+                                    ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'div',
+                                        { className: 'star' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_star_rating_component___default.a, {
+                                            name: "medic" + doctor.id,
+                                            starCount: 5,
+                                            value: doctor.stele
+                                        }),
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'div',
+                                            { className: 'dv-star-rating', style: { display: 'inline-block', position: 'relative' } },
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                'label',
+                                                { id: 'countstars', className: 'dv-star-rating-star dv-star-rating-empty-star', htmlFor: "medic" + doctor.id },
+                                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                                    'i',
+                                                    { style: { fontStyle: 'normal' } },
+                                                    '(',
+                                                    doctor.voturi,
+                                                    ')'
+                                                )
+                                            )
                                         )
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -64046,6 +64097,7 @@ if (document.getElementById('reactview')) {
                 this.interval = setInterval(function () {
                     return _this12.UpdateData();
                 }, 60000);
+                this.UpdateData();
             }
         }, {
             key: 'componentWillUnmount',
@@ -64053,16 +64105,11 @@ if (document.getElementById('reactview')) {
                 clearInterval(this.interval);
             }
         }, {
-            key: 'componentWillMount',
-            value: function componentWillMount() {
-                this.UpdateData();
-            }
-        }, {
             key: 'render',
             value: function render() {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'container-fluid' },
+                    null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(SectionCards, { updateData: this.UpdateData, cabinet: this.state.cabinet }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(SectionSpecializari, { cabinet: this.state.cabinet }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(SectionPersonal, { cabinet: this.state.cabinet }),
@@ -77734,41 +77781,154 @@ if (document.getElementById('medicreact')) {
     var medicID = window.config.medicID;
     var cabID = window.config.ID;
 
-    var Main = function (_Component) {
-        _inherits(Main, _Component);
+    var Doctor = function (_Component) {
+        _inherits(Doctor, _Component);
+
+        function Doctor(props) {
+            _classCallCheck(this, Doctor);
+
+            var _this = _possibleConstructorReturn(this, (Doctor.__proto__ || Object.getPrototypeOf(Doctor)).call(this, props));
+
+            _this.state = {
+                weeks: ["duminica", "luni", "marti", "miercuri", "joi", "vineri", "sambata"],
+                day: null
+            };
+            _this.curentDate = _this.curentDate.bind(_this);
+            return _this;
+        }
+
+        _createClass(Doctor, [{
+            key: 'curentDate',
+            value: function curentDate() {
+                var date = new Date();
+                var ora = date.getHours();
+                var minute = date.getMinutes();
+                ora = ora % 24;
+                ora = ora ? ora : 0;
+                ora = ora < 10 ? '0' + ora : ora;
+                minute = minute < 10 ? '0' + minute : minute;
+                var time = ora + ':' + minute;
+                return time;
+            }
+        }, {
+            key: 'componentWillMount',
+            value: function componentWillMount() {
+                var date = new Date();
+                var day = this.state.weeks[date.getDay()];
+                this.setState({ day: day });
+            }
+        }, {
+            key: 'render',
+            value: function render() {
+                var _this2 = this;
+
+                var info = this.props.info;
+                var orar = [];
+                var status;
+                this.state.weeks.forEach(function (day, key) {
+                    info.forEach(function (doctor) {
+                        if (doctor.orar !== null) {
+                            if (doctor.orar[day]) {
+                                orar.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'col-lg-6 col-md-4 col-sm-4  text-center', key: key },
+                                    ' ',
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'p',
+                                        { className: 'text-center' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                            'b',
+                                            null,
+                                            day.charAt(0).toUpperCase(),
+                                            day.slice(1),
+                                            ': '
+                                        ),
+                                        doctor.orar[day].start,
+                                        '-',
+                                        doctor.orar[day].stop
+                                    )
+                                ));
+                            }
+                            if (doctor.orar[_this2.state.day]) {
+
+                                if (_this2.curentDate() < doctor.orar[_this2.state.day].stop && _this2.curentDate() > doctor.orar[_this2.state.day].start) {
+                                    status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'span',
+                                        { className: 'badge badge-success' },
+                                        'Disponibil'
+                                    );
+                                } else {
+                                    status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'span',
+                                        { className: 'badge badge-danger' },
+                                        'Indisponibil'
+                                    );
+                                }
+                            } else {
+                                status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'span',
+                                    { className: 'badge badge-danger' },
+                                    'Indisponibil'
+                                );
+                            }
+                        } else {
+                            status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'span',
+                                { className: 'badge badge-danger' },
+                                'Indisponibil'
+                            );
+                        }
+                    });
+                });
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'row' },
+                    status,
+                    orar
+                );
+            }
+        }]);
+
+        return Doctor;
+    }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+    var Main = function (_Component2) {
+        _inherits(Main, _Component2);
 
         function Main(props) {
             _classCallCheck(this, Main);
 
-            var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
+            var _this3 = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
 
-            _this.state = {
+            _this3.state = {
                 medic: []
             };
-            return _this;
+            return _this3;
         }
 
         _createClass(Main, [{
             key: 'componentWillMount',
             value: function componentWillMount() {
-                /*try {
-                    axios.get(`https://stomatime.com/api/medic/`+ cabID+`/`+medicID)
-                        .then(res => {
-                            this.setState({
-                                medic:res.data
-                            });
-                        })
+                var _this4 = this;
+
+                try {
+                    __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('https://stomatime.com/api/medic/' + cabID + '/' + medicID).then(function (res) {
+                        _this4.setState({
+                            medic: res.data
+                        });
+                    });
                 } catch (error) {
                     console.log("Eroare la API");
-                }*/
+                }
             }
         }, {
             key: 'render',
             value: function render() {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h1',
-                    null,
-                    'Aici o sa fie detalii despre doctorul selectat cat si posibilitatea de a face o programare.'
+                    'div',
+                    { className: 'container-fluid' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Doctor, { info: this.state.medic })
                 );
             }
         }]);

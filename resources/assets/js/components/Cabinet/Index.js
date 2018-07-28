@@ -22,7 +22,6 @@ if(document.getElementById('reactview'))
             var date = new Date();
             var day = this.state.weeks[date.getDay()];
             this.setState({day:day});
-        
         }
         curentDate() {
             var date = new Date();
@@ -106,7 +105,7 @@ if(document.getElementById('reactview'))
         });
             return(
             <div className="row">
-            <div  className="col-lg-3 col-md-4 col-sm-6 d-flex text-center">
+            <div  className="col-lg-4 col-md-4 col-sm-6 d-flex text-center">
                     <div className="our-team-main">
 
                     <div className="team-front">
@@ -126,18 +125,18 @@ if(document.getElementById('reactview'))
                     </div>
                 </div>
                         
-                        <div  className="col-lg-3 col-md-4 col-sm-6 d-flex text-center">
+                        <div  className="col-lg-4 col-md-4 col-sm-6 d-flex text-center">
                         <div className="our-team-main">
         
                         <div className="team-front"> 
                         <h2>Contact</h2>
-                        <div className="card-text cardflow text-center">Email: {cabinetul.email} <br/> {cabinetul.numar!==null ? "Număr:" + cabinetul.numar : ""}</div>
-                            <p className="card-text text-center"><small className="text-muted">{cabinetul.adresa}</small></p>
+                        <div className="card-text cardflow text-center"><h5><i className="fa">&#xf003;</i>  {cabinetul.email}</h5><br/> <h5>{cabinetul.numar!==null ?  <i  className="fa">&#xf2a0; {cabinetul.numar}</i> : ""}</h5></div>
+                            <h5 className="card-text text-center"><small ><i className="fa">&#xf041;</i> {cabinetul.adresa}</small></h5>
                         
                         </div>
                     </div>
                     </div>
-                    <div  className="col-lg-3 col-md-4 col-sm-6 d-flex text-center">
+                    <div  className="col-lg-4 col-md-4 col-sm-6 d-flex text-center">
                         <div className="our-team-main">
         
                         <div className="team-front">
@@ -146,9 +145,9 @@ if(document.getElementById('reactview'))
                         medicrandom!==null
                         ?
                         <div>
-                            <div className="text-center cardflow">Echipa {cabinetul.name} este formată din {cabinetul.countdoctori} medici cu experiență în diferite specializări.</div>
+                            <div className="text-center cardflow"><h5>Echipa {cabinetul.name} este formată din {cabinetul.countdoctori} medici cu experiență în diferite specializări.</h5></div>
 
-                    <p className = " text-center" > <small className="text-muted">Medic evidențiat &nbsp;
+                    <p className = " text-center" > <small>Medic evidențiat &nbsp;
                     <a href={"https://stomatime.com/view/"+window.config.ID+"/medic/"+medicrandom.id}>
                         {medicrandom.nume} {medicrandom.prenume}
                     </a>
@@ -171,8 +170,6 @@ if(document.getElementById('reactview'))
 
         }
         render(){
-
-
 
             return(
 
@@ -244,7 +241,17 @@ if(document.getElementById('reactview'))
                         <a href={"https://stomatime.com/view/"+window.config.ID+"/medic/"+doctor.id}><h3>{doctor.nume} {doctor.prenume}</h3></a>
                     <p>{doctor.profesie} </p>
                     </div>
+                    <div className="star">
+                        <StarRatingComponent
+                        name={"medic"+doctor.id}
+                        starCount={5} 
+                        value={doctor.stele}
+                        />
 
+                    <div className="dv-star-rating" style={{display: 'inline-block', position: 'relative'}}>
+                        <label id="countstars" className="dv-star-rating-star dv-star-rating-empty-star" htmlFor={"medic"+doctor.id}><i style={{fontStyle: 'normal'}}>({doctor.voturi})</i></label>
+                    </div>
+                    </div>
                     <div className="team-back">
                         <div className="cardmedicflow">
                         <p className="text-center"><a href={"https://stomatime.com/view/"+window.config.ID+"/medic/"+doctor.id}>
@@ -352,18 +359,15 @@ if(document.getElementById('reactview'))
         }
         componentDidMount(){
             this.interval = setInterval(() => this.UpdateData(), 60000);
+               this.UpdateData();
         }
         componentWillUnmount() {
             clearInterval(this.interval);
         }
-        componentWillMount()
-        {
-            this.UpdateData();
-        }
         render()
     {
         return(
-            <div className="container-fluid">
+            <div>
             <SectionCards updateData={this.UpdateData} cabinet={this.state.cabinet}/>
             <SectionSpecializari cabinet={this.state.cabinet}/>
             <SectionPersonal cabinet={this.state.cabinet}/>

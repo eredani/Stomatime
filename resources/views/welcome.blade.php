@@ -3,7 +3,7 @@
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85363773-2"></script>
-    <script>
+    <script async>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -55,11 +55,11 @@
                                 <strong>Cabinete</strong>
                                 <br>
                                 <a href="{{url('cabinet/login')}}">
-                                    <span>Login</span>
+                                    <span>Logare</span>
                                 </a>
                                 <span> | </span>
                                 <a href="{{url('cabinet/register')}}">
-                                    <span>Register</span>
+                                    <span>Înregistrare</span>
                                 </a>
                             </li>
                             @else
@@ -121,10 +121,10 @@
                     <ul class="navbar-nav ml-auto">
                         @if (!Auth::guard('admin')->user() && !Auth::guard('web')->user())
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Logare') }}</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Înregistrare') }}</a>
                         </li>
                         @else
 
@@ -150,6 +150,18 @@
     
     <script defer src="https://stomatime.com/plugins/slick/slick.min.js"></script>
     <script  defer src="https://stomatime.com/js/script.js"></script>
-    
+    <!--Start of Tawk.to Script-->
+<script async type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5ad1d6add7591465c709800f/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
    </body>
 </html>

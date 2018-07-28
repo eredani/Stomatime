@@ -9,6 +9,7 @@
         "albertcht/invisible-recaptcha": "^1.8",
         "approached/laravel-image-optimizer": "^2.3",
         "bacon/bacon-qr-code": "1.0.3",
+        "doctrine/dbal": "^2.8",
         "fabpot/goutte": "^3.2",
         "fideloper/proxy": "^4.0",
         "helori/laravel-seo": "dev-master",

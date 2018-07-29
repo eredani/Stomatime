@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
    <head>
-   <script>
+   <script async>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -13,6 +13,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- CSRF Token -->
       <meta name="csrf-token" content="{{ csrf_token() }}">
+      <link href="{{ mix('css/app.css') }}" rel="stylesheet">  
       @include('layouts.script')
       <title>{{ config('app.name', 'StomaTime Cabinet') }}</title>
       <style>
@@ -207,5 +208,6 @@
             </main>
          </div>
       </div>
+      <script async type="text/javascript" src="{{ asset('js/app.js') }}"></script>
    </body>
 </html>

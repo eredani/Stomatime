@@ -68,6 +68,9 @@
                                 <a class="nav-link" href="/home">Acasă</a>
                         </li>
                         <li>
+                                <a class="nav-link" href="{{ route('programari') }}">Programări</a>
+                        </li>
+                        <li>
                                 <a class="nav-link" href="{{ route('setting') }}">Setări</a>
                         </li>
                         @endguest

@@ -18,10 +18,12 @@ class CreateProgramariTable extends Migration
             $table->integer('id_cab');
             $table->integer('id_doctor');
             $table->integer('id_client');
-            $table->integer('id_sala');
-            $table->integer('id_servicu');
-            $table->integer('status'); //acceptat - neacceptat
-            $table->dateTime('data');
+            $table->integer('numar');
+            $table->integer('status')->default(0); // 1 acceptat - 0 neacceptat
+            $table->date('data');
+            $table->time('ora');
+            $table->integer('code');
+            $table->tinyInteger('confirmat')->default(0);
             $table->timestamps();
         });
     }

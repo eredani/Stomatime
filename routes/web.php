@@ -49,28 +49,34 @@ Route::prefix('cabinet')->group(function()
   Route::post('/medicaddspeci', 'CabinetController@medicAddSpeci')->name('cabinet.medic.addspeci');
   
   Route::post('/mediceditprogram', 'CabinetController@medicEditProgram')->name('cabinet.medic.edit.program');
+  Route::get('programari/', 'CabinetController@programari')->name('programari');
 });
 Route::prefix('/')->group(function() 
 {
-Route::post('2fa', function () {return redirect('/home');})->name('2fa')->middleware('2fa');
-Route::get('setting', 'HomeController@setting')->name('setting');
-Route::post('users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
-Route::post('setprofile', 'HomeController@setProfile')->name('setprofile');
-Route::post('editprofile', 'HomeController@editProfile')->name('editprofile');
-Route::post('enabletwoauth', 'HomeController@enableTwoAuth')->name('enabletwoauth');
-Route::post('disabletwoauth', 'HomeController@disableTwoAuth')->name('disabletwoauth');
-Route::get('verifyemail/{token}', 'Auth\RegisterController@verify');
-Route::get('vf/{token}', 'Auth\CabinetRegisterController@verify');
-Route::get('home/', 'HomeController@index')->name('view.cabinete');
-Route::get('view/{id}', 'HomeController@view')->name('view.cabs');
-Route::get('view/{id}/servicii', 'HomeController@viewServicii')->name('view.cabs.serv');
-Route::get('view/{id}/medic/{idm}', 'HomeController@viewMedic')->name('view.cabs.medicprofile');
-Route::post('users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
-Route::post('sendscore', 'HomeController@setScore')->name('user.setScore');
+  Route::post('2fa', function () {return redirect('/home');})->name('2fa')->middleware('2fa');
+  Route::get('setting', 'HomeController@setting')->name('setting');
+  Route::post('users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+  Route::post('setprofile', 'HomeController@setProfile')->name('setprofile');
+  Route::post('editprofile', 'HomeController@editProfile')->name('editprofile');
+  Route::post('enabletwoauth', 'HomeController@enableTwoAuth')->name('enabletwoauth');
+  Route::post('disabletwoauth', 'HomeController@disableTwoAuth')->name('disabletwoauth');
+  Route::get('verifyemail/{token}', 'Auth\RegisterController@verify');
+  Route::get('vf/{token}', 'Auth\CabinetRegisterController@verify');
+  Route::get('home/', 'HomeController@index')->name('view.cabinete');
+  Route::get('programari/{me?}', 'HomeController@programari')->name('programari');
+  Route::get('view/{id}', 'HomeController@view')->name('view.cabs');
+  Route::get('view/{id}/servicii', 'HomeController@viewServicii')->name('view.cabs.serv');
+  Route::get('view/{id}/medic/{idm}', 'HomeController@viewMedic')->name('view.cabs.medicprofile');
+  Route::post('users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+  Route::post('sendscore', 'HomeController@setScore')->name('user.setScore');
+  Route::post('sendscoremedic', 'HomeController@setScoreMedic')->name('user.setScoreMedic');
+  Route::post('programare', 'HomeController@programare');
+  Route::post('program','HomeController@getProgram');
 });
 Route::group(array('prefix' => 'api/', 'before' => 'auth.basic'), function()
 {
     Route::get('cabinete/{option?}','API@getCabinete');
     Route::get('specializari/{id}','API@getSpecializari');
     Route::get('medic/{id_cab}/{id_medic}','API@getMedic');
+    
 });

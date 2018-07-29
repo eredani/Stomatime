@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Pusher\Laravel\Facades\Pusher;
+use Pusher;
 use Auth;
 use Storage;
 use File;
@@ -12,15 +12,137 @@ use App\Specializari;
 use App\Servicii;
 use App\Doctori;
 use App\StarsCabs;
+use App\StarsMedic;
+use App\Programari;
 use App\Jobs\SendVerificationEmail;
 use Illuminate\Support\Facades\Hash;
 use DB;
-use MaddHatter\LaravelFullcalendar\Facades\Calendar;
+use Nexmo\Laravel\Facade\Nexmo;
 class HomeController extends Controller
 {
     public function __construct()
     {
         $this->middleware(['auth','IsVerified','2fa']);
+    }
+    private function Pushers($data,$channel,$event)
+    {
+        $options = array(
+            'cluster' => 'eu',
+            'encrypted' => true
+          );
+          $pusher = new Pusher\Pusher(
+            '3b97862bc0344790efbc',
+            'd76342a729886596b842',
+            '507832',
+            $options
+          );
+        
+          $pusher->trigger($channel, $event, $data);
+    }
+    public function programari($me=null)
+    {
+        if($me!==null)
+        {
+            $azi = date("Y-m-d");  
+            $program = Programari::select(['id','id_cab','id_doctor','numar','data','ora','status','confirmat'])->where('id_client',Auth::user()->id)->where('data','>=',$azi)->get();
+            foreach($program as $key=>$programare)
+            {
+                $medicdata = Doctori::where('id',$programare->id_doctor)->where('id_cab',$programare->id_cab)->first();
+                $cabinetdata = Cabinet::where('id',$programare->id_cab)->first();
+                $program[$key]['medic']=$medicdata->nume ." ". $medicdata->prenume;
+                $program[$key]['cabinet']=$cabinetdata->name;
+                $program[$key]['numar']="40".$programare->numar;
+            }
+            return  $program;
+        }
+        return view('pacient.programari')->with(['id'=>Auth::user()->id]);
+    }
+    public function getProgram(Request $req)
+    {
+        $id_medic=$req->input('id_medic');
+        $id_cab=$req->input('id_cab');
+        $date=$req->input('data');
+        if(Auth::guard('web')->check() &&  Cabinet::where('id',$id_cab)->exists() && Doctori::where('id',$id_medic)->where('id_cab',$id_cab)->exists())
+        {
+            $dt=strtotime($date);
+            if(Programari::where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('data',date('Y-m-d',$dt))->exists())
+            {
+              
+                $oreocupate = Programari::select('ora')->where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('data',date('Y-m-d',$dt))->get();
+          
+                return $oreocupate;
+            }
+            else
+            {
+               
+                return null;
+            }
+        }
+        else
+        {
+            $msg['status']="fail";
+            $msg['msg']="Ceva este gresit.";
+            return $msg;
+        }
+    }
+    public function programare(Request $req)
+    {
+        $id_cab=$req->input('id_cab');
+        $id_medic=$req->input('id_medic');
+        $data=$req->input('data');
+        $ora=$req->input('ora');
+        $nr=$req->input('nr');
+        if(Doctori::where('id',$id_medic)->where('id_cab',$id_cab)->exists())
+        { 
+            if(Programari::where('id_client',Auth::user()->id)->where('confirmat',0)->exists())
+            {
+                $msg['status']="fail";
+                $msg['msg']="Se pare ca ai o programare ne confirmată. Confirmă sau anulează programarea din contul tau înainte să faci alta.";
+                return $msg;
+            }
+            else
+            {
+                if(strlen ($nr)==10)
+                {
+                    $cabinet = Cabinet::select(['name'])->where('id',$id_cab)->first();
+                    $dt=strtotime($data);
+                    $code=rand(1000,9999);
+                    $programare = new Programari;
+                    $programare->id_cab=$id_cab;
+                    $programare->id_doctor=$id_medic;
+                    $programare->id_client=Auth::user()->id;
+                    $programare->data=date('Y-m-d',$dt);
+                    $programare->ora=$ora;
+                    $programare->numar=$nr;
+                    $programare->code=$code;
+                    $programare->save();
+                    $push['msg']=Auth::user()->name  ." a facut o programare.";
+                    $this->Pushers($push,(string)('programare'.$id_cab),(string)'new');
+                    $nrsend = "4".$nr;
+                    $msgmobile = $code." este codul pentru confirmarea programarii din data de " .date('Y-m-d',$dt). " ora ".$ora. " pentru ".$cabinet->name;
+                    Nexmo::message()->send([
+                        'to'   => $nrsend,
+                        'from' => 'Stomatime',
+                        'text' => $msgmobile
+                    ]);
+                    $msg['status']="success";
+                    $msg['msg']="Programarea a fost înregistrată, te rugăm să o confirmi prin adresa de email.";
+                    return $msg;
+                }
+                else
+                {
+                    $msg['status']="fail";
+                    $msg['msg']="Numărul nu este valid.";
+                    return $msg;
+                }
+            }
+        }
+        else
+        {
+            $msg['status']="fail";
+            $msg['msg']="Medicul nu există.";
+            return $msg;
+        }
     }
     public function viewServicii($id)
     {
@@ -137,7 +259,7 @@ class HomeController extends Controller
         $user->save();
         return redirect()->back();
     }
-    public function index($s = null)
+    public function index()
     {  
         return view('home');
     }
@@ -179,6 +301,57 @@ class HomeController extends Controller
                     $star = new StarsCabs;
                     $star->id_client=Auth::user()->id;
                     $star->id_cab=$idCab;
+                    $star->scor=$scor;
+                    $star->save();
+                    $msg['status']="success";
+                    $msg['msg']="Scorul a fost înregistrat!";
+                    return $msg;
+                }
+            }
+            else
+                {
+                    $msg['status']="fail";
+                    $msg['msg']="Cabinetul nu există!";
+                    return  $msg;
+            }
+        }
+        else
+        {
+            $msg['status']="fail";
+            $msg['msg']="Scorul nu este bun!";
+            return  $msg;
+        }
+
+    }
+    public function setScoreMedic(Request $req)
+    {
+        $scor = $req->input('score');
+        $idMedic = $req->input('medic');
+        $idCab = $req->input('cabinet');
+        if($scor>0 && $scor<6)
+        {
+            if(Cabinet::where('id',$idCab)->exists())
+            {
+                if (StarsMedic::where('id_cab', $idCab)->where('id_client', Auth::user()->id)->where('id_medic',$idMedic)->exists())
+                {
+                    $last_date=StarsMedic::where('id_cab', $idCab)->where('id_client', Auth::user()->id)->where('id_medic',$idMedic)->first();
+                    $time = time();
+                    if(abs($time- strtotime($last_date->updated_at)) > 100)
+                    {
+                        StarsMedic::where('id_cab', $idCab)->where('id_client', Auth::user()->id)->where('id_medic',$idMedic)->update(['scor' => $scor]);
+                        $msg['status']="success";
+                        $msg['msg']="Scorul a fost modificat!";
+                        return $msg;
+                    }
+                    $msg['status']="fail";
+                    $msg['msg']="Mai asteaptă!";
+                    return $msg;
+
+                } else {
+                    $star = new StarsMedic;
+                    $star->id_client=Auth::user()->id;
+                    $star->id_cab=$idCab;
+                    $star->id_medic=$idMedic;
                     $star->scor=$scor;
                     $star->save();
                     $msg['status']="success";

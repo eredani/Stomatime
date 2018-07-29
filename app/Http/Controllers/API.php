@@ -10,6 +10,7 @@ use App\Specializari;
 use App\Servicii;
 use App\StarsCabs;
 use App\StarsMedic;
+use App\Programari;
 use DB;
 use Auth;
 class API extends Controller
@@ -193,14 +194,18 @@ class API extends Controller
             $exists = Doctori::where('id_cab',$id_cab)->where('id',$id_medic)->exists();
             if($exists)
             {
+           
               $doctor = Doctori::where('id_cab',$id_cab)->where('id',$id_medic)->get();
+                
               foreach($doctor as $index=>$det)
               {
                   $doctor[$index]['orar']= json_decode($det->orar,true);
+                  $doctor[$index]["sala"]=Sali::where('id_cab',$id_cab)->where("id",$det->id_sala)->get();
                   $scor=0;
-                  if(StarsMedic::where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('id_client',Auth::user()->id)->exists())
+                  if(StarsMedic::where('id_cab',$id_cab)->where('id_medic',$id_medic)->where('id_client',Auth::user()->id)->exists())
                     {
-                        $scor=StarsMedic::where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('id_client',Auth::user()->id)->get();
+                        $scor=StarsMedic::where('id_cab',$id_cab)->where('id_medic',$id_medic)->where('id_client',Auth::user()->id)->get();
+                        $scor=$scor[0]->scor;
                     }
                     $doctor[$index]["scor"]= $scor;
                   if(count(json_decode($det->id_specializari))>0)
@@ -231,5 +236,5 @@ class API extends Controller
             return redirect()->back();
         }
     }
-
+    
 }

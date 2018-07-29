@@ -10,7 +10,9 @@ use App\Sali;
 use App\Specializari;
 use App\Servicii;
 use App\Doctori;
-
+use App\User;
+use App\Cabinet;
+use App\Programari;
 use App\Jobs\SendCabineteEmail;
 use Illuminate\Support\Facades\Hash;
 class CabinetController extends Controller
@@ -29,6 +31,22 @@ class CabinetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function programari()
+    {
+            $azi = date("Y-m-d");  
+            $program = Programari::select(['id','id_cab','id_doctor','id_client','numar','data','ora','status','confirmat'])->where('id_cab',Auth::user()->id)->where('data','>=',$azi)->get();
+            foreach($program as $key=>$programare)
+            {
+                $medicdata = Doctori::where('id',$programare->id_doctor)->where('id_cab',$programare->id_cab)->first();
+                $pacientdata = User::where('id',$programare->id_client)->first();
+                $cabinetdata = Cabinet::where('id',$programare->id_cab)->first();
+                $program[$key]['medic']=$medicdata->nume ." ". $medicdata->prenume;
+                $program[$key]['pacient']=$pacientdata->name;
+                $program[$key]['cabinet']=$cabinetdata->name;
+                $program[$key]['numar']="40".$programare->numar;
+            }
+            return  $program;
+    }
     public function medicEditProgram(Request $req)
     {
         session(['active' => 'doctor']);
@@ -374,12 +392,9 @@ class CabinetController extends Controller
     }
     public function index()
     {
-        /*Nexmo::message()->send([
-            'to'   => '40725912720',
-            'from' => 'Stomatime',
-            'text' => 'Pentru confirmarea programarii foloseste codul: 6611512'
-        ]);*/
-        return view('cabinet');
+
+        $info = Cabinet::where('id',Auth::user()->id)->select('id','name')->first();
+        return view('cabinet')->with(['info'=>$info]);
     }
     public function setting()
     {

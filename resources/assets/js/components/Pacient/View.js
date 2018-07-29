@@ -86,8 +86,8 @@ class SearchBar extends Component {
         </section>
       );
     }
-  }
-class Cabinete extends Component{
+}
+class Cabinete extends Component {
 
     render()
     {
@@ -116,7 +116,7 @@ class Cabinete extends Component{
     }
 
 }
-class Cards extends Component{
+class Cards extends Component {
     render()
     {
         const cabinet = this.props.cabinet;
@@ -188,7 +188,6 @@ class Main extends Component {
             judet: judet
         });
       }
-
     render() {
       return (
         <div  className="container-fluid">
@@ -210,7 +209,7 @@ class Main extends Component {
         </div>
       );
     }
-  }
+}
 ReactDOM.render(<Main/>, document.getElementById('home'));
 }
 

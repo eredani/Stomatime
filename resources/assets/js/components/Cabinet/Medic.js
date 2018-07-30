@@ -242,7 +242,9 @@ if(document.getElementById('medicreact'))
                             }
                         });
                     }
+               
                     orar.push(<div className="col-lg-6 col-md-4 col-sm-4  text-center" key={key}> <p className="text-center"><b>{day.charAt(0).toUpperCase()}{day.slice(1)}: </b>{doctor.orar[day].start}-{doctor.orar[day].stop}</p></div>)
+                    
                 }
                 else
                 {

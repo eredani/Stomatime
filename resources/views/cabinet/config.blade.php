@@ -1,5 +1,6 @@
 @extends('layouts.cabinet')
 @section('content')
+@include('layouts.script')
 <ul class="nav nav-tabs">
    <li class="nav-item">
       <a href="" data-target="#specializari" data-toggle="tab" class="nav-link @if($active=='specializari') active @endif">Servicii</a>

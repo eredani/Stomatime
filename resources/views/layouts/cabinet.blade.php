@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
    <head>
-   <script async>
+   <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -14,7 +14,6 @@
       <!-- CSRF Token -->
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <link href="{{ mix('css/app.css') }}" rel="stylesheet">  
-      @include('layouts.script')
       <title>{{ config('app.name', 'StomaTime Cabinet') }}</title>
       <style>
          .switch {

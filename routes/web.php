@@ -50,6 +50,7 @@ Route::prefix('cabinet')->group(function()
   
   Route::post('/mediceditprogram', 'CabinetController@medicEditProgram')->name('cabinet.medic.edit.program');
   Route::get('programari/', 'CabinetController@programari')->name('programari');
+  Route::post('confirmare','CabinetController@confirmare');
 });
 Route::prefix('/')->group(function() 
 {
@@ -72,6 +73,8 @@ Route::prefix('/')->group(function()
   Route::post('sendscoremedic', 'HomeController@setScoreMedic')->name('user.setScoreMedic');
   Route::post('programare', 'HomeController@programare');
   Route::post('program','HomeController@getProgram');
+  Route::post('confirmare','HomeController@confirmare');
+  Route::post('cancel','HomeController@cancel');
 });
 Route::group(array('prefix' => 'api/', 'before' => 'auth.basic'), function()
 {

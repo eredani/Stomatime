@@ -20,17 +20,57 @@ if(document.getElementById('medicreact'))
                 time:["05:00","05:30","06:00","06:30","07:00","07:30","08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30","22:00","22:30"],
                 day:null,
                 ora:'',
+                confirm:false,
                 numar:'',
+                code:'',
                 selectedDay: null,
                 DaySelected: null
 
             };
             this.setNumar = this.setNumar.bind(this);
+            this.setCode = this.setCode.bind(this);
             this.sendProgramare = this.sendProgramare.bind(this);
             this.handleDayClick = this.handleDayClick.bind(this);
             this.curentDate=this.curentDate.bind(this);
             this.setProgramare=this.setProgramare.bind(this);
+            this.sendConfirm=this.sendConfirm.bind(this);
+            
         } 
+        sendConfirm()
+        {
+            if(this.state.code!=='')
+            {
+                axios.post(`https://stomatime.com/confirmare`,
+                { 
+                cod: this.state.code,
+                id_medic: medicID,
+                id_cab: cabID,
+                csrfToken: Token 
+                }
+                )
+                .then(res => {
+                    switch (res.data.status) {
+                        case 'fail': {
+                            NotificationManager.error('Error', res.data.msg, 3000);
+                            break;
+                        }
+                        case 'success': {
+                            NotificationManager.success('Success', res.data.msg, 3000);
+                            this.setState({code:'',confirm:false});
+                            this.forceUpdate();
+                            break;
+                        }
+                    }
+                })
+            }
+            else{
+                
+                NotificationManager.error('Error', "Codul nu este bun.", 3000);
+            }
+        }
+        setCode(e){
+            this.setState({code:e.target.value});
+        }
         sendProgramare()
         {
             if(this.state.ora!=='' && this.state.numar!=='' && this.state.selectedDay!==null)
@@ -66,8 +106,8 @@ if(document.getElementById('medicreact'))
                                   id_medic: medicID,
                                   id_cab: cabID,
                                   csrfToken: Token 
-                              }
-                              )
+                                }
+                                )
                                 .then(res => {
                                     switch (res.data.status) {
                                         case 'fail': {
@@ -87,6 +127,7 @@ if(document.getElementById('medicreact'))
                                         }
                                     }
                                 })
+                                this.setState({confirm:true});
                                 this.forceUpdate();
                                 break;
                             }
@@ -350,6 +391,15 @@ if(document.getElementById('medicreact'))
                                 <input type="number" className="form-control" id="nr" onChange={this.setNumar} value={this.state.numar} aria-describedby="numar" placeholder="Număr de telefon" required/>
                             </div>
                             <button type="submit" onClick={this.sendProgramare} className="btn btn-primary">Programează-te</button>
+                    <br/>
+                    {this.state.confirm==true &&
+                    <div>
+                    <div className="form-group">
+                                <label htmlFor="cod">Cod de confirmare</label>
+                                <input type="number" className="form-control" id="cod" onChange={this.setCode} value={this.state.cod} aria-describedby="cod" placeholder="Cod de confirmare" required/>
+                     </div>
+                            <button type="submit" onClick={this.sendConfirm} className="btn btn-primary">Confirmă</button>
+                   </div> }
                     </div>
                 </div>
                 }

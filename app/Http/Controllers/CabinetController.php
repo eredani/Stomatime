@@ -31,6 +31,23 @@ class CabinetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function confirmare(Request $req)
+    {
+        $id_medic=$req->input('id_medic');
+        $id_client=$req->input('id_client');
+        $id=$req->input('id');
+        if(Programari::where('id',$id)->where('id_cab',Auth::user()->id)->where('status',0)->where('id_doctor',$id_medic)->where('id_client',$id_client)->exists())
+        {
+            Programari::where('id',$id)->where('id_cab',Auth::user()->id)->where('status',0)->where('id_doctor',$id_medic)->where('id_client',$id_client)->update(['status'=>1]);
+            $msg['status']="success";
+            $msg['msg']="Programarea a fost confirmată";
+            return $msg;
+        }
+        $msg['status']="fail";
+        $msg['msg']="Codul nu este bun";
+        return $msg;
+
+    }
     public function programari()
     {
             $azi = date("Y-m-d");  

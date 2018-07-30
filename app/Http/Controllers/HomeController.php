@@ -24,6 +24,41 @@ class HomeController extends Controller
     {
         $this->middleware(['auth','IsVerified','2fa']);
     }
+    public function cancel(Request $req)
+    {
+        
+        $id_medic=$req->input('id_medic');
+        $id_cab=$req->input('id_cab');
+        $id=$req->input('id');
+        if(Programari::where('id',$id)->where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->exists())
+        {
+            Programari::where('id',$id)->where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->update(['status'=>2]);
+            $msg['status']="success";
+            $msg['msg']="Programarea a fost anulată";
+            return $msg;
+        }
+        $msg['status']="fail";
+        $msg['msg']="Ceva nu a mers bine";
+        return $msg;
+    }
+    public function confirmare(Request $req)
+    {
+        $cod=$req->input('cod');
+        $id_medic=$req->input('id_medic');
+        $id_cab=$req->input('id_cab');
+        $id=$req->input('id');
+        if(Programari::where('id',$id)->where('id_cab',$id_cab)->where('confirmat',0)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->where('code',$cod)->exists())
+        {
+            Programari::where('id',$id)->where('id_cab',$id_cab)->where('confirmat',0)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->where('code',$cod)->update(['confirmat'=>1]);
+            $msg['status']="success";
+            $msg['msg']="Programarea a fost confirmată";
+            return $msg;
+        }
+        $msg['status']="fail";
+        $msg['msg']="Codul nu este bun";
+        return $msg;
+
+    }
     private function Pushers($data,$channel,$event)
     {
         $options = array(

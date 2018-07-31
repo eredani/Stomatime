@@ -57,7 +57,7 @@ if(document.getElementById('cabviewprog'))
                         <button type="button" className="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div className="modal-body">   
-                    {(data.status==0 || data.status==2) && data.confirmat==1 &&
+                    {data.status==0 && data.confirmat==1 &&
                             <div>
                         <p>Pentru a confirma programarea apasa pe butonul de mai jos</p>
                          <button type="submit" id={"conf"+data.id} onClick={this.confProg.bind(this,data.id_doctor,data.id_client,data.id)} className="btn btn-info">Confirmă</button>
@@ -85,8 +85,8 @@ if(document.getElementById('cabviewprog'))
                     <td>+{prog.numar}</td>
                     <td>{prog.data}</td>
                     <td>{prog.ora}</td>
-                    <td>{prog.status==0 ? <span className="badge badge-info">Asteptare</span> : <span className="badge badge-success">Acceptat</span>}</td>
-                    <td>{prog.confirmat==0 ? <span className="badge badge-info">Neconfirmat</span> : <span className="badge badge-success">Confirmat</span>}</td>
+                    <td>{prog.status==0 ? <span className="badge badge-info">Asteptare</span> : prog.status==2 ? <span className="badge badge-danger">Anulat</span> :<span className="badge badge-success">Acceptat</span> }</td>
+                   <td>{prog.confirmat==0 ? <span className="badge badge-info">Neconfirmat</span> : <span className="badge badge-success">Confirmat</span>}</td>
                     <td><Modal update={this.props.update} data={prog}/></td>
                     </tr>
             );

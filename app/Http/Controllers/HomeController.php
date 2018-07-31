@@ -129,7 +129,7 @@ class HomeController extends Controller
         $nr=$req->input('nr');
         if(Doctori::where('id',$id_medic)->where('id_cab',$id_cab)->exists())
         { 
-            if(Programari::where('id_client',Auth::user()->id)->where('confirmat',0)->exists())
+            if(Programari::where('id_client',Auth::user()->id)->where('confirmat',0)->where('status','!=',2)->exists())
             {
                 $msg['status']="fail";
                 $msg['msg']="Se pare ca ai o programare ne confirmată. Confirmă sau anulează programarea din contul tau înainte să faci alta.";
@@ -139,9 +139,19 @@ class HomeController extends Controller
             {
                 if(strlen ($nr)==10)
                 {
-                    $cabinet = Cabinet::select(['name'])->where('id',$id_cab)->first();
-                    $dt=strtotime($data);
                     $code=rand(1000,9999);
+                    $nrsend = "4".$nr;
+                    $dt=strtotime($data);
+                    $cabinet = Cabinet::select(['name'])->where('id',$id_cab)->first();
+                
+                    $msgmobile = $code." este codul pentru confirmarea programarii din data de " .date('Y-m-d',$dt). " ora ".$ora. " pentru ".$cabinet->name;
+
+                   
+                     Nexmo::message()->send([
+                         'to'   => $nrsend,
+                         'from' => 'Stomatime',
+                         'text' => $msgmobile
+                     ]);
                     $programare = new Programari;
                     $programare->id_cab=$id_cab;
                     $programare->id_doctor=$id_medic;
@@ -152,15 +162,9 @@ class HomeController extends Controller
                     $programare->code=$code;
                     $programare->save();
                     $push['msg']=Auth::user()->name  ." a facut o programare.";
-                    $this->Pushers($push,(string)('programare'.$id_cab),(string)'new');
-                    $nrsend = "4".$nr;
-                    $msgmobile = $code." este codul pentru confirmarea programarii din data de " .date('Y-m-d',$dt). " ora ".$ora. " pentru ".$cabinet->name;
-                    Nexmo::message()->send([
-                        'to'   => $nrsend,
-                        'from' => 'Stomatime',
-                        'text' => $msgmobile
-                    ]);
+                    $this->Pushers($push,(string)('programare'.$id_cab),(string)'new');                   
                     $msg['status']="success";
+                    $msg['id']=$programare->id;
                     $msg['msg']="Programarea a fost înregistrată, te rugăm să o confirmi prin adresa de email.";
                     return $msg;
                 }

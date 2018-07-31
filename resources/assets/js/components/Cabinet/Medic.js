@@ -43,6 +43,7 @@ if(document.getElementById('medicreact'))
                 axios.post(`https://stomatime.com/confirmare`,
                 { 
                 cod: this.state.code,
+                id: this.idprogramare,
                 id_medic: medicID,
                 id_cab: cabID,
                 csrfToken: Token 
@@ -127,6 +128,7 @@ if(document.getElementById('medicreact'))
                                         }
                                     }
                                 })
+                                this.idprogramare=res.data.id;
                                 this.setState({confirm:true});
                                 this.forceUpdate();
                                 break;

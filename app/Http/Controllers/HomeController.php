@@ -30,9 +30,9 @@ class HomeController extends Controller
         $id_medic=$req->input('id_medic');
         $id_cab=$req->input('id_cab');
         $id=$req->input('id');
-        if(Programari::where('id',$id)->where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->exists())
+        if(DB::connection('stomatime_'.$id_cab)->table('programari')->where('id',$id)->where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->exists())
         {
-            Programari::where('id',$id)->where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->update(['status'=>2]);
+            DB::connection('stomatime_'.$id_cab)->table('programari')->where('id',$id)->where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->update(['status'=>2]);
             $msg['status']="success";
             $msg['msg']="Programarea a fost anulată";
             return $msg;
@@ -47,9 +47,9 @@ class HomeController extends Controller
         $id_medic=$req->input('id_medic');
         $id_cab=$req->input('id_cab');
         $id=$req->input('id');
-        if(Programari::where('id',$id)->where('id_cab',$id_cab)->where('confirmat',0)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->where('code',$cod)->exists())
+        if(DB::connection('stomatime_'.$id_cab)->table('programari')->where('id',$id)->where('id_cab',$id_cab)->where('confirmat',0)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->where('code',$cod)->exists())
         {
-            Programari::where('id',$id)->where('id_cab',$id_cab)->where('confirmat',0)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->where('code',$cod)->update(['confirmat'=>1]);
+            DB::connection('stomatime_'.$id_cab)->table('programari')->where('id',$id)->where('id_cab',$id_cab)->where('confirmat',0)->where('id_doctor',$id_medic)->where('id_client',Auth::user()->id)->where('code',$cod)->update(['confirmat'=>1]);
             $msg['status']="success";
             $msg['msg']="Programarea a fost confirmată";
             return $msg;
@@ -66,9 +66,9 @@ class HomeController extends Controller
             'encrypted' => true
           );
           $pusher = new Pusher\Pusher(
-            '3b97862bc0344790efbc',
-            'd76342a729886596b842',
-            '507832',
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
             $options
           );
         
@@ -79,14 +79,14 @@ class HomeController extends Controller
         if($me!==null)
         {
             $azi = date("Y-m-d");  
-            $program = Programari::select(['id','id_cab','id_doctor','numar','data','ora','status','confirmat'])->where('id_client',Auth::user()->id)->where('data','>=',$azi)->get();
+            $program = DB::connection('stomatime_'.$id_cab)->table('programari')->select(['id','id_cab','id_doctor','numar','data','ora','status','confirmat'])->where('id_client',Auth::user()->id)->where('data','>=',$azi)->get();
             foreach($program as $key=>$programare)
             {
-                $medicdata = Doctori::where('id',$programare->id_doctor)->where('id_cab',$programare->id_cab)->first();
+                $medicdata = DB::connection('stomatime_'.$id_cab)->table('doctori')->where('id',$programare->id_doctor)->where('id_cab',$programare->id_cab)->first();
                 $cabinetdata = Cabinet::where('id',$programare->id_cab)->first();
-                $program[$key]['medic']=$medicdata->nume ." ". $medicdata->prenume;
-                $program[$key]['cabinet']=$cabinetdata->name;
-                $program[$key]['numar']="40".$programare->numar;
+                $program[$key]->medic=$medicdata->nume ." ". $medicdata->prenume;
+                $program[$key]->cabinet=$cabinetdata->name;
+                $program[$key]->numar="40".$programare->numar;
             }
             return  $program;
         }
@@ -97,13 +97,12 @@ class HomeController extends Controller
         $id_medic=$req->input('id_medic');
         $id_cab=$req->input('id_cab');
         $date=$req->input('data');
-        if(Auth::guard('web')->check() &&  Cabinet::where('id',$id_cab)->exists() && Doctori::where('id',$id_medic)->where('id_cab',$id_cab)->exists())
+        if(Auth::guard('web')->check() &&  Cabinet::where('id',$id_cab)->exists() && DB::connection('stomatime_'.$id_cab)->table('doctori')->where('id',$id_medic)->where('id_cab',$id_cab)->exists())
         {
             $dt=strtotime($date);
-            if(Programari::where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('data',date('Y-m-d',$dt))->exists())
+            if(DB::connection('stomatime_'.$id_cab)->table('programari')->where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('data',date('Y-m-d',$dt))->exists())
             {
-              
-                $oreocupate = Programari::select('ora')->where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('data',date('Y-m-d',$dt))->get();
+                $oreocupate = DB::connection('stomatime_'.$id_cab)->table('programari')->select('ora')->where('id_cab',$id_cab)->where('id_doctor',$id_medic)->where('data',date('Y-m-d',$dt))->get();
           
                 return $oreocupate;
             }
@@ -127,9 +126,9 @@ class HomeController extends Controller
         $data=$req->input('data');
         $ora=$req->input('ora');
         $nr=$req->input('nr');
-        if(Doctori::where('id',$id_medic)->where('id_cab',$id_cab)->exists())
+        if(DB::connection('stomatime_'.$id_cab)->table('doctori')->where('id',$id_medic)->where('id_cab',$id_cab)->exists())
         { 
-            if(Programari::where('id_client',Auth::user()->id)->where('confirmat',0)->where('status','!=',2)->exists())
+            if(DB::connection('stomatime_'.$id_cab)->table('programari')->where('id_client',Auth::user()->id)->where('confirmat',0)->where('status','!=',2)->exists())
             {
                 $msg['status']="fail";
                 $msg['msg']="Se pare ca ai o programare ne confirmată. Confirmă sau anulează programarea din contul tau înainte să faci alta.";
@@ -153,6 +152,7 @@ class HomeController extends Controller
                          'text' => $msgmobile
                      ]);
                     $programare = new Programari;
+                    $programare->setConnection('stomatime_'.$id_cab);
                     $programare->id_cab=$id_cab;
                     $programare->id_doctor=$id_medic;
                     $programare->id_client=Auth::user()->id;
@@ -204,7 +204,7 @@ class HomeController extends Controller
         $factory = new \ImageOptimizer\OptimizerFactory();
         $optimizer = $factory->get();
         $path= $request->file('profile')->store('/public/avatars');
-        $optimizer->optimize('/var/www/html/stomatime/storage/app/'.$path);
+        $optimizer->optimize('/home/stomatime/www/Stomatime/storage/app/'.$path);
         
         $user=Auth::user();
         if(Auth::user()->img_profile==null)
@@ -371,13 +371,13 @@ class HomeController extends Controller
         {
             if(Cabinet::where('id',$idCab)->exists())
             {
-                if (StarsMedic::where('id_cab', $idCab)->where('id_client', Auth::user()->id)->where('id_medic',$idMedic)->exists())
+                if (DB::connection('stomatime_'.$idCab)->table('starMedic')->where('id_cab', $idCab)->where('id_client', Auth::user()->id)->where('id_medic',$idMedic)->exists())
                 {
-                    $last_date=StarsMedic::where('id_cab', $idCab)->where('id_client', Auth::user()->id)->where('id_medic',$idMedic)->first();
+                    $last_date=DB::connection('stomatime_'.$idCab)->table('starMedic')->where('id_cab', $idCab)->where('id_client', Auth::user()->id)->where('id_medic',$idMedic)->first();
                     $time = time();
                     if(abs($time- strtotime($last_date->updated_at)) > 100)
                     {
-                        StarsMedic::where('id_cab', $idCab)->where('id_client', Auth::user()->id)->where('id_medic',$idMedic)->update(['scor' => $scor]);
+                        DB::connection('stomatime_'.$idCab)->table('starMedic')->where('id_cab', $idCab)->where('id_client', Auth::user()->id)->where('id_medic',$idMedic)->update(['scor' => $scor]);
                         $msg['status']="success";
                         $msg['msg']="Scorul a fost modificat!";
                         return $msg;
@@ -388,6 +388,7 @@ class HomeController extends Controller
 
                 } else {
                     $star = new StarsMedic;
+                    $star->setConnection('stomatime_'.$idCab);
                     $star->id_client=Auth::user()->id;
                     $star->id_cab=$idCab;
                     $star->id_medic=$idMedic;
@@ -415,7 +416,7 @@ class HomeController extends Controller
     }
     public function viewMedic($id,$idm)
     {
-        $doctor= Doctori::where('id',$idm)->where('id_cab',$id)->exists();
+        $doctor= DB::connection('stomatime_'.$id)->table('doctori')->where('id',$idm)->where('id_cab',$id)->exists();
         if(!$doctor)
         {
             return redirect()->back();

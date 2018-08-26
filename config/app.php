@@ -124,6 +124,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Laravel\Socialite\SocialiteServiceProvider::class,
         Approached\LaravelImageOptimizer\ServiceProvider::class,
         PragmaRX\Google2FALaravel\ServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
@@ -181,7 +182,7 @@ return [
     'aliases' => [
        
         'Google2FA' => PragmaRX\Google2FALaravel\Facade::class,
-       
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

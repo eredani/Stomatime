@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('google2fa_secret')->nullable();
-            $table->string('email')->unique();
+            $table->string('email',150)->unique();
             $table->tinyInteger('verified')->default(0);
             $table->string('password');
             $table->string('img_profile')->nullable();

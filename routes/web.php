@@ -54,6 +54,8 @@ Route::prefix('cabinet')->group(function()
 });
 Route::prefix('/')->group(function() 
 {
+  Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
+  Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
   Route::post('2fa', function () {return redirect('/home');})->name('2fa')->middleware('2fa');
   Route::get('setting', 'HomeController@setting')->name('setting');
   Route::post('users/logout', 'Auth\LoginController@userLogout')->name('user.logout');

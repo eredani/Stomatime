@@ -172,10 +172,7 @@
                            aria-haspopup="true"
                            aria-expanded="false"
                            v-pre="v-pre">
-                        @if(Auth::user()->img_profile==null)
-                        @else
-                        <img src="{{Auth::user()->img_profile}}" style="width:32px; height:32px; border-radius:50%">
-                        @endif  
+                       
                         {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">

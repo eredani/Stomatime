@@ -15,6 +15,7 @@
         "helori/laravel-seo": "dev-master",
         "htmlmin/htmlmin": "^5.6",
         "laravel/framework": "5.6.*",
+        "laravel/socialite": "^3.1",
         "laravel/tinker": "^1.0",
         "nexmo/laravel": "^1.1",
         "pragmarx/google2fa-laravel": "^0.2.0",

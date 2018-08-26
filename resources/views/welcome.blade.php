@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <title>StomaTime</title>
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/ico" href="http://stomatime.com/favicon.ico">
+    <link rel="icon" type="image/ico" href="https://stomatime.com/favicon.ico">
     <meta name="theme-color" content="#317EFB" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -83,7 +83,7 @@
                                 <strong>Email</strong>
                                 <br>
                                 <a>
-                                    <span>info@stomatime.com</span>
+                                    <span>contact@stomatime.com</span>
                                 </a>
                             </li>
                         </ul>

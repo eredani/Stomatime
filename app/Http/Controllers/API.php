@@ -66,47 +66,50 @@ class API extends Controller
                     else{
                         $cabinet['program']=[];
                     }
-                    $cabinet['doctori']= Doctori::where('id_cab',$cabinet->id)->get();
+                    $cabinet['doctori']= DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id_cab',$cabinet->id)->get();
+                   
                     $cdoctori=0;
-                    foreach($cabinet['doctori'] as $c=>$doctor)
-                    {
+                    foreach(($cabinet['doctori']) as $c=>$doctor)
+                    { 
+                        
+                        
                         $scorfinal=0;
                         $voturi=0;
-                        if(StarsMedic::where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->exists())
+                        if(DB::connection('stomatime_'.Auth::user()->id)->table('starMedic')->where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->exists())
                         {
-                            $cincistele = StarsMedic::where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('scor',5)->count();
-                            $patrustele = StarsMedic::where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('scor',4)->count();
-                            $treistele = StarsMedic::where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('scor',3)->count();
-                            $douastele = StarsMedic::where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('scor',2)->count();
-                            $ostea = StarsMedic::where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('scor',1)->count();
+                            $cincistele = DB::connection('stomatime_'.Auth::user()->id)->table('starMedic')->where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('scor',5)->count();
+                            $patrustele = DB::connection('stomatime_'.Auth::user()->id)->table('starMedic')->where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('scor',4)->count();
+                            $treistele = DB::connection('stomatime_'.Auth::user()->id)->table('starMedic')->where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('scor',3)->count();
+                            $douastele = DB::connection('stomatime_'.Auth::user()->id)->table('starMedic')->where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('scor',2)->count();
+                            $ostea = DB::connection('stomatime_'.Auth::user()->id)->table('starMedic')->where('id_cab',$cabinet->id)->where('id_medic',$doctor->id)->where('scor',1)->count();
                             if(($cincistele+$patrustele+$treistele+$douastele+$ostea)>0)
                             {
                                 $scorfinal = (5*$cincistele + 4*$patrustele + 3*$treistele + 2*$douastele + $ostea)/($cincistele+$patrustele+$treistele+$douastele+$ostea);
                                 $voturi=($cincistele+$patrustele+$treistele+$douastele+$ostea);
                             }
                         }
-                        $doctor['stele']= $scorfinal;
-                        $doctor['voturi']= $voturi;
-                        if(count(json_decode($doctor['id_specializari']))>0)
+                        $doctor->stele= (string)$scorfinal;
+                        $doctor->voturi= (string)$voturi;
+                        if(count(json_decode($doctor->id_specializari))>0)
                         {
                                 $specializariarray=[];
-                                foreach (json_decode($doctor['id_specializari']) as $cc=>$idspec)
+                                foreach (json_decode($doctor->id_specializari) as $cc=>$idspec)
                                 {
-                                    $specializariarray[$cc]= Specializari::where('id_cab',$cabinet->id)->where('id',$idspec)->get();
+                                    $specializariarray[$cc]= DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id_cab',$cabinet->id)->where('id',$idspec)->get();
                                 }
-                           $doctor['specializari']= $specializariarray;
+                           $doctor->specializari= $specializariarray;
                         }
                         else
                         {
-                            $doctor['specializari']= [];
+                            $doctor->specializari= [];
                         }
-                        $doctor['orar']=json_decode($doctor->orar);
-                        unset($doctor['id_specializari']);
-                        $doctor['sala']=Sali::where('id_cab',$cabinet->id)->where("id",$doctor->id_sala)->get();
+                        $doctor->orar=json_decode($doctor->orar);
+                        unset($doctor->id_specializari);
+                        $doctor->sala=DB::connection('stomatime_'.Auth::user()->id)->table('sali')->where('id_cab',$cabinet->id)->where("id",$doctor->id_sala)->get();
                         $cabinet['doctori'][$c]=$doctor;
                         $cdoctori=$cdoctori+1;
                     }
-                    $cabinet['specializari']= Specializari::where('id_cab',$cabinet->id)->get();
+                    $cabinet['specializari']= DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id_cab',$cabinet->id)->get();
                     $countspeci=0;
                     $stea = StarsCabs::select(['scor'])->where('id_client',Auth::guard('web')->user()->id)->where('id_cab',$option)->get();
                     if(sizeof($stea)===0)
@@ -120,7 +123,7 @@ class API extends Controller
                     $cabinete[$index]['scor']=$stea;
                     foreach($cabinet['specializari'] as $contor=>$specializare)
                     {
-                        $specializare['servicii']=Servicii::where('id_cab',$cabinet->id)->where('id_specializare',$specializare->id)->get();
+                        $specializare->servicii=DB::connection('stomatime_'.Auth::user()->id)->table('servicii')->where('id_cab',$cabinet->id)->where('id_specializare',$specializare->id)->get();
                         $cabinet['specializari'][$contor]=$specializare;
                         $countspeci++;
                     }  
@@ -169,14 +172,15 @@ class API extends Controller
     }
     public function getSpecializari($id)
     {
+        if(Auth::guard('web')->check())
         if(Cabinet::where('id',$id)->exists())
         {
             $cabinete = Cabinet::where('verified',1)->where('id',$id)->where('public',1)->where('type','>',0)->get();
             $specializari=[];
             foreach($cabinete as $index=>$cabinet) {
-                $specializari = Specializari::where('id_cab', $cabinet->id)->get();
+                $specializari = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id_cab', $cabinet->id)->get();
                 foreach ($specializari as $contor => $specializare) {
-                    $specializare['servicii'] = Servicii::where('id_cab', $cabinet->id)->where("id_specializare", $specializare->id)->get();
+                    $specializare->servicii = DB::connection('stomatime_'.Auth::user()->id)->table('servicii')->where('id_cab', $cabinet->id)->where("id_specializare", $specializare->id)->get();
                     $specializari[$contor] = $specializare;
                 }
             }
@@ -186,42 +190,45 @@ class API extends Controller
         {
             return "Nu exista acest cabinet.";
         }
+        else{
+            return "Nu esti logat.";
+        }
     }
     public function getMedic($id_cab,$id_medic)
     {
         if(Auth::guard('web')->check())
         {
-            $exists = Doctori::where('id_cab',$id_cab)->where('id',$id_medic)->exists();
+            $exists =DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id_cab',$id_cab)->where('id',$id_medic)->exists();
             if($exists)
             {
-           
-              $doctor = Doctori::where('id_cab',$id_cab)->where('id',$id_medic)->get();
                 
+              $doctor = DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id_cab',$id_cab)->where('id',$id_medic)->get();
+               
               foreach($doctor as $index=>$det)
               {
-                  $doctor[$index]['orar']= json_decode($det->orar,true);
-                  $doctor[$index]["sala"]=Sali::where('id_cab',$id_cab)->where("id",$det->id_sala)->get();
+                  $doctor[$index]->orar= json_decode($det->orar,true);
+                  $doctor[$index]->sala=DB::connection('stomatime_'.Auth::user()->id)->table('sali')->where('id_cab',$id_cab)->where("id",$det->id_sala)->get();
                   $scor=0;
-                  if(StarsMedic::where('id_cab',$id_cab)->where('id_medic',$id_medic)->where('id_client',Auth::user()->id)->exists())
+                  if(DB::connection('stomatime_'.Auth::user()->id)->table('starMedic')->where('id_cab',$id_cab)->where('id_medic',$id_medic)->where('id_client',Auth::user()->id)->exists())
                     {
-                        $scor=StarsMedic::where('id_cab',$id_cab)->where('id_medic',$id_medic)->where('id_client',Auth::user()->id)->get();
+                        $scor=DB::connection('stomatime_'.Auth::user()->id)->table('starMedic')->where('id_cab',$id_cab)->where('id_medic',$id_medic)->where('id_client',Auth::user()->id)->get();
                         $scor=$scor[0]->scor;
                     }
-                    $doctor[$index]['scor']= $scor;
+                    $doctor[$index]->scor= $scor;
                   if(count(json_decode($det->id_specializari))>0)
                   {
                           $specializariarray=[];
                           foreach (json_decode($det->id_specializari) as $cc=>$idspec)
                           {
-                              $specializariarray[$cc]= Specializari::where('id_cab',$id_cab)->where('id',$idspec)->get();
+                              $specializariarray[$cc]= DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id_cab',$id_cab)->where('id',$idspec)->get();
                           }
-                     $doctor[$index]['specializari']= $specializariarray;
-                     unset($doctor[$index]['id_specializari']);
+                     $doctor[$index]->specializari= $specializariarray;
+                     unset($doctor[$index]->id_specializari);
                   }
                   else
                   {
                     unset($doctor[$index]['id_specializari']);
-                      $doctor[$index]['specializari']= [];
+                      $doctor[$index]->specializari= [];
                   }
               }
               return $doctor;

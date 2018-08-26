@@ -34,5 +34,13 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
-
+    'facebook' => [
+                       
+       'client_id' => '330342947710079', //Facebook API
+     
+       'client_secret' => '8e460f186ecf4509dc3f9b8b79d16109', //Facebook Secret
+     
+       'redirect' => 'http://stomatime.com/login/facebook/callback',
+     
+    ],
 ];

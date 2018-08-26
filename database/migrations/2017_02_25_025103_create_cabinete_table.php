@@ -15,13 +15,14 @@ class CreateCabineteTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->tinyInteger('verified')->default(0);
-            $table->string('email')->unique();
+            $table->string('email',150)->unique();
             $table->string('img_profile')->nullable();
             $table->tinyInteger('type')->default(0);
             $table->tinyInteger('public')->default(0);
             $table->string('password');
             $table->string('judet');
             $table->string('tawk')->nullable();
+            $table->string('analytic')->nullable();
             $table->string('numar',15)->nullable();
             $table->string('email_token');
             $table->longText('descriere')->nullable();

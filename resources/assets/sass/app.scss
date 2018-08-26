@@ -7,12 +7,15 @@
 .star #countstars{
     font-size: 20px;
 }
+body {
+    background:rgba(255, 255, 255, 0)
+}
 .our-team-main
 {
     width:100%;
     height:auto;
     border-bottom:5px #007b5e solid;
-    background:#fff;
+    
     text-align:center;
     border-radius:10px;
     overflow:hidden;

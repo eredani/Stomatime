@@ -5,6 +5,7 @@ use Auth;
 use Storage;
 use Nexmo\Laravel\Facade\Nexmo;
 use File;
+use DB;
 use Validation;
 use App\Sali;
 use App\Specializari;
@@ -36,9 +37,9 @@ class CabinetController extends Controller
         $id_medic=$req->input('id_medic');
         $id_client=$req->input('id_client');
         $id=$req->input('id');
-        if(Programari::where('id',$id)->where('id_cab',Auth::user()->id)->where('status',0)->where('id_doctor',$id_medic)->where('id_client',$id_client)->exists())
+        if(DB::connection('stomatime_'.Auth::user()->id)->table('programari')->where('id',$id)->where('id_cab',Auth::user()->id)->where('status',0)->where('id_doctor',$id_medic)->where('id_client',$id_client)->exists())
         {
-            Programari::where('id',$id)->where('id_cab',Auth::user()->id)->where('status',0)->where('id_doctor',$id_medic)->where('id_client',$id_client)->update(['status'=>1]);
+            DB::connection('stomatime_'.Auth::user()->id)->table('programari')->where('id',$id)->where('id_cab',Auth::user()->id)->where('status',0)->where('id_doctor',$id_medic)->where('id_client',$id_client)->update(['status'=>1]);
             $msg['status']="success";
             $msg['msg']="Programarea a fost confirmată";
             return $msg;
@@ -51,16 +52,16 @@ class CabinetController extends Controller
     public function programari()
     {
             $azi = date("Y-m-d");  
-            $program = Programari::select(['id','id_cab','id_doctor','id_client','numar','data','ora','status','confirmat'])->where('id_cab',Auth::user()->id)->where('data','>=',$azi)->get();
+            $program = DB::connection('stomatime_'.Auth::user()->id)->table('programari')->select(['id','id_cab','id_doctor','id_client','numar','data','ora','status','confirmat'])->where('id_cab',Auth::user()->id)->where('data','>=',$azi)->get();
             foreach($program as $key=>$programare)
             {
-                $medicdata = Doctori::where('id',$programare->id_doctor)->where('id_cab',$programare->id_cab)->first();
+                $medicdata = DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id',$programare->id_doctor)->where('id_cab',$programare->id_cab)->first();
                 $pacientdata = User::where('id',$programare->id_client)->first();
                 $cabinetdata = Cabinet::where('id',$programare->id_cab)->first();
-                $program[$key]['medic']=$medicdata->nume ." ". $medicdata->prenume;
-                $program[$key]['pacient']=$pacientdata->name;
-                $program[$key]['cabinet']=$cabinetdata->name;
-                $program[$key]['numar']="40".$programare->numar;
+                $program[$key]->medic=$medicdata->nume ." ". $medicdata->prenume;
+                $program[$key]->pacient=$pacientdata->name;
+                $program[$key]->cabinet=$cabinetdata->name;
+                $program[$key]->numar="40".$programare->numar;
             }
             return  $program;
     }
@@ -70,12 +71,14 @@ class CabinetController extends Controller
         $this->validate($req, [
             'id'=>'required|numeric'
         ]);
-        $medicexist=Doctori::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->exists();
+        $medicexist=DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->exists();
         if(!$medicexist)
         {
             return redirect()->back()->with(['error'=>"Medicul nu există."]);
         }
-        $doctor = Doctori::find($req->input('id'));
+        $dr = new Doctori;
+        $dr->setConnection('stomatime_'.Auth::user()->id);
+        $doctor=$dr->find($req->input('id'));
         $doctor->orar=json_encode($req->input('program'));
         $doctor->save();
         return redirect()->back()->with(['success'=>"Programul a fost editat."]);
@@ -89,8 +92,8 @@ class CabinetController extends Controller
             'id'=>'required|numeric'
     
         ]);
-        $ex=Doctori::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->select('id_specializari')->exists();
-        $medicexist=Doctori::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->select('id_specializari')->get();
+        $ex=DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->select('id_specializari')->exists();
+        $medicexist=DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->select('id_specializari')->get();
         if(!$ex)
         {
             return redirect()->back()->with(['error'=>"Medicul nu există."]);
@@ -98,7 +101,7 @@ class CabinetController extends Controller
         $cont=0;
         foreach($req->input('specializare') as $speci)
         {
-            $exist = Specializari::find($speci);
+            $exist = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->find($speci);
             if($exist!=null)
             {
                 $cont++;
@@ -108,7 +111,7 @@ class CabinetController extends Controller
         {
             return redirect()->back()->with(['error'=>"O specializare selectată nu se află în baza de date."]);
         }
-        $doctor=Doctori::find($req->input('id'));
+        $doctor=DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->find($req->input('id'));
         
         $doctor->id_specializari=json_encode(array_merge($req->input('specializare'),json_decode($medicexist[0]->id_specializari,true)));
         $doctor->save();
@@ -123,7 +126,7 @@ class CabinetController extends Controller
             'id'=>'required|numeric'
     
         ]);
-        $medicexist=Doctori::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->exists();
+        $medicexist=DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->exists();
         if(!$medicexist)
         {
             return redirect()->back()->with(['error'=>"Medicul nu există."]);
@@ -131,7 +134,7 @@ class CabinetController extends Controller
         $cont=0;
         foreach($req->input('specializare') as $speci)
         {
-            $exist = Specializari::find($speci);
+            $exist = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->find($speci);
             if($exist!=null)
             {
                 $cont++;
@@ -141,7 +144,10 @@ class CabinetController extends Controller
         {
             return redirect()->back()->with(['error'=>"O specializare selectată nu se află în baza de date."]);
         }
-        $medic=Doctori::find($req->input('id'));
+        $med= new Doctori;
+        $med->setConnection('stomatime_'.Auth::user()->id);
+        //DB::connection('stomatime_'.Auth::user()->id)->table('doctori')
+        $medic = $med->find($req->input('id'));
         $specializari=json_decode($medic->id_specializari,true);
         foreach($specializari as $c => $spec)
         {
@@ -167,7 +173,7 @@ class CabinetController extends Controller
             'id'=>'required|numeric'
     
         ]);
-        $medicexist=Doctori::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->exists();
+        $medicexist=DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->exists();
         if(!$medicexist)
         {
             return redirect()->back()->with(['error'=>"Medicul nu există."]);
@@ -175,7 +181,7 @@ class CabinetController extends Controller
         $cont=0;
         foreach($req->input('specializare') as $speci)
         {
-            $exist = Specializari::find($speci);
+            $exist = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->find($speci);
             if($exist!=null)
             {
                 $cont++;
@@ -185,7 +191,9 @@ class CabinetController extends Controller
         {
             return redirect()->back()->with(['error'=>"O specializare selectată nu se află în baza de date."]);
         }
-        $medic=Doctori::find($req->input('id'));
+        $med= new Doctori;
+        $med->setConnection('stomatime_'.Auth::user()->id);
+        $medic= $med->find($req->input('id'));
         $medic->id_specializari=json_encode($req->input('specializare'));
         $medic->save();
          return redirect()->back()->with(['success'=>"Specializarea a fost setată."]);
@@ -199,8 +207,8 @@ class CabinetController extends Controller
             'id'=> 'required|numeric',
     
         ]);
-        $exist=Doctori::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->exists();
-        $existsala=Sali::where('id',$req->input('sala'))->where('id_cab',Auth::user()->id)->exists();
+        $exist=DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->exists();
+        $existsala=DB::connection('stomatime_'.Auth::user()->id)->table('sali')->where('id',$req->input('sala'))->where('id_cab',Auth::user()->id)->exists();
         if(!$exist)
         {
             return redirect()->back()->with('fail','Medicul nu a fost găsit în baza de date.');
@@ -209,14 +217,18 @@ class CabinetController extends Controller
         {
             if($req->input('sala')=="sterge")
             {
-                $doctor=Doctori::find($req->input('id'));
+                  $med= new Doctori;
+                $med->setConnection('stomatime_'.Auth::user()->id);
+                $doctor=$med->find($req->input('id'));
                 $doctor->id_sala=null;
                 $doctor->save();
                 return redirect()->back()->with('success','Cabinetul a fost sters.');
             }
             if($existsala)
             {
-                $doctor=Doctori::find($req->input('id'));
+                $med= new Doctori;
+                $med->setConnection('stomatime_'.Auth::user()->id);
+                $doctor=$med->find($req->input('id'));
                 $doctor->id_sala=$req->input('sala');
                 $doctor->save();
                 return redirect()->back()->with('success','Cabinetul a fost setat.');
@@ -239,7 +251,7 @@ class CabinetController extends Controller
         $optimizer = $factory->get();
         $path= $req->file('profile')->store("/public/medici/".Auth::user()->id);
         $optimizer->optimize('/var/www/html/stomatime/storage/app/'.$path);
-        $doctor=Doctori::find($req->input('id'));
+        $doctor=DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->find($req->input('id'));
         if($doctor->img_profile==$req->input('src'))
         {
             Storage::delete($doctor->img_profile);
@@ -261,10 +273,11 @@ class CabinetController extends Controller
         {
             $active='specializari';
         }
-       $specializari = Specializari::where('id_cab', '=', Auth::user()->id)->get();
-       $servicii = Servicii::where('id_cab', '=', Auth::user()->id)->get();
-       $sali = Sali::where('id_cab', '=', Auth::user()->id)->orderBy('etaj','ASC')->orderBy('numar','ASC')->get();
-        $medici = Doctori::where('id_cab', '=', Auth::user()->id)->get();
+       $specializari = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id_cab', Auth::user()->id)->get();
+       
+       $servicii = DB::connection('stomatime_'.Auth::user()->id)->table('servicii')->where('id_cab', '=', Auth::user()->id)->get();
+       $sali = DB::connection('stomatime_'.Auth::user()->id)->table('sali')->where('id_cab', Auth::user()->id)->orderBy('etaj','ASC')->orderBy('numar','ASC')->get();
+        $medici = DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id_cab', Auth::user()->id)->get();
         if(count($medici)==0)
         {
             $medici=null;
@@ -292,11 +305,11 @@ class CabinetController extends Controller
     {
         session(['active' => 'specializari']);
         $active = session('active');
-        $exist = Servicii::where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->count();
+        $exist = DB::connection('stomatime_'.Auth::user()->id)->table('servicii')->where('id',$req->input('id'))->where('id_cab',Auth::user()->id)->count();
         if($exist!=0)
         {
-            $serv= Servicii::find($req->input('id'));
-            $serv->delete();
+            $serv= DB::connection('stomatime_'.Auth::user()->id)->table('servicii')->where('id',$req->input('id'))->delete();
+
             return redirect()->back()->with(['error'=>"Serviciul a fost sters.",'active'=>$active]);
         }
         else
@@ -321,17 +334,18 @@ class CabinetController extends Controller
         $id=$explode[1];
         $denumire = htmlspecialchars ($req->input('serviciu'));
         $serviciu = filter_var($denumire, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $existid = Specializari::where('id', '=', $id)->first();
+        $existid = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id', '=', $id)->first();
         if($existid === null)
        {
         return redirect()->back()->with(['error'=>"Se pare ca specializarea selectată nu mai este in baza de date.",'actice'=>$active]);
        }
        else
        {
-        $exist = Servicii::where('id_cab', '=', Auth::user()->id)->where('denumire',$denumire)->where('id_specializare',$id)->first();
+        $exist = DB::connection('stomatime_'.Auth::user()->id)->table('servicii')->where('id_cab', '=', Auth::user()->id)->where('denumire',$denumire)->where('id_specializare',$id)->first();
         if ($exist === null)
         {
         $servicii = new servicii();
+          $servicii->setConnection('stomatime_'.Auth::user()->id);
         $servicii->id_cab=Auth::user()->id;
         $servicii->id_specializare=$id;
         $servicii->denumire=$denumire;
@@ -355,10 +369,11 @@ class CabinetController extends Controller
         $active = session('active');
         $speci = htmlspecialchars ($req->input("specializare"));
         $special = filter_var($speci, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-        $exist = Specializari::where('id_cab', '=', Auth::user()->id)->where('specializare',$speci)->first();
+        $exist = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id_cab', '=', Auth::user()->id)->where('specializare',$speci)->first();
         if ($exist === null) 
         {
         $specializare = new specializari();
+        $specializare->setConnection('stomatime_'.Auth::user()->id);
         $specializare->id_cab=Auth::user()->id;
         $specializare->specializare=$speci;
         $specializare->save();
@@ -374,13 +389,13 @@ class CabinetController extends Controller
         session(['active' => 'specializari']);
         $active = session('active');
         $id=$req->input('id');
-        $exist = Specializari::where('id_cab', '=', Auth::user()->id)->where('id',$id)->first();
+        $exist = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id_cab', '=', Auth::user()->id)->where('id',$id)->first();
         if ($exist != null) 
         {
-            $spec = Specializari::find($id);
-            $spec->delete();
-            Servicii::where('id_cab', '=', Auth::user()->id)->where('id_specializare',$id)->delete();
-            $medici = Doctori::where('id_cab',Auth::user()->id)->where('id_specializari','!=','null')->get();
+            $spec = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id',$id)->delete();
+          
+            DB::connection('stomatime_'.Auth::user()->id)->table('servicii')->where('id_cab', '=', Auth::user()->id)->where('id_specializare',$id)->delete();
+            $medici = DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id_cab',Auth::user()->id)->where('id_specializari','!=','null')->get();
             foreach($medici as $medic)
             {
                 $specializaremedic = json_decode($medic->id_specializari,true);
@@ -395,7 +410,7 @@ class CabinetController extends Controller
                 }
                 if($cont>0)
                 {
-                    $me = Doctori::find($medic->id);
+                    $me = DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->find($medic->id);
                     $me->id_specializari=json_encode(array_values($specializaremedic));
                     $me->save();
                 }
@@ -475,7 +490,7 @@ class CabinetController extends Controller
         $factory = new \ImageOptimizer\OptimizerFactory();
         $optimizer = $factory->get();
         $path= $request->file('profile')->store('/public/cabinete');
-        $optimizer->optimize('/var/www/html/stomatime/storage/app/'.$path);
+        $optimizer->optimize('/home/stomatime/www/Stomatime/storage/app/'.$path);
         $path= Storage::url($path);
         $user=Auth::user();
         if(Auth::user()->img_profile==null)
@@ -537,10 +552,11 @@ class CabinetController extends Controller
             'cabinet' => 'required|numeric',
             'etaj' => 'required|numeric',
         ]);
-        $exist = Sali::where('id_cab', Auth::user()->id)->where('numar',$req->input('cabinet'))->where('etaj',$req->input('etaj'))->get(); 
+        $exist = DB::connection('stomatime_'.Auth::user()->id)->table('sali')->where('id_cab', Auth::user()->id)->where('numar',$req->input('cabinet'))->where('etaj',$req->input('etaj'))->get(); 
         if (count($exist) == 0) 
         {
             $sala = new sali();
+            $sala->setConnection('stomatime_'.Auth::user()->id);
             $sala->id_cab=Auth::user()->id;
             $sala->etaj= $req->input('etaj');
             $sala->numar= $req->input('cabinet');
@@ -559,16 +575,16 @@ class CabinetController extends Controller
         $validate = $req->validate([
             'id' => 'required|numeric',
         ]);
-        $exist = Sali::where('id_cab', Auth::user()->id)->where('id',$req->input('id'))->get(); 
+        $exist = DB::connection('stomatime_'.Auth::user()->id)->table('sali')->where('id_cab', Auth::user()->id)->where('id',$req->input('id'))->get(); 
         if (count($exist) == 0) 
         {
             return redirect()->back()->with(['error'=>"Cabinetul nu există in baza de date.",'active'=>'specializari']);
         }
         else
         {
-            $spec = Sali::find($req->input('id'));
-            $spec->delete(); 
-            Doctori::where('id_sala',$req->input('id'))
+            $spec = DB::connection('stomatime_'.Auth::user()->id)->table('sali')->where('id',$req->input('id'))->delete();
+        
+            DB::connection('stomatime_'.Auth::user()->id)->table('doctori')->where('id_sala',$req->input('id'))
                     ->update(['id_sala'=> null]);
                     return redirect()->back()->with(['error'=>"Cabinetul a fost sters.",'active'=>$active]);
         }
@@ -596,8 +612,8 @@ class CabinetController extends Controller
         $cont=0;
             foreach($req->input('specializare') as $speci)
             {
-                $exist = Specializari::find($speci);
-                if($exist!=null)
+                $exist = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id',$speci)->exists();
+                if($exist)
                 {
                     $cont++;
                 }
@@ -609,19 +625,19 @@ class CabinetController extends Controller
         }
         if($req->input('sala')!=null)
         {
-            $existsala=Sali::find($req->input('sala'));
-            if($existsala==null)
+            $existsala=DB::connection('stomatime_'.Auth::user()->id)->table('sali')->where('id',$req->input('sala'))->exists();
+            if(!$existsala)
             {
                 return redirect()->back()->with(['error'=>"Sala introdusă nu există."]);
             }
         }
-         $doctor = new doctori;
-
+        $doctor = new doctori;
+        $doctor->setConnection('stomatime_'.AUth::user()->id);
         try{
             $factory = new \ImageOptimizer\OptimizerFactory();
             $optimizer = $factory->get();
             $path= $req->file('profile')->store("/public/medici/".Auth::user()->id);
-            $optimizer->optimize('/var/www/html/stomatime/storage/app/'.$path);
+            $optimizer->optimize('/home/stomatime/www/Stomatime/storage/app/'.$path);
             $doctor->img_profile=Storage::url($path);
         }catch (Exception $e)
         {

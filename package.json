@@ -30,7 +30,7 @@
     },
     "dependencies": {
         "moment": "^2.22.2",
-        "npm": "^6.2.0",
+        "npm": "^6.4.0",
         "pusher-js": "^4.2.2",
         "react-day-picker": "^7.1.10",
         "react-google-maps": "^9.4.5",

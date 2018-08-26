@@ -155,7 +155,7 @@
                               <td width="3%">{{++$indexKey}}</td>
                               <td> 
                                  <?php 
-                                    $var = App\specializari::where('id', '=', $serv->id_specializare)->select('specializare')->first(); 
+                                    $var = DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id', $serv->id_specializare)->select('specializare')->first(); 
                                     echo $var->specializare;?> 
                               </td>
                               <td>{{$serv->denumire}}</td>
@@ -660,7 +660,7 @@
                                     <a>
                                     <?php 
                                        //use App\doctori;
-                                       $var = App\specializari::where('id',$speci)->select('specializare')->where('id_cab',Auth::user()->id)->first();
+                                       $var =  DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id',$speci)->select('specializare')->where('id_cab',Auth::user()->id)->first();
                                        echo $var->specializare;
                                        ?>
                                     </a>
@@ -683,7 +683,7 @@
                                                    <option value="{{$speci}}">
                                                       <?php 
                                                          //use App\doctori;
-                                                         $var = App\specializari::where('id',$speci)->select('specializare')->where('id_cab',Auth::user()->id)->first();
+                                                         $var =  DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id',$speci)->select('specializare')->where('id_cab',Auth::user()->id)->first();
                                                          echo $var->specializare;
                                                          ?>
                                                    </option>
@@ -711,7 +711,7 @@
                                                          <option value="{{$specia->id}}">
                                                             <?php 
                                                                //use App\doctori;
-                                                               $var = App\specializari::where('id',$specia->id)->select('specializare')->where('id_cab',Auth::user()->id)->first();
+                                                               $var =  DB::connection('stomatime_'.Auth::user()->id)->table('specializari')->where('id',$specia->id)->select('specializare')->where('id_cab',Auth::user()->id)->first();
                                                                echo $var->specializare;
                                                                ?>
                                                          </option>
@@ -813,7 +813,7 @@
                                  @if($medic->id_sala!=null)
                                  <a  data-toggle="modal" data-target="#editcab{{$indexKey}}">
                                  <?php
-                                    $sala = App\sali::where('id',$medic->id_sala)->where('id_cab',Auth::user()->id)->first();
+                                    $sala =  DB::connection('stomatime_'.Auth::user()->id)->table('sali')->where('id',$medic->id_sala)->where('id_cab',Auth::user()->id)->first();
                                     echo "Etaj:".$sala->etaj."/Cabinet:".$sala->numar;
                                     ?>
                                  </a>

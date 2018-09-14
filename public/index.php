@@ -6,7 +6,7 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-header("Cache-Control: max-age=34400");
+header("Cache-Control: max-age=344000");
 define('LARAVEL_START', microtime(true));
 
 /*

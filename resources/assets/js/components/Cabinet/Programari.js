@@ -59,12 +59,12 @@ if(document.getElementById('cabviewprog'))
                     <div className="modal-body">   
                     {data.status==0 && data.confirmat==1 &&
                             <div>
-                        <p>Pentru a confirma programarea apasa pe butonul de mai jos</p>
-                         <button type="submit" id={"conf"+data.id} onClick={this.confProg.bind(this,data.id_doctor,data.id_client,data.id)} className="btn btn-info">Confirmă</button>
+                        <p>To confirm the appointment, click on the button below</p>
+                         <button type="submit" id={"conf"+data.id} onClick={this.confProg.bind(this,data.id_doctor,data.id_client,data.id)} className="btn btn-info">Confirm</button>
                         </div>}     
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-danger" data-dismiss="modal">Închide</button>
+                        <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                     </div>
                 </div>
@@ -85,8 +85,8 @@ if(document.getElementById('cabviewprog'))
                     <td>+{prog.numar}</td>
                     <td>{prog.data}</td>
                     <td>{prog.ora}</td>
-                    <td>{prog.status==0 ? <span className="badge badge-info">Asteptare</span> : prog.status==2 ? <span className="badge badge-danger">Anulat</span> :<span className="badge badge-success">Acceptat</span> }</td>
-                   <td>{prog.confirmat==0 ? <span className="badge badge-info">Neconfirmat</span> : <span className="badge badge-success">Confirmat</span>}</td>
+                    <td>{prog.status==0 ? <span className="badge badge-info">Wainting</span> : prog.status==2 ? <span className="badge badge-danger">Canceled</span> :<span className="badge badge-success">Accepted</span> }</td>
+                   <td>{prog.confirmat==0 ? <span className="badge badge-info">Unconfirmed</span> : <span className="badge badge-success">Confirmed</span>}</td>
                     <td><Modal update={this.props.update} data={prog}/></td>
                     </tr>
             );
@@ -138,29 +138,29 @@ if(document.getElementById('cabviewprog'))
                <table className="table text-center">
                    <thead>
                        <tr>
-                        <th>Medic</th>
-                           <th>Pacient</th>
-                           <th>Număr</th>
-                           <th>Dată</th>
-                           <th>Oră</th>
+                            <th>Doctor</th>
+                           <th>Patient</th>
+                           <th>Number</th>
+                           <th>Date</th>
+                           <th>Time</th>
                            <th>Status</th>
                            <th>Confirmat</th>
-                           <th>Setări</th>
-                           </tr>
+                           <th>Settings</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {rows}
                 </tbody>
                     <tfoot>
                     <tr>
-                        <th>Medic</th>
-                        <th>Pacient</th>
-                        <th>Număr</th>
-                        <th>Dată</th>
-                        <th>Oră</th>
+                        <th>Doctor</th>
+                        <th>Patient</th>
+                        <th>Number</th>
+                        <th>Date</th>
+                        <th>Time</th>
                         <th>Status</th>
                         <th>Confirmat</th>
-                        <th>Setări</th>
+                        <th>Settings</th>
                     </tr>
                 </tfoot>
                    </table>

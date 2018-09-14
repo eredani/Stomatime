@@ -24,7 +24,6 @@
     <link rel="preload" as="style" onload="this.rel='stylesheet'" href="css/style.css">
     <link rel="preload" as="style" onload="this.rel='stylesheet'" href="plugins/slick/slick-theme.css">
     <link rel="preload" as="style" onload="this.rel='stylesheet'" href="{{ mix('css/app.css') }}">
-
     @include('laravel-seo::meta-facebook') 
     @include('laravel-seo::meta-twitter')    
 </head>
@@ -52,14 +51,14 @@
                                 <div class="icon-box">
                                     <i class="fa fa-television"></i>
                                 </div>
-                                <strong>Cabinete</strong>
+                                <strong>Cabinets</strong>
                                 <br>
                                 <a href="{{url('cabinet/login')}}">
-                                    <span>Logare</span>
+                                    <span>Login</span>
                                 </a>
                                 <span> | </span>
                                 <a href="{{url('cabinet/register')}}">
-                                    <span>Înregistrare</span>
+                                    <span>Register</span>
                                 </a>
                             </li>
                             @else
@@ -67,26 +66,52 @@
                                 <div class="icon-box">
                                     <i class="fa fa-television"></i>
                                 </div>
-                                <strong>Cabinete</strong>
+                                <strong>Cabinets</strong>
                                 <br>
                                 <a href="{{url('cabinet/')}}">
                                     <span>{{Auth::guard('cabinet')->user()->name}}</span>
                                 </a>
                             </li>
                             @endif
-                        </ul>
-                        <ul class="contact-info">
+                            @if(!Auth::guard('web')->user())
+                            <li class="item">
+                                <div class="icon-box">
+                                    <i class="fa fa-television"></i>
+                                </div>
+                                <strong>Clients</strong>
+                                <br>
+                                <a href="{{url('login')}}">
+                                    <span>Login</span>
+                                </a>
+                                <span> | </span>
+                                <a href="{{url('register')}}">
+                                    <span>Register</span>
+                                </a>
+                            </li>
+                            @else
+                            <li class="item">
+                                <div class="icon-box">
+                                    <i class="fa fa-television"></i>
+                                </div>
+                                <strong>Clients</strong>
+                                <br>
+                                <a href="{{url('/home')}}">
+                                    <span>{{Auth::guard('web')->user()->name}}</span>
+                                </a>
+                            </li>
+                            @endif
                             <li class="item">
                                 <div class="icon-box">
                                     <i class="fa fa-envelope-o"></i>
                                 </div>
-                                <strong>Email</strong>
+                                <strong>E-Mail</strong>
                                 <br>
                                 <a>
                                     <span>contact@stomatime.com</span>
                                 </a>
                             </li>
                         </ul>
+                   
                     </div>
                 </div>
         </section>
@@ -106,25 +131,25 @@
                 <div class="collapse navbar-collapse" id="tog">
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Acasa</a>
+                        <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#despre">Despre</a>
+                        <a class="nav-link" href="#despre">About</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#oferte">Oferte</a>
+                        <a class="nav-link" href="#oferte">Offers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#aff">Afiliați</a>
+                            <a class="nav-link" href="#aff">Affiliates</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         @if (!Auth::guard('admin')->user() && !Auth::guard('web')->user())
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Logare') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Clients Login') }}</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Înregistrare') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Clients Register') }}</a>
                         </li>
                         @else
 
@@ -150,18 +175,18 @@
     
     <script defer src="https://stomatime.com/plugins/slick/slick.min.js"></script>
     <script  defer src="https://stomatime.com/js/script.js"></script>
-    <!--Start of Tawk.to Script-->
-<script async type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/5ad1d6add7591465c709800f/default';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
+        <!--Start of Tawk.to Script-->
+            <script async type="text/javascript">
+                var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/5ad1d6add7591465c709800f/default';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+                })();
+            </script>
+        <!--End of Tawk.to Script-->
    </body>
 </html>

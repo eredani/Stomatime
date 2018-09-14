@@ -43,8 +43,8 @@ class Servicii extends Component {
                             <table className="table">
                             <thead>
                             <tr>
-                            <th>Denumire</th>
-                            <th>Pret</th>
+                            <th>Name</th>
+                            <th>Price</th>
                             </tr>
                             </thead>
 
@@ -55,8 +55,8 @@ class Servicii extends Component {
 
                             <tfoot>
                             <tr>
-                            <th>Denumire</th>
-                            <th>Pret</th></tr>
+                            <th>Name</th>
+                            <th>Price</th></tr>
                         </tfoot>
                         </table>
                         

@@ -50,7 +50,7 @@ if(document.getElementById('reactprogramari'))
                 })
             }
             else{ 
-                NotificationManager.error('Error', "Codul nu este bun.", 3000);
+                NotificationManager.error('Error', "The code is not good.", 3000);
             }
         }
         cancelProg(medicID,cabID,id)
@@ -102,20 +102,20 @@ if(document.getElementById('reactprogramari'))
                         {data.confirmat==0 && 
                         <div>
                     <div className="form-group">
-                                <label htmlFor={"cod"+data.id}>Cod de confirmare</label>
-                                <input type="number" className="form-control" id={"cod"+data.id} onChange={this.setCode} value={this.state.cod} aria-describedby={"cod"+data.id} placeholder="Cod de confirmare" required/>
+                                <label htmlFor={"cod"+data.id}>Confirmation code</label>
+                                <input type="number" className="form-control" id={"cod"+data.id} onChange={this.setCode} value={this.state.cod} aria-describedby={"cod"+data.id} placeholder="Confirmation code" required/>
                      </div>
-                            <button type="submit" id={"conf"+data.id} onClick={this.sendConfirm.bind(this,data.id_doctor,data.id_cab,data.id)} className="btn btn-primary">Confirmă</button>
+                            <button type="submit" id={"conf"+data.id} onClick={this.sendConfirm.bind(this,data.id_doctor,data.id_cab,data.id)} className="btn btn-primary">Confirm</button>
                    </div>
                         }
                         {data.status!==2 &&
                             <div>
-                        <p>Poți anula programarea apăsând pe butonul de mai jos</p>
-                         <button type="submit" id={"delete"+data.id} onClick={this.cancelProg.bind(this,data.id_doctor,data.id_cab,data.id)} className="btn btn-danger">Anulează</button>
+                        <p>You can cancel the programming by pressing the button below</p>
+                         <button type="submit" id={"delete"+data.id} onClick={this.cancelProg.bind(this,data.id_doctor,data.id_cab,data.id)} className="btn btn-danger">Cancel</button>
                         </div>}
                         </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-danger" data-dismiss="modal">Închide</button>
+                        <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                         
                     </div>
@@ -137,8 +137,8 @@ if(document.getElementById('reactprogramari'))
                     <td>+{prog.numar}</td>
                     <td>{prog.data}</td>
                     <td>{prog.ora}</td>
-                    <td>{prog.status==0 ? <span className="badge badge-info">Asteptare</span> : prog.status==2 ? <span className="badge badge-danger">Anulat</span> :<span className="badge badge-success">Acceptat</span> }</td>
-                    <td>{prog.confirmat==0 ? <span className="badge badge-info">Neconfirmat</span> : <span className="badge badge-success">Confirmat</span>}</td>
+                    <td>{prog.status==0 ? <span className="badge badge-info">Waiting</span> : prog.status==2 ? <span className="badge badge-danger">Canceled</span> :<span className="badge badge-success">Accepted</span> }</td>
+                    <td>{prog.confirmat==0 ? <span className="badge badge-info">Unconfirmed</span> : <span className="badge badge-success">Confirmed</span>}</td>
                     <td><Modal update={this.props.update} data={prog}/></td>
                     </tr>
             );
@@ -180,12 +180,12 @@ if(document.getElementById('reactprogramari'))
                        <tr>
                            <th>Cabinet</th>
                            <th>Doctor</th>
-                           <th>Număr</th>
-                           <th>Dată</th>
-                           <th>Oră</th>
+                           <th>Number</th>
+                           <th>Date</th>
+                           <th>Time</th>
                            <th>Status</th>
-                           <th>Confirmat</th>
-                           <th>Setări</th>
+                           <th>Confirmed</th>
+                           <th>Settings</th>
                            </tr>
                     </thead>
                     <tbody>
@@ -193,14 +193,14 @@ if(document.getElementById('reactprogramari'))
                 </tbody>
                     <tfoot>
                     <tr>
-                           <th>Cabinet</th>
+                    <th>Cabinet</th>
                            <th>Doctor</th>
-                           <th>Număr</th>
-                           <th>Dată</th>
-                           <th>Oră</th>
+                           <th>Number</th>
+                           <th>Date</th>
+                           <th>Time</th>
                            <th>Status</th>
-                           <th>Confirmat</th>
-                           <th>Setări</th>
+                           <th>Confirmed</th>
+                           <th>Settings</th>
                            </tr>
                 </tfoot>
                    </table>

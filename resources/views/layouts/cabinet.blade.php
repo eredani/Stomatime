@@ -141,13 +141,13 @@
                      @guest
                      @else
                      <li>
-                        <a class="nav-link" href="/cabinet">Acasă</a>
+                        <a class="nav-link" href="/cabinet">Home</a>
                      </li>
                      <li>
-                        <a class="nav-link" href="{{ route('cabinet.config') }}">Configurare</a>
+                        <a class="nav-link" href="{{ route('cabinet.config') }}">Configuration</a>
                      </li>
                      <li>
-                        <a class="nav-link" href="{{ route('cabinet.setting') }}">Setări</a>
+                        <a class="nav-link" href="{{ route('cabinet.setting') }}">Settings</a>
                      </li>
                      @endguest
                   </ul>
@@ -156,10 +156,10 @@
                      <!-- Authentication Links -->
                      @if(!Auth::guard('cabinet')->check())
                      <li>
-                        <a class="nav-link" href="{{ route('cabinet.login') }}">{{ __('Logare') }}</a>
+                        <a class="nav-link" href="{{ route('cabinet.login') }}">{{ __('Login') }}</a>
                      </li>
                      <li>
-                        <a class="nav-link" href="{{ route('cabinet.register') }}">{{ __('Înregistrare') }}</a>
+                        <a class="nav-link" href="{{ route('cabinet.register') }}">{{ __('Register') }}</a>
                      </li>
                      @else
                      <li class="nav-item dropdown">

@@ -1,1 +1,0 @@
-[17-Aug-2018 14:55:59 Europe/Bucharest] PHP Fatal error:  Class 'PDO' not found in /home/stomatime/public_html/Stomatime/vendor/laravel/framework/src/Illuminate/Database/Connection.php on line 1246

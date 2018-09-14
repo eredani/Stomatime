@@ -28,7 +28,7 @@ class SearchBar extends Component {
           <input
           className="form-control"
             type="text"
-            placeholder="Caută un cabinet dupa denumire."
+            placeholder="Search for a cabinet by name."
             value={this.props.filterText}
             onChange={this.handleFilterTextChange}
           />
@@ -36,7 +36,7 @@ class SearchBar extends Component {
           <div className="col-md-4">
                             <div>
                                 <select name="judet" className="form-control" onChange={this.handleFilterJudetChange}>
-                                    <option value="">Județe</option>
+                                    <option value="">Counties</option>
                                     <option value="Alba">Alba</option>
                                     <option value="Arad">Arad</option>
                                     <option value="Arges">Arges</option>
@@ -140,7 +140,7 @@ class Cards extends Component {
         </div>
         <div className="cardmedicflow">
             <p className="text-center"><a href={"/view/"+cabinet.id}>
-            Află mai mult!
+            Learn more!
         </a>
         </p>
         <hr/>

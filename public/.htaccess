@@ -21,22 +21,16 @@
     RewriteRule ^ index.php [L]
 </IfModule>
 
-# php -- BEGIN cPanel-generated handler, do not edit
-# Set the “ea-php72” package as the default “PHP” programming language.
-<IfModule mime_module>
-  AddType application/x-httpd-ea-php72 .php .php7 .phtml
-</IfModule>
-<IfModule mod_exipires.c>
-    ExpiresActive On
-    ExpiresByType text/css "access plus 1 day"
-    ExpiresDefault "access plus 0 days"
-</IfModule>
-<IfModule mod_headers.c>
-   <filesMatch ".(css|png|jpg|js|icon|woff|jpeg)$">
-   Header set Cache-Control "max-age=31536000,public, no-transform"
-   </filesMatch>
-</IfModule>
-# php -- END cPanel-generated handler, do not edit
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<IfModule mime_module>
+  AddType application/x-httpd-ea-php72 .php .php7 .phtml
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# NOTE this account's php is controlled via FPM and the vhost, this is a place holder.
+# Do not edit. This next line is to support the cPanel php wrapper (php_cli).
+# AddType application/x-httpd-ea-php72 .php .phtml
+# php -- END cPanel-generated handler, do not edit

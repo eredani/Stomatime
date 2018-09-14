@@ -66,7 +66,7 @@ if(document.getElementById('medicreact'))
             }
             else{
                 
-                NotificationManager.error('Error', "Codul nu este bun.", 3000);
+                NotificationManager.error('Error', "The code is not good.", 3000);
             }
         }
         setCode(e){
@@ -78,7 +78,7 @@ if(document.getElementById('medicreact'))
             {
                 if(this.state.numar.length !== 10)
                 {
-                    NotificationManager.error('Error', "Numărul trebuie sa fie din 10 cifre.", 3000);
+                    NotificationManager.error('Error', "The number must be 10 digits.", 3000);
                 }
                 else
                 {
@@ -139,7 +139,7 @@ if(document.getElementById('medicreact'))
             }
             else
             {
-                NotificationManager.error('Error', "Trebuie să completezi tot.", 3000);
+                NotificationManager.error('Error', "You have to fill in everything.", 3000);
             }
         }
         setNumar(e)
@@ -298,21 +298,21 @@ if(document.getElementById('medicreact'))
 
                     if(this.curentDate() < doctor.orar[this.state.day].stop  &&  this.curentDate() > doctor.orar[this.state.day].start)
                     {
-                        status=(<span className="badge badge-success">Disponibil</span>);
+                        status=(<span className="badge badge-success">Available</span>);
                     }
                     else
                     {
-                        status=(<span className="badge badge-danger">Indisponibil</span>);
+                        status=(<span className="badge badge-danger">Unavailable</span>);
                     }
                 }
                 else
                 {
-                    status=(<span className="badge badge-danger">Indisponibil</span>);
+                    status=(<span className="badge badge-danger">Unavailable</span>);
                 }
                 }
                 else
                 {
-                    status=(<span className="badge badge-danger">Indisponibil</span>);
+                    status=(<span className="badge badge-danger">Unavailable</span>);
                 }
             });
         });
@@ -341,7 +341,7 @@ if(document.getElementById('medicreact'))
                 </div>
         
                         <div className="cardmedicflow">
-                    {doctor.sala.length > 0 && <div>< p className = "text-center" > Cabinetul doctorului < b > {doctor.nume}</b> se afla la etajul <b>{doctor.sala[0].etaj} </b> sala numarul <b>{doctor.sala[0].numar}</b>.</p><hr/></div>}
+                    {doctor.sala.length > 0 && <div>< p className = "text-center" > Doctor's office < b > {doctor.nume}</b> is on the floor <b>{doctor.sala[0].etaj} </b> hall number <b>{doctor.sala[0].numar}</b>.</p><hr/></div>}
 
                         <p className="text-center">
                         {doctor.descriere}
@@ -366,7 +366,7 @@ if(document.getElementById('medicreact'))
                 {data}
                 <div className="col-lg-4 col-md-4 col-sm-6 d-flex text-center">
                     <div> 
-                        <h4>Selectează ziua in care esti interesat de o programare</h4> <br/> <br/> <br/>
+                        <h4>Select the day you are interested in a schedule</h4> <br/> <br/> <br/>
                         <DayPicker
                         selectedDays={this.state.selectedDay}
                         disabledDays={[{ daysOfWeek: daydisable},{after:disable,before: today}]}
@@ -374,7 +374,7 @@ if(document.getElementById('medicreact'))
                         />
                         {this.state.selectedDay!==null &&
                         <div>
-                        <p>Acestea sunt orele disponibile</p>
+                        <p>These are the hours available</p>
                         <select className="custom-select" value={this.state.ora} onChange={this.setProgramare}>
                             <option value=""></option>
                             {opt}
@@ -386,21 +386,21 @@ if(document.getElementById('medicreact'))
                 {this.state.selectedDay!==null && this.state.ora!=='' &&
                 <div className="col-lg-4 col-md-4 col-sm-6 d-flex text-center">
                     <div>   
-                    <h4>Pentru finalizarea te rugam sa introduci un numar de telefon pe care se va face confirmarea</h4>         
+                    <h4>To complete, please enter a phone number on which confirmation will be made</h4>         
                     <br/> <br/> <br/>  
                             <div className="form-group">
-                                <label htmlFor="nr">Număr de telefon</label>
-                                <input type="number" className="form-control" id="nr" onChange={this.setNumar} value={this.state.numar} aria-describedby="numar" placeholder="Număr de telefon" required/>
+                                <label htmlFor="nr">Phone number</label>
+                                <input type="number" className="form-control" id="nr" onChange={this.setNumar} value={this.state.numar} aria-describedby="numar" placeholder="Phone number" required/>
                             </div>
-                            <button type="submit" onClick={this.sendProgramare} className="btn btn-primary">Programează-te</button>
+                            <button type="submit" onClick={this.sendProgramare} className="btn btn-primary">Schedule yourself</button>
                     <br/>
                     {this.state.confirm==true &&
                     <div>
                     <div className="form-group">
-                                <label htmlFor="cod">Cod de confirmare</label>
-                                <input type="number" className="form-control" id="cod" onChange={this.setCode} value={this.state.cod} aria-describedby="cod" placeholder="Cod de confirmare" required/>
+                                <label htmlFor="cod">Confirmation code</label>
+                                <input type="number" className="form-control" id="cod" onChange={this.setCode} value={this.state.cod} aria-describedby="cod" placeholder="Confirmation code" required/>
                      </div>
-                            <button type="submit" onClick={this.sendConfirm} className="btn btn-primary">Confirmă</button>
+                            <button type="submit" onClick={this.sendConfirm} className="btn btn-primary">Confirm</button>
                    </div> }
                     </div>
                 </div>

@@ -37,13 +37,13 @@
                      @guest
                      @else
                      <li>
-                        <a class="nav-link" href="{!! route('view.cabs.serv', ['id'=>$info->id]) !!}">Tarife</a>
+                        <a class="nav-link" href="{!! route('view.cabs.serv', ['id'=>$info->id]) !!}">Prices</a>
                      </li>
                      @endguest
                   </ul>
                   <ul class="navbar-nav ml-auto">
                      <li>
-                        <a class="nav-link" href="/home">{{ __('Acasă') }}</a>
+                        <a class="nav-link" href="/home">{{ __('Home') }}</a>
                      </li>
                   </ul>
                </div>

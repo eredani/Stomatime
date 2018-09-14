@@ -46,7 +46,7 @@
     <nav class="navbar navbar-expand-md bg-dark fixed-top navbar-dark navbar-laravel">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Stomatime') }}
                     </a>
                     <button
                         class="navbar-toggler"
@@ -65,13 +65,13 @@
                         @guest
                         @else
                         <li>
-                                <a class="nav-link" href="/home">Acasă</a>
+                                <a class="nav-link" href="/home">Home</a>
                         </li>
                         <li>
-                                <a class="nav-link" href="{{ route('programari') }}">Programări</a>
+                                <a class="nav-link" href="{{ route('programari') }}">Appointments</a>
                         </li>
                         <li>
-                                <a class="nav-link" href="{{ route('setting') }}">Setări</a>
+                                <a class="nav-link" href="{{ route('setting') }}">Settings</a>
                         </li>
                         @endguest
                         </ul>
@@ -79,10 +79,10 @@
 
                             @guest
                             <li>
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Logare') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             <li>
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Înregistrare') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @else
                             <li class="nav-item dropdown">

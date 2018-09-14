@@ -43543,7 +43543,7 @@ var SecondPart = function (_Component2) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'h2',
                                             { className: 'text-white text-bold mb-2' },
-                                            'Ai o clinic\u0103 modern\u0103?'
+                                            'Do you have a modern clinic?'
                                         )
                                     )
                                 )
@@ -43568,7 +43568,7 @@ var SecondPart = function (_Component2) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'h2',
                                             { className: 'text-white text-bold mb-2' },
-                                            'Vrei o aplica\u021Bie eficient\u0103 \u0219i u\u0219or de utilizat?'
+                                            'Do you want an efficient and easy to use application?'
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'a',
@@ -43598,7 +43598,7 @@ var SecondPart = function (_Component2) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'h2',
                                             { className: 'text-white text-bold mb-2' },
-                                            '\xCEmbin\u0103 utilul cu pl\u0103cutul!'
+                                            'Combine useful with pleasure!'
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'a',
@@ -43632,17 +43632,17 @@ var SecondPart = function (_Component2) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'h3',
                                             null,
-                                            'Ce facem noi?\xA0',
+                                            'What do we do?\xA0',
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'span',
                                                 null,
-                                                'Cu ce v\u0103 putem ajuta?'
+                                                'How can we help?'
                                             )
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'p',
                                             null,
-                                            'StomaTime este o aplica\u021Bie web at\xE2t pentru cabinete c\xE2t \u0219i pentru pacien\u021Bi'
+                                            'StomaTime is a web application for both cabinets and patients'
                                         )
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -43675,7 +43675,7 @@ var SecondPart = function (_Component2) {
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h6',
                                                     null,
-                                                    'Cabinete'
+                                                    'Cabinets'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h5',
@@ -43686,10 +43686,10 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'i',
                                                             null,
-                                                            'Agenda progr\u0103marilor'
+                                                            'Agenda of progammers'
                                                         )
                                                     ),
-                                                    '- Pentru o bun\u0103 organizare.'
+                                                    '- For a good organization.'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h5',
@@ -43700,10 +43700,10 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'i',
                                                             null,
-                                                            'Dosarul pacientului'
+                                                            'Patient file'
                                                         )
                                                     ),
-                                                    '- Datele ad\u0103ugate cu u\u0219urin\u021B\u0103 disponibile oric\xE2nd.'
+                                                    '- Easily added data at any time.'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h5',
@@ -43714,10 +43714,10 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'i',
                                                             null,
-                                                            'Plan de tratament'
+                                                            'Treatment plan'
                                                         )
                                                     ),
-                                                    '- Bine structurat pentru o consultare eficient\u0103.'
+                                                    '- Well-structured for an efficient consultation.'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h5',
@@ -43728,10 +43728,10 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'i',
                                                             null,
-                                                            'SMS-uri/Email-uri'
+                                                            'E-Mails'
                                                         )
                                                     ),
-                                                    '- Gratuite c\u0103tre pacien\u021Bii dumneavoastr\u0103.'
+                                                    '- Free to your patients.'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h5',
@@ -43742,10 +43742,10 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'i',
                                                             null,
-                                                            'Programari online'
+                                                            'Online programming'
                                                         )
                                                     ),
-                                                    '- Pacien\u021Bii care doresc se pot programa online \xEEn func\u021Bie de disponibilitatea medicului, programarea urm\xE2nd a fi acceptat\u0103 de personalul cabinetului.'
+                                                    '- Patients who want to be online can be programmed for availability doctor, the appointment being accepted by the cabinet staff.'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h5',
@@ -43756,10 +43756,10 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'i',
                                                             null,
-                                                            'Fiscalizare'
+                                                            'Fiscalization'
                                                         )
                                                     ),
-                                                    '- Emitere facturi fiscale \u0219i imprimare chitan\u021Be.'
+                                                    '- Issuing tax invoices and printing receipts.'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h5',
@@ -43770,10 +43770,10 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'i',
                                                             null,
-                                                            'Gestionare'
+                                                            'Management'
                                                         )
                                                     ),
-                                                    '- Sistem de pontaj, dar \u0219i calcularea procentului medicilor colaboratori, vizualizare performan\u021Be personal, dar \u0219i eviden\u021Ba facturilor.'
+                                                    '- Time schedule, but also the calculation of the percentage of collaborating doctors,viewing personal performance, but also tracking bills.'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h5',
@@ -43784,10 +43784,10 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'i',
                                                             null,
-                                                            'Rapoarte'
+                                                            'Reports'
                                                         )
                                                     ),
-                                                    '- Rapoarte autocompletate, de exemplu: activitatea personalului, progr\u0103marile pacien\u021Bilor \u0219i respectarea acestora.'
+                                                    '- Autocomplete reports, for example: staff activity, progression\xA0patients and their observance.'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h5',
@@ -43798,10 +43798,10 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'i',
                                                             null,
-                                                            'Mobilitate'
+                                                            'Mobility'
                                                         )
                                                     ),
-                                                    '- Acces la aplica\u021Bie oriunde \u0219i oric\xE2nd pentru a putea consulta datele dorite.'
+                                                    '- Access the app anywhere, anytime to see what you want.'
                                                 )
                                             )
                                         ),
@@ -43832,7 +43832,7 @@ var SecondPart = function (_Component2) {
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h6',
                                                     null,
-                                                    'Pacien\u021Bi'
+                                                    'Patients'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h5',
@@ -43846,10 +43846,10 @@ var SecondPart = function (_Component2) {
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                                 'i',
                                                                 null,
-                                                                'Date despre clinic\u0103'
+                                                                'Clinical data'
                                                             )
                                                         ),
-                                                        '- Tot ce vre\u021Bi s\u0103 afla\u021Bi despre clinicile noastre, medici, pre\u021Buri, dar \u0219i serviciile oferite de acestea.'
+                                                        '- Everything you want to know about our clinics, doctors, prices, but also services provided by them.'
                                                     )
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -43864,10 +43864,10 @@ var SecondPart = function (_Component2) {
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                                 'i',
                                                                 null,
-                                                                'Agenda medicului'
+                                                                'The doctor\'s agenda'
                                                             )
                                                         ),
-                                                        '- Poate fi consultat\u0103 cu u\u0219urin\u021B\u0103 pentru a vedea disponibilitatea acestuia.'
+                                                        '- It can be easily viewed to see its availability.'
                                                     )
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -43882,10 +43882,10 @@ var SecondPart = function (_Component2) {
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                                 'i',
                                                                 null,
-                                                                'Program\u0103ri online'
+                                                                'Online scheduling'
                                                             )
                                                         ),
-                                                        '- V\u0103 pute\u021Bi programa singur la medicul dorit \xEEn func\u021Bie de disponibilitatea acestuia.'
+                                                        '- You can schedule your own doctor according to availability it.'
                                                     )
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -43903,7 +43903,7 @@ var SecondPart = function (_Component2) {
                                                                 'SMS-uri/Email-uri'
                                                             )
                                                         ),
-                                                        '- V\u0103 anun\u021Bam prin SMS/Mail data \u0219i ora program\u0103rii.'
+                                                        '- We notify you by SMS / E-Mail the date and time of your appointment.'
                                                     )
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -43918,10 +43918,10 @@ var SecondPart = function (_Component2) {
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                                 'i',
                                                                 null,
-                                                                'Dosarul pacientului'
+                                                                'Patient file'
                                                             )
                                                         ),
-                                                        '- V\u0103 pute\u021Bi accesa singur dosarul pentru a vedea interven\u021Biile efectuate, radiografii, dar \u0219i planul de tratament stabilit \xEEmpreun\u0103 cu medicul dumneavoastr\u0103.'
+                                                        '- You can access your own folder to see what you\'ve been doing,\xA0radiographs, but also the treatment plan established with your doctor your.'
                                                     )
                                                 )
                                             )
@@ -43934,7 +43934,7 @@ var SecondPart = function (_Component2) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'button',
                                         { 'data-toggle': 'modal', 'data-target': '#info', className: 'btn btn-style-one' },
-                                        'Alte informa\u021Bii'
+                                        'Other information'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -43952,7 +43952,7 @@ var SecondPart = function (_Component2) {
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'h4',
                                                     { className: 'modal-title' },
-                                                    'Alte informa\u021Bii'
+                                                    'Other information'
                                                 ),
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'button',
@@ -43978,7 +43978,7 @@ var SecondPart = function (_Component2) {
                                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                                     'i',
                                                                     null,
-                                                                    'Sincronizarea cu telefonul mobil'
+                                                                    'Synchronize with your mobile phone'
                                                                 )
                                                             )
                                                         )
@@ -43989,11 +43989,11 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'h4',
                                                             null,
-                                                            'Fie c\u0103 utiliza\u021Bi un Iphone, un telefon cu Android, WindowsPhone pute\u021Bi utiliza aplica\u021Bia noastr\u0103 cu usurin\u021B\u0103, doar cu ajutorul unei conexiuni la internet.',
+                                                            'Whether you are using an Iphone, an Android phone, WindowsPhone you can use our application with ease, only with a connection to Internet.',
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                                                            'Cu ajutorul aplica\u021Biei noastre ve\u021Bi \u0219tii mereu dac\u0103 un pacient doreste s\u0103 se reprogrameze, sau dac\u0103 cineva dore\u0219te s\u0103 vin\u0103 cu o urgen\u021B\u0103 la dumneavoastr\u0103.',
+                                                            'With our application you will always know if a patient wants to reprogram, or if someone wants to come up with an emergency with you.',
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                                                            'Astfel v\u0103 pute\u021Bi reorganiza chiar dac\u0103 nu sunte\u021Bi \xEEn cabinet la momentul respectiv.'
+                                                            'So you can reorganize even if you are not in the office at the time.'
                                                         )
                                                     )
                                                 ),
@@ -44012,7 +44012,7 @@ var SecondPart = function (_Component2) {
                                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                                     'i',
                                                                     null,
-                                                                    'Agenda medicului'
+                                                                    'The doctor\'s agenda'
                                                                 )
                                                             )
                                                         )
@@ -44023,13 +44023,13 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'h4',
                                                             null,
-                                                            'Gestionarea agendei se poate face at\xE2t de c\u0103tre medic, asistent\u0103, sau chiar recep\u021Bionera clinicii, iar \xEEn cazul program\u0103rilor online, acestea vor fi preluate \u0219i aprobate de angaja\u021Bii cabinetului.',
+                                                            'Managing the agenda can be done by your doctor, nurse, or even the clinic\'s receptionist, and in the case of online appointments, they will be taken over and approved by cabinet employees.',
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                                                            '\xCEn momentul \xEEn care un \xEEnterval orar este ocupat acesta va fi blocat \xEEn agend\u0103 astfel se vor putea vedea orele la care medicul este disponibil.',
+                                                            'When a time delay is busy it will be locked in the agenda will be able to see the times the doctor is available.',
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                                                            'Tot din agend\u0103 medicul poate consulta \u0219i dosarul pacientului.',
+                                                            'On the agenda, the doctor can also consult the patient\'s file.',
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                                                            'Vizualizarea agendei se poate face pe zi, s\u0103pt\u0103m\xE2n\u0103 sau chiar luna.'
+                                                            'You can view the calendar by day, week, or even month.'
                                                         )
                                                     )
                                                 ),
@@ -44048,7 +44048,7 @@ var SecondPart = function (_Component2) {
                                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                                     'i',
                                                                     null,
-                                                                    'Dosarul pacientului'
+                                                                    'Patient file'
                                                                 )
                                                             )
                                                         )
@@ -44059,9 +44059,9 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'h4',
                                                             null,
-                                                            'Utiliz\u0103nd StomaTime ave\u021Bi acces oric\u0103nd \u0219i oriunde,doar cu ajutorul unei conexiuni la internet,la toate datele dorite Ca \u0219i medic v\u0103 punem mereu la dispozi\u021Bie at\xE2t agenda dumneavoastr\u0103 c\xE2t \u0219i dosarul pacien\u021Bilor, date despre ace\u0219tia, pute\u021Bi consulta interven\u021Biile deja efectuate,sau viitoare, radiografiile, dar \u0219i diverse documente,de exemplu chestionarele completate de ace\u0219tia sau diverse documente care au trebui completate \xEEn urma anumitor interve\u021Bii.',
+                                                            'Using StomaTime you have access anywhere and anywhere, with just one\xA0internet connections to all your desired data As a physician we always put you at\xA0disposition both your agenda and patient file, data about\xA0you can look at interventions that have already been performed, or future,\xA0radiographs, but also various documents, eg questionnaires filled in by these or various documents that need to be filled in interve\u0163ii.',
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                                                            'De asemenea in dosarul pacientului se va preciza \u0219i modul cum acesta a ajuns la dumneavostr\u0103, fie din recomandarea altui pacient, sau a unui prieten.'
+                                                            'Also, the patient\'s dossier will also specify how it has arrived\xA0either from the recommendation of another patient, or from a friend.'
                                                         )
                                                     )
                                                 ),
@@ -44080,7 +44080,7 @@ var SecondPart = function (_Component2) {
                                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                                     'i',
                                                                     null,
-                                                                    'SMS/Email'
+                                                                    'SMS/E-Mails'
                                                                 )
                                                             )
                                                         )
@@ -44091,14 +44091,14 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'h4',
                                                             null,
-                                                            'Trimiterea SMS-urilor c\u0103tre pacien\u021Bi se va face automat la o or\u0103 pe care dumneavoastr\u0103 o stabili\u021Bi.',
+                                                            'Sending SMS to patients will be done automatically at an hour on which you set it up. ',
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                                                            'Astfel pacien\u021Bii sunt anun\u021Ba\u021Bi cu o zi \xEEnainte ora program\u0103rii.',
+                                                            ' So patients are notified the day before the appointment.',
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                                 'q',
                                                                 null,
-                                                                'Bun\u0103 ziua! M\xE2ine 1.04.2018, la ora 12:40, v\u0103 asteptam la clinica StomaTime. In cazul in care nu pute\u021Bi ajunge v\u0103 rug\u0103m s\u0103 ne contacta\u021Bi pentru a v\u0103 reprograma. O zi placuta!'
+                                                                'Hello! Tomorrow 1.04.2018, at 12:40, we are waiting for you at the StomaTime clinic.If you can not reach us, please contact us for your convenience reschedule. A nice day!'
                                                             )
                                                         )
                                                     )
@@ -44141,17 +44141,17 @@ var SecondPart = function (_Component2) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'h3',
                                             null,
-                                            'Ce oferte avem?\xA0',
+                                            'What offers do we have?\xA0',
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'span',
                                                 null,
-                                                'Ce v\u0103 oferim?'
+                                                'What do we offer you?'
                                             )
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'p',
                                             null,
-                                            'Platforma StomaTime este \xEEmp\u0103r\u021Bit\u0103 \xEEn dou\u0103 oferte.'
+                                            'The StomaTime platform is divided into two offers.'
                                         )
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -44172,7 +44172,7 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'h3',
                                                             null,
-                                                            'Anual\u0103'
+                                                            'Annual'
                                                         )
                                                     ),
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -44181,7 +44181,7 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'h4',
                                                             null,
-                                                            'Oferta anual\u0103 cuprinde urmatoarele beneficii pentru suma de 500\u20AC/anual.'
+                                                            'The annual offer includes the following benefits for \u20AC 500 / year.'
                                                         )
                                                     ),
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -44191,25 +44191,25 @@ var SecondPart = function (_Component2) {
                                                             'li',
                                                             null,
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-dot-circle-o' }),
-                                                            ' Mentenan\u021Ba \u0219i asisten\u021B\u0103 gratuit\u0103'
+                                                            ' Free maintenance and support'
                                                         ),
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'li',
                                                             null,
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-dot-circle-o' }),
-                                                            ' Optimizare SEO cu un num\u0103r de keywords nelimitate'
+                                                            ' SEO optimization with an unlimited number of keywords'
                                                         ),
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'li',
                                                             null,
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-dot-circle-o' }),
-                                                            ' Beneficia\u021Bi de o pagin\u0103 special\u0103 pe platforma StomaTime unde pacien\u021Bi platformei v\u0103 pot vedea cabinetul \u0219i ofertele gratuit timp de 6 luni. Prelungirea acestei op\u021Biuni cost\xE2nd doar 5\u20AC / lunar'
+                                                            ' Take a special page on the platform StomaTime where platform patients can see your office and offers for free for 6 months. Extending this option costs only 5 \u20AC / month'
                                                         ),
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'li',
                                                             null,
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-dot-circle-o' }),
-                                                            ' La fiecare un nou cabinet adus din partea cabinetului dumneavoastr\u0103 v\u0103 oferim \xEEn plus o reducere de 15% la urmatoarea prelungire.'
+                                                            ' Every new cabinet brought from the side your office gives you a 15% discount on the next one extension.'
                                                         )
                                                     )
                                                 )
@@ -44230,7 +44230,7 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'h3',
                                                             null,
-                                                            'Lunar\u0103'
+                                                            'Monthly'
                                                         )
                                                     ),
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -44239,7 +44239,7 @@ var SecondPart = function (_Component2) {
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'h4',
                                                             null,
-                                                            'Oferta lunar\u0103 cuprinde urmatoarele beneficii pentru suma de 45\u20AC / lun\u0103.'
+                                                            'The monthly offer includes the following benefits for the amount of 45 \u20AC / month.'
                                                         )
                                                     ),
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -44249,19 +44249,19 @@ var SecondPart = function (_Component2) {
                                                             'li',
                                                             null,
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-dot-circle-o' }),
-                                                            ' Mentenan\u021B\u0103 \u0219i asisten\u021Ba gratuit\u0103 pentru primele 3 luni.'
+                                                            ' Maintenance and free assistance for the first 3 months.'
                                                         ),
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'li',
                                                             null,
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-dot-circle-o' }),
-                                                            ' Optimizare SEO cu un num\u0103r de keywords limitate (10)'
+                                                            ' SEO optimization with a limited number of keywords (10)'
                                                         ),
                                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                             'li',
                                                             null,
                                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-dot-circle-o' }),
-                                                            ' La fiecare un nou cabinet adus din partea cabinetului dumneavoastr\u0103 v\u0103 oferim \xEEn plus o reducere de 10% la urmatoarea prelungire.'
+                                                            ' Every new cabinet brought from the side your cabinet offers you a 10% discount on the next one extension.'
                                                         )
                                                     )
                                                 )
@@ -44289,13 +44289,13 @@ var SecondPart = function (_Component2) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'span',
                                     null,
-                                    'Afilia\u021Bi'
+                                    'Affiliates'
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'p',
                                 null,
-                                'Acestea sunt unele dintre cabinetele afiliate cu noi extrase aleator din baza de date.'
+                                'These are some of the affiliated offices with new random extracts from\xA0database.'
                             )
                         )
                     ),
@@ -44337,7 +44337,7 @@ var SecondPart = function (_Component2) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'a',
                                         { href: '/' },
-                                        'Acas\u0103'
+                                        'Home'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -44346,7 +44346,7 @@ var SecondPart = function (_Component2) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'a',
                                         { href: '#despre' },
-                                        'Despre'
+                                        'About'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -44355,7 +44355,7 @@ var SecondPart = function (_Component2) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'a',
                                         { href: '#oferte' },
-                                        'Oferte'
+                                        'Offers'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -44364,7 +44364,7 @@ var SecondPart = function (_Component2) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'a',
                                         { href: '#aff' },
-                                        'Afilia\u021Bi'
+                                        'Affiliates'
                                     )
                                 )
                             )
@@ -44452,7 +44452,7 @@ var Cards = function (_Component3) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'a',
                                     { href: "/view/" + cabinet.id },
-                                    'Afl\u0103 mai mult!'
+                                    'Learn more!'
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
@@ -64368,7 +64368,7 @@ if (document.getElementById('home')) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
                                 className: 'form-control',
                                 type: 'text',
-                                placeholder: 'Caut\u0103 un cabinet dupa denumire.',
+                                placeholder: 'Search for a cabinet by name.',
                                 value: this.props.filterText,
                                 onChange: this.handleFilterTextChange
                             })
@@ -64385,7 +64385,7 @@ if (document.getElementById('home')) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'option',
                                         { value: '' },
-                                        'Jude\u021Be'
+                                        'Counties'
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'option',
@@ -64719,7 +64719,7 @@ if (document.getElementById('home')) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'a',
                                         { href: "/view/" + cabinet.id },
-                                        'Afl\u0103 mai mult!'
+                                        'Learn more!'
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
@@ -64899,7 +64899,7 @@ if (document.getElementById('reactprogramari')) {
                         }
                     });
                 } else {
-                    __WEBPACK_IMPORTED_MODULE_3_react_notifications__["NotificationManager"].error('Error', "Codul nu este bun.", 3000);
+                    __WEBPACK_IMPORTED_MODULE_3_react_notifications__["NotificationManager"].error('Error', "The code is not good.", 3000);
                 }
             }
         }, {
@@ -64983,14 +64983,14 @@ if (document.getElementById('reactprogramari')) {
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'label',
                                                 { htmlFor: "cod" + data.id },
-                                                'Cod de confirmare'
+                                                'Confirmation code'
                                             ),
-                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', className: 'form-control', id: "cod" + data.id, onChange: this.setCode, value: this.state.cod, 'aria-describedby': "cod" + data.id, placeholder: 'Cod de confirmare', required: true })
+                                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', className: 'form-control', id: "cod" + data.id, onChange: this.setCode, value: this.state.cod, 'aria-describedby': "cod" + data.id, placeholder: 'Confirmation code', required: true })
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'button',
                                             { type: 'submit', id: "conf" + data.id, onClick: this.sendConfirm.bind(this, data.id_doctor, data.id_cab, data.id), className: 'btn btn-primary' },
-                                            'Confirm\u0103'
+                                            'Confirm'
                                         )
                                     ),
                                     data.status !== 2 && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -64999,12 +64999,12 @@ if (document.getElementById('reactprogramari')) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'p',
                                             null,
-                                            'Po\u021Bi anula programarea ap\u0103s\xE2nd pe butonul de mai jos'
+                                            'You can cancel the programming by pressing the button below'
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'button',
                                             { type: 'submit', id: "delete" + data.id, onClick: this.cancelProg.bind(this, data.id_doctor, data.id_cab, data.id), className: 'btn btn-danger' },
-                                            'Anuleaz\u0103'
+                                            'Cancel'
                                         )
                                     )
                                 ),
@@ -65014,7 +65014,7 @@ if (document.getElementById('reactprogramari')) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'button',
                                         { type: 'button', className: 'btn btn-danger', 'data-dismiss': 'modal' },
-                                        '\xCEnchide'
+                                        'Close'
                                     )
                                 )
                             )
@@ -65083,15 +65083,15 @@ if (document.getElementById('reactprogramari')) {
                         prog.status == 0 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
                             { className: 'badge badge-info' },
-                            'Asteptare'
+                            'Waiting'
                         ) : prog.status == 2 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
                             { className: 'badge badge-danger' },
-                            'Anulat'
+                            'Canceled'
                         ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
                             { className: 'badge badge-success' },
-                            'Acceptat'
+                            'Accepted'
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -65100,11 +65100,11 @@ if (document.getElementById('reactprogramari')) {
                         prog.confirmat == 0 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
                             { className: 'badge badge-info' },
-                            'Neconfirmat'
+                            'Unconfirmed'
                         ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
                             { className: 'badge badge-success' },
-                            'Confirmat'
+                            'Confirmed'
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -65185,17 +65185,17 @@ if (document.getElementById('reactprogramari')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Num\u0103r'
+                                    'Number'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Dat\u0103'
+                                    'Date'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Or\u0103'
+                                    'Time'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
@@ -65205,12 +65205,12 @@ if (document.getElementById('reactprogramari')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Confirmat'
+                                    'Confirmed'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Set\u0103ri'
+                                    'Settings'
                                 )
                             )
                         ),
@@ -65238,17 +65238,17 @@ if (document.getElementById('reactprogramari')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Num\u0103r'
+                                    'Number'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Dat\u0103'
+                                    'Date'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Or\u0103'
+                                    'Time'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
@@ -65258,12 +65258,12 @@ if (document.getElementById('reactprogramari')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Confirmat'
+                                    'Confirmed'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Set\u0103ri'
+                                    'Settings'
                                 )
                             )
                         )
@@ -66825,27 +66825,27 @@ if (document.getElementById('reactview')) {
                                     status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'span',
                                         { className: 'badge badge-success' },
-                                        'Deschis'
+                                        'Open'
                                     );
                                 } else {
                                     status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'span',
                                         { className: 'badge badge-danger' },
-                                        'Inchis'
+                                        'Closed'
                                     );
                                 }
                             } else {
                                 status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'span',
                                     { className: 'badge badge-danger' },
-                                    'Inchis'
+                                    'Closed'
                                 );
                             }
                         } else {
                             status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'span',
                                 { className: 'badge badge-danger' },
-                                'Inchis'
+                                'Closed'
                             );
                         }
                     });
@@ -66967,11 +66967,11 @@ if (document.getElementById('reactview')) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'h5',
                                             null,
-                                            'Echipa ',
+                                            'Team ',
                                             cabinetul.name,
-                                            ' este format\u0103 din ',
+                                            ' is composed of ',
                                             cabinetul.countdoctori,
-                                            ' medici cu experien\u021B\u0103 \xEEn diferite specializ\u0103ri.'
+                                            ' experienced doctors in various specializations.'
                                         )
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -66981,7 +66981,7 @@ if (document.getElementById('reactview')) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'small',
                                             null,
-                                            'Medic eviden\u021Biat \xA0',
+                                            'Doctor highlighted \xA0',
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'a',
                                                 { href: "https://stomatime.com/view/" + window.config.ID + "/medic/" + medicrandom.id },
@@ -67072,7 +67072,7 @@ if (document.getElementById('reactview')) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'h2',
                             { className: 'section-title mb-2 h1' },
-                            'Specializ\u0103rile disponibile'
+                            'Specializations available'
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'p',
@@ -67090,13 +67090,13 @@ if (document.getElementById('reactview')) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'a',
                                 { className: 'text-muted h5', href: "https://stomatime.com/view/" + window.config.ID + "/servicii" },
-                                'Vezi mai multe specializ\u0103ri si detalii despre acestea'
+                                'See more specializations and details about them'
                             )
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'h2',
                             { className: 'section-title mb-2 h1' },
-                            'Medici'
+                            'Doctors'
                         )
                     )
                 );
@@ -67198,7 +67198,7 @@ if (document.getElementById('reactview')) {
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'a',
                                                     { href: "https://stomatime.com/view/" + window.config.ID + "/medic/" + doctor.id },
-                                                    'F\u0103-ti o programare.'
+                                                    'Make your appointment.'
                                                 )
                                             ),
                                             doctor.sala.length > 0 && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -67207,21 +67207,21 @@ if (document.getElementById('reactview')) {
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'p',
                                                     { className: 'text-center' },
-                                                    ' Cabinetul dotorului ',
+                                                    ' Cabinet doctor ',
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                         'b',
                                                         null,
                                                         ' ',
                                                         doctor.nume
                                                     ),
-                                                    ' se afla la etajul ',
+                                                    ' is on the floor ',
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                         'b',
                                                         null,
                                                         doctor.sala[0].etaj,
                                                         ' '
                                                     ),
-                                                    ' sala numarul ',
+                                                    ' hall number ',
                                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                         'b',
                                                         null,
@@ -67373,7 +67373,7 @@ if (document.getElementById('reactview')) {
                         });
                     });
                 } catch (error) {
-                    console.log("Eroare la API");
+                    console.log("API error");
                 }
             }
         }, {
@@ -79035,12 +79035,12 @@ var Servicii = function (_Component2) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'th',
                                         null,
-                                        'Denumire'
+                                        'Name'
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'th',
                                         null,
-                                        'Pret'
+                                        'Price'
                                     )
                                 )
                             ),
@@ -79058,12 +79058,12 @@ var Servicii = function (_Component2) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'th',
                                         null,
-                                        'Denumire'
+                                        'Name'
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'th',
                                         null,
-                                        'Pret'
+                                        'Price'
                                     )
                                 )
                             )
@@ -79241,7 +79241,7 @@ if (document.getElementById('medicreact')) {
                     });
                 } else {
 
-                    __WEBPACK_IMPORTED_MODULE_6_react_notifications__["NotificationManager"].error('Error', "Codul nu este bun.", 3000);
+                    __WEBPACK_IMPORTED_MODULE_6_react_notifications__["NotificationManager"].error('Error', "The code is not good.", 3000);
                 }
             }
         }, {
@@ -79256,7 +79256,7 @@ if (document.getElementById('medicreact')) {
 
                 if (this.state.ora !== '' && this.state.numar !== '' && this.state.selectedDay !== null) {
                     if (this.state.numar.length !== 10) {
-                        __WEBPACK_IMPORTED_MODULE_6_react_notifications__["NotificationManager"].error('Error', "Numărul trebuie sa fie din 10 cifre.", 3000);
+                        __WEBPACK_IMPORTED_MODULE_6_react_notifications__["NotificationManager"].error('Error', "The number must be 10 digits.", 3000);
                     } else {
                         __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('https://stomatime.com/programare', {
                             nr: this.state.numar,
@@ -79311,7 +79311,7 @@ if (document.getElementById('medicreact')) {
                         });
                     }
                 } else {
-                    __WEBPACK_IMPORTED_MODULE_6_react_notifications__["NotificationManager"].error('Error', "Trebuie să completezi tot.", 3000);
+                    __WEBPACK_IMPORTED_MODULE_6_react_notifications__["NotificationManager"].error('Error', "You have to fill in everything.", 3000);
                 }
             }
         }, {
@@ -79497,27 +79497,27 @@ if (document.getElementById('medicreact')) {
                                     status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'span',
                                         { className: 'badge badge-success' },
-                                        'Disponibil'
+                                        'Available'
                                     );
                                 } else {
                                     status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'span',
                                         { className: 'badge badge-danger' },
-                                        'Indisponibil'
+                                        'Unavailable'
                                     );
                                 }
                             } else {
                                 status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'span',
                                     { className: 'badge badge-danger' },
-                                    'Indisponibil'
+                                    'Unavailable'
                                 );
                             }
                         } else {
                             status = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'span',
                                 { className: 'badge badge-danger' },
-                                'Indisponibil'
+                                'Unavailable'
                             );
                         }
                     });
@@ -79575,21 +79575,21 @@ if (document.getElementById('medicreact')) {
                                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                 'p',
                                                 { className: 'text-center' },
-                                                ' Cabinetul doctorului ',
+                                                ' Doctor\'s office ',
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'b',
                                                     null,
                                                     ' ',
                                                     doctor.nume
                                                 ),
-                                                ' se afla la etajul ',
+                                                ' is on the floor ',
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'b',
                                                     null,
                                                     doctor.sala[0].etaj,
                                                     ' '
                                                 ),
-                                                ' sala numarul ',
+                                                ' hall number ',
                                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                                     'b',
                                                     null,
@@ -79637,7 +79637,7 @@ if (document.getElementById('medicreact')) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'h4',
                                 null,
-                                'Selecteaz\u0103 ziua in care esti interesat de o programare'
+                                'Select the day you are interested in a schedule'
                             ),
                             ' ',
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
@@ -79656,7 +79656,7 @@ if (document.getElementById('medicreact')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'p',
                                     null,
-                                    'Acestea sunt orele disponibile'
+                                    'These are the hours available'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'select',
@@ -79676,7 +79676,7 @@ if (document.getElementById('medicreact')) {
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'h4',
                                 null,
-                                'Pentru finalizarea te rugam sa introduci un numar de telefon pe care se va face confirmarea'
+                                'To complete, please enter a phone number on which confirmation will be made'
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
                             ' ',
@@ -79689,14 +79689,14 @@ if (document.getElementById('medicreact')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'label',
                                     { htmlFor: 'nr' },
-                                    'Num\u0103r de telefon'
+                                    'Phone number'
                                 ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', className: 'form-control', id: 'nr', onChange: this.setNumar, value: this.state.numar, 'aria-describedby': 'numar', placeholder: 'Num\u0103r de telefon', required: true })
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', className: 'form-control', id: 'nr', onChange: this.setNumar, value: this.state.numar, 'aria-describedby': 'numar', placeholder: 'Phone number', required: true })
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'button',
                                 { type: 'submit', onClick: this.sendProgramare, className: 'btn btn-primary' },
-                                'Programeaz\u0103-te'
+                                'Schedule yourself'
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
                             this.state.confirm == true && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -79708,14 +79708,14 @@ if (document.getElementById('medicreact')) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'label',
                                         { htmlFor: 'cod' },
-                                        'Cod de confirmare'
+                                        'Confirmation code'
                                     ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', className: 'form-control', id: 'cod', onChange: this.setCode, value: this.state.cod, 'aria-describedby': 'cod', placeholder: 'Cod de confirmare', required: true })
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', className: 'form-control', id: 'cod', onChange: this.setCode, value: this.state.cod, 'aria-describedby': 'cod', placeholder: 'Confirmation code', required: true })
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'button',
                                     { type: 'submit', onClick: this.sendConfirm, className: 'btn btn-primary' },
-                                    'Confirm\u0103'
+                                    'Confirm'
                                 )
                             )
                         )
@@ -81332,12 +81332,12 @@ if (document.getElementById('cabviewprog')) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'p',
                                             null,
-                                            'Pentru a confirma programarea apasa pe butonul de mai jos'
+                                            'To confirm the appointment, click on the button below'
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'button',
                                             { type: 'submit', id: "conf" + data.id, onClick: this.confProg.bind(this, data.id_doctor, data.id_client, data.id), className: 'btn btn-info' },
-                                            'Confirm\u0103'
+                                            'Confirm'
                                         )
                                     )
                                 ),
@@ -81347,7 +81347,7 @@ if (document.getElementById('cabviewprog')) {
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'button',
                                         { type: 'button', className: 'btn btn-danger', 'data-dismiss': 'modal' },
-                                        '\xCEnchide'
+                                        'Close'
                                     )
                                 )
                             )
@@ -81408,15 +81408,15 @@ if (document.getElementById('cabviewprog')) {
                         prog.status == 0 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
                             { className: 'badge badge-info' },
-                            'Asteptare'
+                            'Wainting'
                         ) : prog.status == 2 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
                             { className: 'badge badge-danger' },
-                            'Anulat'
+                            'Canceled'
                         ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
                             { className: 'badge badge-success' },
-                            'Acceptat'
+                            'Accepted'
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -81425,11 +81425,11 @@ if (document.getElementById('cabviewprog')) {
                         prog.confirmat == 0 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
                             { className: 'badge badge-info' },
-                            'Neconfirmat'
+                            'Unconfirmed'
                         ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
                             { className: 'badge badge-success' },
-                            'Confirmat'
+                            'Confirmed'
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -81515,27 +81515,27 @@ if (document.getElementById('cabviewprog')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Medic'
+                                    'Doctor'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Pacient'
+                                    'Patient'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Num\u0103r'
+                                    'Number'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Dat\u0103'
+                                    'Date'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Or\u0103'
+                                    'Time'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
@@ -81550,7 +81550,7 @@ if (document.getElementById('cabviewprog')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Set\u0103ri'
+                                    'Settings'
                                 )
                             )
                         ),
@@ -81568,27 +81568,27 @@ if (document.getElementById('cabviewprog')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Medic'
+                                    'Doctor'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Pacient'
+                                    'Patient'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Num\u0103r'
+                                    'Number'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Dat\u0103'
+                                    'Date'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Or\u0103'
+                                    'Time'
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
@@ -81603,7 +81603,7 @@ if (document.getElementById('cabviewprog')) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'th',
                                     null,
-                                    'Set\u0103ri'
+                                    'Settings'
                                 )
                             )
                         )

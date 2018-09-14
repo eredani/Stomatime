@@ -84,21 +84,21 @@ if(document.getElementById('reactview'))
 
                     if(this.curentDate() < cab.program[this.state.day].stop  &&  this.curentDate() > cab.program[this.state.day].start)
                     {
-                        status=(<span className="badge badge-success">Deschis</span>);
+                        status=(<span className="badge badge-success">Open</span>);
                     }
                     else
                     {
-                        status=(<span className="badge badge-danger">Inchis</span>);
+                        status=(<span className="badge badge-danger">Closed</span>);
                     }
                 }
                 else
                 {
-                    status=(<span className="badge badge-danger">Inchis</span>);
+                    status=(<span className="badge badge-danger">Closed</span>);
                 }
                 }
                 else
                 {
-                    status=(<span className="badge badge-danger">Inchis</span>);
+                    status=(<span className="badge badge-danger">Closed</span>);
                 }
 
             });
@@ -145,9 +145,9 @@ if(document.getElementById('reactview'))
                         medicrandom!==null
                         ?
                         <div>
-                            <div className="text-center cardflow"><h5>Echipa {cabinetul.name} este formată din {cabinetul.countdoctori} medici cu experiență în diferite specializări.</h5></div>
+                            <div className="text-center cardflow"><h5>Team {cabinetul.name} is composed of {cabinetul.countdoctori} experienced doctors in various specializations.</h5></div>
 
-                    <p className = " text-center" > <small>Medic evidențiat &nbsp;
+                    <p className = " text-center" > <small>Doctor highlighted &nbsp;
                     <a href={"https://stomatime.com/view/"+window.config.ID+"/medic/"+medicrandom.id}>
                         {medicrandom.nume} {medicrandom.prenume}
                     </a>
@@ -209,14 +209,14 @@ if(document.getElementById('reactview'))
             return(
                 <section id="what-we-do">
                     <div className="container-fluid">
-                    <h2 className="section-title mb-2 h1">Specializările disponibile</h2>
+                    <h2 className="section-title mb-2 h1">Specializations available</h2>
                     <p className="text-center text-muted h5">{moto}</p>
             <div className="row mt-5">
             {card}
 
             </div>
-            <p className="text-center"><a className="text-muted h5" href={"https://stomatime.com/view/"+window.config.ID+"/servicii"}>Vezi mai multe specializări si detalii despre acestea</a></p>
-            <h2 className="section-title mb-2 h1">Medici</h2>
+            <p className="text-center"><a className="text-muted h5" href={"https://stomatime.com/view/"+window.config.ID+"/servicii"}>See more specializations and details about them</a></p>
+            <h2 className="section-title mb-2 h1">Doctors</h2>
             </div>
             </section>
         );
@@ -255,9 +255,9 @@ if(document.getElementById('reactview'))
                     <div className="team-back">
                         <div className="cardmedicflow">
                         <p className="text-center"><a href={"https://stomatime.com/view/"+window.config.ID+"/medic/"+doctor.id}>
-                        Fă-ti o programare.
+                        Make your appointment.
                     </a></p>
-                    {doctor.sala.length > 0 && <div>< p className = "text-center" > Cabinetul dotorului < b > {doctor.nume}</b> se afla la etajul <b>{doctor.sala[0].etaj} </b> sala numarul <b>{doctor.sala[0].numar}</b>.</p><hr/></div>}
+                    {doctor.sala.length > 0 && <div>< p className = "text-center" > Cabinet doctor < b > {doctor.nume}</b> is on the floor <b>{doctor.sala[0].etaj} </b> hall number <b>{doctor.sala[0].numar}</b>.</p><hr/></div>}
 
                         <p className="text-center">
                         {doctor.descriere}
@@ -354,7 +354,7 @@ if(document.getElementById('reactview'))
                         });
                     })
             } catch (error) {
-                console.log("Eroare la API");
+                console.log("API error");
             }
         }
         componentDidMount(){

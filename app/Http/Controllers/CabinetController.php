@@ -490,7 +490,7 @@ class CabinetController extends Controller
         $factory = new \ImageOptimizer\OptimizerFactory();
         $optimizer = $factory->get();
         $path= $request->file('profile')->store('/public/cabinete');
-        $optimizer->optimize('/home/stomatime/www/Stomatime/storage/app/'.$path);
+        $optimizer->optimize('/home/stomatime/www/storage/app/'.$path);
         $path= Storage::url($path);
         $user=Auth::user();
         if(Auth::user()->img_profile==null)
@@ -637,7 +637,7 @@ class CabinetController extends Controller
             $factory = new \ImageOptimizer\OptimizerFactory();
             $optimizer = $factory->get();
             $path= $req->file('profile')->store("/public/medici/".Auth::user()->id);
-            $optimizer->optimize('/home/stomatime/www/Stomatime/storage/app/'.$path);
+            $optimizer->optimize('/home/stomatime/www/storage/app/'.$path);
             $doctor->img_profile=Storage::url($path);
         }catch (Exception $e)
         {

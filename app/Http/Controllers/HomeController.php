@@ -204,7 +204,7 @@ class HomeController extends Controller
         $factory = new \ImageOptimizer\OptimizerFactory();
         $optimizer = $factory->get();
         $path= $request->file('profile')->store('/public/avatars');
-        $optimizer->optimize('/home/stomatime/www/Stomatime/storage/app/'.$path);
+        $optimizer->optimize('/home/stomatime/www/storage/app/'.$path);
         
         $user=Auth::user();
         if(Auth::user()->img_profile==null)

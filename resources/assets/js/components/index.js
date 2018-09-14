@@ -79,7 +79,7 @@ class SecondPart extends Component{
                     <div className="row">
                         <div className="col-12">
                             <div className="content style text-center">
-                                <h2 className="text-white text-bold mb-2">Ai o clinică modernă?</h2>
+                                <h2 className="text-white text-bold mb-2">Do you have a modern clinic?</h2>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@ class SecondPart extends Component{
                     <div className="row">
                         <div className="col-12">
                             <div className="content style text-center">
-                                <h2 className="text-white text-bold mb-2">Vrei o aplicație eficientă și ușor de utilizat?</h2>
+                                <h2 className="text-white text-bold mb-2">Do you want an efficient and easy to use application?</h2>
                                 <a href="#" className="btn btn-main btn-white">Buy Now</a>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ class SecondPart extends Component{
                     <div className="row">
                         <div className="col-12">
                             <div className="content style text-center">
-                                <h2 className="text-white text-bold mb-2">Îmbină utilul cu plăcutul!</h2>
+                                <h2 className="text-white text-bold mb-2">Combine useful with pleasure!</h2>
                                 <a href="" className="btn btn-main btn-white">Buy Now</a>
                             </div>
                         </div>
@@ -116,10 +116,10 @@ class SecondPart extends Component{
                     <div className="col-sm-12 col-xs-12">
                         <div className="image-content">
                             <div className="section-title text-center">
-                                <h3>Ce facem noi?&nbsp;
-                              <span>Cu ce vă putem ajuta?</span>
+                                <h3>What do we do?&nbsp;
+                              <span>How can we help?</span>
                            </h3>
-                                <p>StomaTime este o aplicație web atât pentru cabinete cât și pentru pacienți</p>
+                                <p>StomaTime is a web application for both cabinets and patients</p>
                             </div>
                             <div className="row">
                                 <div className="col-sm-6">
@@ -129,63 +129,51 @@ class SecondPart extends Component{
                                                 <a href="/cabinet/register" className="btn btn-style-one">Register &nbsp;&nbsp; &nbsp;<span><img src="images/resource/1.png" alt=""/></span></a>
                                             </figure>
                                         </div>
-                                        <h6>Cabinete</h6>
+                                        <h6>Cabinets</h6>
                                         <h5>
                                     <b>
-                                    <i>Agenda progrămarilor</i>
-                                    </b>
-                                    - Pentru o bună organizare.
+                                    <i>Agenda of progammers</i>
+                                    </b>- For a good organization.
                                  </h5>
                                         <h5>
                                     <b>
-                                    <i>Dosarul pacientului</i>
-                                    </b>
-                                    - Datele adăugate cu ușurință disponibile oricând.
+                                    <i>Patient file</i>
+                                    </b>- Easily added data at any time.
                                  </h5>
                                         <h5>
                                     <b>
-                                    <i>Plan de tratament</i>
-                                    </b>
-                                    - Bine structurat pentru o consultare eficientă.
+                                    <i>Treatment plan</i>
+                                    </b>- Well-structured for an efficient consultation.
                                  </h5>
                                         <h5>
                                     <b>
-                                    <i>SMS-uri/Email-uri</i>
-                                    </b>
-                                    - Gratuite către pacienții dumneavoastră.
+                                    <i>E-Mails</i>
+                                    </b>- Free to your patients.
                                  </h5>
                                         <h5>
                                     <b>
-                                    <i>Programari online</i>
-                                    </b>
-                                    - Pacienții care doresc se pot programa online în funcție de disponibilitatea
-                                    medicului, programarea urmând a fi acceptată de personalul cabinetului.
+                                    <i>Online programming</i>
+                                    </b>- Patients who want to be online can be programmed for availability doctor, the appointment being accepted by the cabinet staff.
                                  </h5>
                                         <h5>
                                     <b>
-                                    <i>Fiscalizare</i>
-                                    </b>
-                                    - Emitere facturi fiscale și imprimare chitanțe.
+                                    <i>Fiscalization</i>
+                                    </b>- Issuing tax invoices and printing receipts.
                                  </h5>
                                         <h5>
                                     <b>
-                                    <i>Gestionare</i>
-                                    </b>
-                                    - Sistem de pontaj, dar și calcularea procentului medicilor colaboratori,
-                                    vizualizare performanțe personal, dar și evidența facturilor.
+                                    <i>Management</i>
+                                    </b>- Time schedule, but also the calculation of the percentage of collaborating doctors,viewing personal performance, but also tracking bills.
                                  </h5>
                                         <h5>
                                     <b>
-                                    <i>Rapoarte</i>
-                                    </b>
-                                    - Rapoarte autocompletate, de exemplu: activitatea personalului, progrămarile
-                                    pacienților și respectarea acestora.
+                                    <i>Reports</i>
+                                    </b>- Autocomplete reports, for example: staff activity, progression patients and their observance.
                                  </h5>
                                         <h5>
                                     <b>
-                                    <i>Mobilitate</i>
-                                    </b>
-                                    - Acces la aplicație oriunde și oricând pentru a putea consulta datele dorite.
+                                    <i>Mobility</i>
+                                    </b>- Access the app anywhere, anytime to see what you want.
                                  </h5>
                                     </div>
                                 </div>
@@ -196,49 +184,40 @@ class SecondPart extends Component{
                                                 <a href="/register" className="btn btn-style-one">Register &nbsp; &nbsp;&nbsp;<span><img src="images/resource/2.png" alt=""/></span></a>
                                             </figure>
                                         </div>
-                                        <h6>Pacienți</h6>
+                                        <h6>Patients</h6>
                                         <h5>
                                     <li>
                                        <b>
-                                       <i>Date despre clinică</i>
-                                       </b>
-                                       - Tot ce vreți să aflați despre clinicile noastre, medici, prețuri, dar și
-                                       serviciile oferite de acestea.
+                                       <i>Clinical data</i>
+                                       </b>- Everything you want to know about our clinics, doctors, prices, but also services provided by them.
                                     </li>
                                  </h5>
                                         <h5>
                                     <li>
                                        <b>
-                                       <i>Agenda medicului</i>
-                                       </b>
-                                       - Poate fi consultată cu ușurință pentru a vedea disponibilitatea acestuia.
+                                       <i>The doctor's agenda</i>
+                                       </b>- It can be easily viewed to see its availability.
                                     </li>
                                  </h5>
                                         <h5>
                                     <li>
                                        <b>
-                                       <i>Programări online</i>
-                                       </b>
-                                       - Vă puteți programa singur la medicul dorit în funcție de disponibilitatea
-                                       acestuia.
+                                       <i>Online scheduling</i>
+                                       </b>- You can schedule your own doctor according to availability it.
                                     </li>
                                  </h5>
                                         <h5>
                                     <li>
                                        <b>
                                        <i>SMS-uri/Email-uri</i>
-                                       </b>
-                                       - Vă anunțam prin SMS/Mail data și ora programării.
+                                       </b>- We notify you by SMS / E-Mail the date and time of your appointment.
                                     </li>
                                  </h5>
                                         <h5>
                                     <li>
                                        <b>
-                                       <i>Dosarul pacientului</i>
-                                       </b>
-                                       - Vă puteți accesa singur dosarul pentru a vedea intervențiile efectuate,
-                                       radiografii, dar și planul de tratament stabilit împreună cu medicul
-                                       dumneavoastră.
+                                       <i>Patient file</i>
+                                       </b>- You can access your own folder to see what you've been doing, radiographs, but also the treatment plan established with your doctor your.
                                     </li>
                                  </h5>
                                     </div>
@@ -246,13 +225,13 @@ class SecondPart extends Component{
                             </div>
                         </div>
                         <center>
-                            <button data-toggle="modal" data-target="#info" className="btn btn-style-one">Alte informații</button>
+                            <button data-toggle="modal" data-target="#info" className="btn btn-style-one">Other information</button>
                         </center>
                         <div className="modal" id="info">
                             <div className="modal-dialog modal-lg">
                                 <div className="modal-content">
                                     <div className="modal-header">
-                                        <h4 className="modal-title">Alte informații</h4>
+                                        <h4 className="modal-title">Other information</h4>
                                         <button type="button" className="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <div className="modal-body">
@@ -260,17 +239,12 @@ class SecondPart extends Component{
                                             <center>
                                                 <h2>
                                           <b>
-                                          <i>Sincronizarea cu telefonul mobil</i>
+                                          <i>Synchronize with your mobile phone</i>
                                           </b>
                                             </h2>
                                                     </center>
                                                     <blockquote>
-                                                        <h4>Fie că utilizați un Iphone, un telefon cu Android, WindowsPhone puteți
-                                                utiliza aplicația noastră cu usurință, doar cu ajutorul unei conexiuni la
-                                                internet.<br/>
-                                                Cu ajutorul aplicației noastre veți știi mereu dacă un pacient doreste să se
-                                                reprogrameze, sau dacă cineva dorește să vină cu o urgență la dumneavoastră.<br/>Astfel
-                                                vă puteți reorganiza chiar dacă nu sunteți în cabinet la momentul respectiv.
+                                                        <h4>Whether you are using an Iphone, an Android phone, WindowsPhone you can use our application with ease, only with a connection to Internet.<br/>With our application you will always know if a patient wants to reprogram, or if someone wants to come up with an emergency with you.<br/>So you can reorganize even if you are not in the office at the time.
                                             </h4>
                                                     </blockquote>
                                                 </div>
@@ -278,19 +252,15 @@ class SecondPart extends Component{
                                             <center>
                                                 <h2>
                                             <b>
-                                            <i>Agenda medicului</i>
+                                            <i>The doctor's agenda</i>
                                             </b>
                                             </h2>
                                             </center>
                                             <blockquote>
-                                            <h4>
-                                                Gestionarea agendei se poate face atât de către medic, asistentă, sau chiar
-                                                recepționera clinicii, iar în cazul programărilor online, acestea vor fi
-                                                preluate și aprobate de angajații cabinetului.
-                                                <br/>În momentul în care un înterval orar este ocupat acesta va fi blocat în
-                                                agendă astfel se vor putea vedea orele la care medicul este disponibil.
-                                                <br/>Tot din agendă medicul poate consulta și dosarul pacientului.<br/>
-                                                Vizualizarea agendei se poate face pe zi, săptămână sau chiar luna.
+                                            <h4>Managing the agenda can be done by your doctor, nurse, or even the clinic's receptionist, and in the case of online appointments, they will be taken over and approved by cabinet employees.
+                                                <br/>When a time delay is busy it will be locked in the agenda will be able to see the times the doctor is available.
+                                                <br/>On the agenda, the doctor can also consult the patient's file.<br/>
+                                                You can view the calendar by day, week, or even month.
                                             </h4>
                                             </blockquote>
                                             </div>
@@ -298,21 +268,13 @@ class SecondPart extends Component{
                                             <center>
                                             <h2>
                                             <b>
-                                            <i>Dosarul pacientului</i>
+                                            <i>Patient file</i>
                                             </b>
                                             </h2>
                                             </center>
                                             <blockquote>
                                             <h4>
-                                                Utilizănd StomaTime aveți acces oricănd și oriunde,doar cu ajutorul unei
-                                                conexiuni la internet,la toate datele dorite Ca și medic vă punem mereu la
-                                                dispoziție atât agenda dumneavoastră cât și dosarul pacienților, date despre
-                                                aceștia, puteți consulta intervențiile deja efectuate,sau viitoare,
-                                                radiografiile, dar și diverse documente,de exemplu chestionarele completate de
-                                                aceștia sau diverse documente care au trebui completate în urma anumitor
-                                                interveții.<br/>
-                                                De asemenea in dosarul pacientului se va preciza și modul cum acesta a ajuns la
-                                                dumneavostră, fie din recomandarea altui pacient, sau a unui prieten.
+                                            Using StomaTime you have access anywhere and anywhere, with just one internet connections to all your desired data As a physician we always put you at disposition both your agenda and patient file, data about you can look at interventions that have already been performed, or future, radiographs, but also various documents, eg questionnaires filled in by these or various documents that need to be filled in interveţii.<br/>Also, the patient's dossier will also specify how it has arrived either from the recommendation of another patient, or from a friend.
                                             </h4>
                                             </blockquote>
                                             </div>
@@ -320,17 +282,14 @@ class SecondPart extends Component{
                                             <center>
                                             <h2>
                                             <b>
-                                            <i>SMS/Email</i>
+                                            <i>SMS/E-Mails</i>
                                             </b>
                                             </h2>
                                             </center>
                                             <blockquote>
                                             <h4>
-                                                Trimiterea SMS-urilor către pacienți se va face automat la o oră pe care
-                                                dumneavoastră o stabiliți.<br/>Astfel pacienții sunt anunțați cu o zi înainte ora programării.<br/>
-                                                <q>Bună ziua! Mâine 1.04.2018, la ora 12:40, vă asteptam la clinica StomaTime.
-                                                In cazul in care nu puteți ajunge vă rugăm să ne contactați pentru a vă
-                                                reprograma. O zi placuta!</q>
+                                            Sending SMS to patients will be done automatically at an hour on which you set it up. <br/> So patients are notified the day before the appointment.<br/>
+                                                <q>Hello! Tomorrow 1.04.2018, at 12:40, we are waiting for you at the StomaTime clinic.If you can not reach us, please contact us for your convenience reschedule. A nice day!</q>
                                             </h4>
                                             </blockquote>
                                             </div>
@@ -354,38 +313,34 @@ class SecondPart extends Component{
                     <div className="col-sm-12 col-xs-12">
                         <div className="image-content">
                             <div className="section-title text-center">
-                                <h3>Ce oferte avem?&nbsp;
-                              <span>Ce vă oferim?</span>
+                                <h3>What offers do we have?&nbsp;
+                              <span>What do we offer you?</span>
                            </h3>
-                                <p>Platforma StomaTime este împărțită în două oferte.</p>
+                                <p>The StomaTime platform is divided into two offers.</p>
                             </div>
                             <div className="row">
                                 <div className="col-sm-6">
                                     <div className="item">
                                     <div className="contents">
                                     <div className="section-title">
-                                       <h3>Anuală</h3>
+                                       <h3>Annual</h3>
                                     </div>
                                     <div className="text">
-                                       <h4>Oferta anuală cuprinde urmatoarele beneficii pentru suma de 500€/anual.
+                                       <h4>The annual offer includes the following benefits for € 500 / year.
                                        </h4>
                                     </div>
                                     <ul className="content-list">
                                        <li>
-                                          <i className="fa fa-dot-circle-o"></i> Mentenanța și asistență gratuită
+                                          <i className="fa fa-dot-circle-o"></i> Free maintenance and support
                                        </li>
                                        <li>
-                                          <i className="fa fa-dot-circle-o"></i> Optimizare SEO cu un număr de keywords nelimitate
+                                          <i className="fa fa-dot-circle-o"></i> SEO optimization with an unlimited number of keywords
                                        </li>
                                        <li>
-                                          <i className="fa fa-dot-circle-o"></i> Beneficiați de o pagină specială pe platforma
-                                          StomaTime unde pacienți platformei vă pot vedea cabinetul și ofertele gratuit
-                                          timp de 6 luni. Prelungirea acestei opțiuni costând doar 5€ / lunar
+                                          <i className="fa fa-dot-circle-o"></i> Take a special page on the platform StomaTime where platform patients can see your office and offers for free for 6 months. Extending this option costs only 5 € / month
                                        </li>
                                        <li>
-                                          <i className="fa fa-dot-circle-o"></i> La fiecare un nou cabinet adus din partea
-                                          cabinetului dumneavoastră vă oferim în plus o reducere de 15% la urmatoarea
-                                          prelungire.
+                                          <i className="fa fa-dot-circle-o"></i> Every new cabinet brought from the side your office gives you a 15% discount on the next one extension.
                                        </li>
                                     </ul>
                                  </div>
@@ -395,22 +350,20 @@ class SecondPart extends Component{
                                     <div className="item">
                                         <div className="contents">
                                             <div className="section-title">
-                                            <h3>Lunară</h3>
+                                            <h3>Monthly</h3>
                                             </div>
                                             <div className="text">
-                                            <h4>Oferta lunară cuprinde urmatoarele beneficii pentru suma de 45€ / lună.</h4>
+                                            <h4>The monthly offer includes the following benefits for the amount of 45 € / month.</h4>
                                             </div>
                                             <ul className="content-list">
                                             <li>
-                                                <i className="fa fa-dot-circle-o"></i> Mentenanță și asistența gratuită pentru primele 3 luni.
+                                                <i className="fa fa-dot-circle-o"></i> Maintenance and free assistance for the first 3 months.
                                             </li>
                                             <li>
-                                                <i className="fa fa-dot-circle-o"></i> Optimizare SEO cu un număr de keywords limitate (10)
+                                                <i className="fa fa-dot-circle-o"></i> SEO optimization with a limited number of keywords (10)
                                             </li>
                                             <li>
-                                                <i className="fa fa-dot-circle-o"></i> La fiecare un nou cabinet adus din partea
-                                                cabinetului dumneavoastră vă oferim în plus o reducere de 10% la urmatoarea
-                                                prelungire.
+                                                <i className="fa fa-dot-circle-o"></i> Every new cabinet brought from the side your cabinet offers you a 10% discount on the next one extension.
                                             </li>
                                             </ul>
                                             </div>
@@ -426,10 +379,9 @@ class SecondPart extends Component{
             <div className="container">
                <div className="section-title text-center">
                   <h3>StomaTime	&nbsp;
-                     <span>Afiliați</span>
+                     <span>Affiliates</span>
                   </h3>
-                  <p>Acestea sunt unele dintre cabinetele afiliate cu noi extrase aleator din
-                     baza de date.
+                  <p>These are some of the affiliated offices with new random extracts from database.
                   </p>
                </div>
                </div>
@@ -451,16 +403,16 @@ class SecondPart extends Component{
                   </div>
                   <ul className="footer-bottom-link">
                      <li>
-                        <a href="/">Acasă</a>
+                        <a href="/">Home</a>
                      </li>
                      <li>
-                        <a href="#despre">Despre</a>
+                        <a href="#despre">About</a>
                      </li>
                      <li>
-                        <a href="#oferte">Oferte</a>
+                        <a href="#oferte">Offers</a>
                      </li>
                         <li>
-                        <a href="#aff">Afiliați</a>
+                        <a href="#aff">Affiliates</a>
                         </li>
                   </ul>
                </div>
@@ -494,7 +446,7 @@ class Cards extends Component{
     </div>
     <div className="cardmedicflow">
         <p className="text-center"><a href={"/view/"+cabinet.id}>
-        Află mai mult!
+        Learn more!
     </a>
     </p>
     <hr/>
@@ -502,7 +454,6 @@ class Cards extends Component{
         <hr/>
         <p>{cabinet.descriere}</p>
     </div>
-  
     </div>
     </div>
     </div>
